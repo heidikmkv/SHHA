@@ -1,0 +1,9 @@
+# Ignore everything in this directory
+*
+
+# Except these folders
+!GRIT_archive_OCRtext/
+!GRIT_AIsummaries_v2/
+
+# Don't ignore this .gitignore file
+!.gitignore
