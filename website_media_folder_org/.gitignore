@@ -1,0 +1,27 @@
+# Credentials - NEVER commit these!
+.env
+*.env
+
+# Inventory output files
+ftp_inventory*.csv
+ftp_inventory*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
