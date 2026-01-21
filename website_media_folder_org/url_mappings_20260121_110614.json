@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-01-21T11:06:14.028451",
+  "total_mappings": 1,
+  "base_url": "",
+  "mappings": [
+    {
+      "old_path": "/uploaded-files/SHHA Office Block.jpg",
+      "new_path": "/uploaded-files/SHHA Office Block-test.jpg",
+      "old_url": "/uploaded-files/SHHA Office Block.jpg",
+      "new_url": "/uploaded-files/SHHA Office Block-test.jpg",
+      "md5": "b66c85bfb7e2cd9db7debbefe643a77b",
+      "filename": "SHHA Office Block-test.jpg",
+      "size": "40282",
+      "status": "moved"
+    }
+  ]
+}
