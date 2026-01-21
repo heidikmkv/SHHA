@@ -102,9 +102,48 @@ Once you have the inventory, you can:
 - Verify FTP user has read access to target directories
 - Check that directory paths are correct
 
-## Next Steps
+## Workflow for File Reorganization
 
-After generating the inventory:
+### Step 1: Generate "Before" Inventory
+
+```bash
+python3 ftp_inventory.py
+# When prompted, enter: /uploaded-files/cropped-images
+# This creates: ftp_inventory_TIMESTAMP.csv and .json
+```
+
+### Step 2: Reorganize Files on FTP
+
+- Move/rename files as needed on your FTP server
+- Keep the "before" inventory file safe
+
+### Step 3: Generate "After" Inventory
+
+```bash
+python3 ftp_inventory.py
+# Enter the same directory again: /uploaded-files/cropped-images
+# This creates a new timestamped inventory
+```
+
+### Step 4: Generate URL Mappings
+
+```bash
+python3 generate_url_mappings.py
+# Provide both inventory files when prompted
+# Enter your website URL (e.g., https://example.com)
+```
+
+This generates:
+- **url_mappings_TIMESTAMP.csv** - Spreadsheet for webmaster
+- **url_mappings_TIMESTAMP.json** - Structured data
+- **redirects_TIMESTAMP.htaccess** - Apache redirect rules
+- **redirects_TIMESTAMP.nginx.conf** - Nginx redirect rules
+
+### Step 5: Provide to Webmaster
+
+Share the CSV file with old_url → new_url mappings, or the redirect files for server configuration.
+
+## Next Steps
 
 1. **Find Duplicates:**
    ```bash
@@ -116,7 +155,3 @@ After generating the inventory:
    - Organize by type (images, documents, videos)
    - Use meaningful directory names
    - Keep URLs short and SEO-friendly
-
-3. **Generate Redirects:**
-   - Create a mapping file from old → new URLs
-   - Generate .htaccess or nginx redirect rules
