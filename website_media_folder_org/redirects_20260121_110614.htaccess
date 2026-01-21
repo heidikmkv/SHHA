@@ -1,0 +1,9 @@
+# Generated URL Redirects
+# Generated: 2026-01-21T11:06:14.031544
+# Total redirects: 1
+
+RewriteEngine On
+
+# SHHA Office Block-test.jpg
+RewriteRule ^uploaded-files/SHHA Office Block.jpg$ /uploaded-files/SHHA Office Block-test.jpg [R=301,L]
+
