@@ -1,2 +1,2 @@
-# Analyze historical SHHA Community Newsletters (The GRIT)
+# Data analysis & useful scripts for SHHA
 
