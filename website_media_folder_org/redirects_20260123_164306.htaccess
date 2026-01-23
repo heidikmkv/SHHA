@@ -1,0 +1,1725 @@
+# Generated URL Redirects
+# Generated: 2026-01-23T16:43:06.287569
+# Total redirects: 573
+
+RewriteEngine On
+
+# 2021_Annual_Meeting_Agenda_and_Procedures_for_Website.pdf
+RewriteRule ^content_images/2021_Annual_Meeting_Agenda_and_Procedures_for_Website.pdf$ /board/2025 Agenda and Minutes/Agendas/2021_Annual_Meeting_Agenda_and_Procedures_for_Website.pdf [R=301,L]
+
+# Miscellaneous_Projects_Application_Revised_Oct_2020_.pdf
+RewriteRule ^forms/Miscellaneous_Projects_Application_Revised_Oct_2020_.pdf$ /committees/Architectural Control/Architectural Control Old/Miscellaneous_Projects_Application_Revised_Oct_2020_.pdf [R=301,L]
+
+# SHHA 2025 Actual vs Budget 1st QTR 2025.pdf
+RewriteRule ^SHHA 2025 Actual vs Budget 1st QTR 2025.pdf$ /committees/Finance/Finance Old/SHHA 2025 Actual vs Budget 1st QTR 2025.pdf [R=301,L]
+
+# 3.2024 Board meeting minutes with motions.pdf
+RewriteRule ^board/2024 Agendas and Minutes/3.2024 Board meeting minutes with motions.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/3.2024 Board meeting minutes with motions.pdf [R=301,L]
+
+# Board_Minutes_01_2016.pdf
+RewriteRule ^board/minutes/Board_Minutes_01_2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes_01_2016.pdf [R=301,L]
+
+# SHHA Balance Sheet by Month Thru May 25.pdf
+RewriteRule ^SHHA Balance Sheet by Month Thru May 25.pdf$ /committees/Finance/Finance Old/SHHA Balance Sheet by Month Thru May 25.pdf [R=301,L]
+
+# board-minutes-6-2018.pdf
+RewriteRule ^board/minutes/board-minutes-6-2018.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-6-2018.pdf [R=301,L]
+
+# 2024 Agenda - Annual Meeting.pdf
+RewriteRule ^content_images/Annual Meetings/2024 Agenda - Annual Meeting.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/2024 Agenda - Annual Meeting.pdf [R=301,L]
+
+# SHHA 12-31-2024 Balance Sheet.pdf
+RewriteRule ^SHHA 12-31-2024 Balance Sheet.pdf$ /committees/Finance/Finance Current/SHHA 12-31-2024 Balance Sheet.pdf [R=301,L]
+
+# SHHA Monthly PL Thru Nov 2024.pdf
+RewriteRule ^SHHA Monthly PL Thru Nov 2024.pdf$ /committees/Finance/Finance Current/SHHA Monthly PL Thru Nov 2024.pdf [R=301,L]
+
+# annual-meeting-minutes-2-2020.pdf
+RewriteRule ^board/minutes/annual-meeting-minutes-2-2020.pdf$ /board/2025 Agenda and Minutes/minutes/annual-meeting-minutes-2-2020.pdf [R=301,L]
+
+# ACC DESIGN GUIDELINE FOR HEIGHT OF BUILDINGS.docx
+RewriteRule ^ACC DESIGN GUIDELINE FOR HEIGHT OF BUILDINGS.docx$ /committees/Architectural Control/Architectural Control Current/ACC DESIGN GUIDELINE FOR HEIGHT OF BUILDINGS.docx [R=301,L]
+
+# BernCo Emergency Mgmt - Wildfire Emergency Preparedness.pdf
+RewriteRule ^information/wildfire/BernCo Emergency Mgmt - Wildfire Emergency Preparedness.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/BernCo Emergency Mgmt - Wildfire Emergency Preparedness.pdf [R=301,L]
+
+# Board of Director Meetings Procedure_04092025.pdf
+RewriteRule ^board/information/Board of Director Meetings Procedure_04092025.pdf$ /board/2025 Agenda and Minutes/information/Board of Director Meetings Procedure_04092025.pdf [R=301,L]
+
+# board-minutes-1-2022.pdf
+RewriteRule ^board/minutes/board-minutes-1-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-1-2022.pdf [R=301,L]
+
+# shha-2024-pl-by-month.pdf
+RewriteRule ^shha-2024-pl-by-month.pdf$ /committees/Finance/Finance Current/shha-2024-pl-by-month.pdf [R=301,L]
+
+# Motions Agenda and Minutes Dec 2023.pdf
+RewriteRule ^board/2023 Agenda and Minutes/Motions Agenda and Minutes Dec 2023.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/Motions Agenda and Minutes Dec 2023.pdf [R=301,L]
+
+# 11.2024 board meeting minutes signed.pdf
+RewriteRule ^board/minutes/11.2024 board meeting minutes signed.pdf$ /board/2025 Agenda and Minutes/minutes/11.2024 board meeting minutes signed.pdf [R=301,L]
+
+# October_12_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/October_12_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/October_12_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# board-minutes-8-2018.pdf
+RewriteRule ^board/minutes/board-minutes-8-2018.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-8-2018.pdf [R=301,L]
+
+# SHHA-GRIT-2017_04.pdf
+RewriteRule ^grit/April_GRIT_2017.pdf$ /grit/2017/SHHA-GRIT-2017_04.pdf [R=301,L]
+
+# january-2022-grit-2.pdf
+RewriteRule ^grit/january-2022-grit-2.pdf$ /grit/2022/january-2022-grit-2.pdf [R=301,L]
+
+# August 2023 GRIT Color.pdf
+RewriteRule ^grit/August 2023 GRIT Color.pdf$ /grit/2023/August 2023 GRIT Color.pdf [R=301,L]
+
+# may_2018_grit.pdf
+RewriteRule ^grit/may_2018_grit.pdf$ /grit/2018/may_2018_grit.pdf [R=301,L]
+
+# 6 - Motion - Damages archived 1.pdf
+RewriteRule ^board/2023 Agenda and Minutes/6 - Motion - Damages archived 1.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/6 - Motion - Damages archived 1.pdf [R=301,L]
+
+# board-minutes-8-2020.pdf
+RewriteRule ^board/minutes/board-minutes-8-2020.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-8-2020.pdf [R=301,L]
+
+# 06_2024 Agenda.pdf
+RewriteRule ^board/minutes/06_2024 Agenda.pdf$ /board/2025 Agenda and Minutes/minutes/06_2024 Agenda.pdf [R=301,L]
+
+# Covenant Violation Form revised March 2025.pdf
+RewriteRule ^forms/Covenant Violation Form revised March 2025.pdf$ /committees/Covenant Support/Covenant Support Current/Covenant Violation Form revised March 2025.pdf [R=301,L]
+
+# SHHA Balance Sheet by Month August 2025.pdf
+RewriteRule ^SHHA Balance Sheet by Month August 2025.pdf$ /committees/Finance/Finance Old/SHHA Balance Sheet by Month August 2025.pdf [R=301,L]
+
+# SHHA Balance Sheet 10-31-2024.pdf
+RewriteRule ^SHHA Balance Sheet 10-31-2024.pdf$ /committees/Finance/Finance Current/SHHA Balance Sheet 10-31-2024.pdf [R=301,L]
+
+# DJenkins-2021.jpg
+RewriteRule ^gallery/DJenkins-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/DJenkins-2021.jpg [R=301,L]
+
+# 1.23.25 Special Mtg Minutes final.pdf
+RewriteRule ^1.23.25 Special Mtg Minutes final.pdf$ /board/2025 Agenda and Minutes/1.23.25 Special Mtg Minutes final.pdf [R=301,L]
+
+# shha-monthly-pl-thru-june-2025.pdf
+RewriteRule ^shha-monthly-pl-thru-june-2025.pdf$ /committees/Finance/Finance Old/shha-monthly-pl-thru-june-2025.pdf [R=301,L]
+
+# 4.2025 Board meeting agenda .pdf
+RewriteRule ^4.2025 Board meeting agenda .pdf$ /board/2025 Agenda and Minutes/4.2025 Board meeting agenda .pdf [R=301,L]
+
+# bobcats2crop.jpg
+RewriteRule ^outdoors/wildlife/cats/bobcats2crop.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/cats/bobcats2crop.jpg [R=301,L]
+
+# Finance Committee Charter.pdf
+RewriteRule ^Finance Committee Charter.pdf$ /committees/Finance/Finance Current/Finance Committee Charter.pdf [R=301,L]
+
+# SHHA Balance Sheet by Month March 25.pdf
+RewriteRule ^SHHA Balance Sheet by Month March 25.pdf$ /committees/Finance/Finance Old/SHHA Balance Sheet by Month March 25.pdf [R=301,L]
+
+# board-minutes-5-2018.pdf
+RewriteRule ^board/minutes/board-minutes-5-2018.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-5-2018.pdf [R=301,L]
+
+# Contractor Evaluation.pdf
+RewriteRule ^committees/Architectural Control/Contractor Evaluation.pdf$ /committees/Architectural Control/Architectural Control Current/Contractor Evaluation.pdf [R=301,L]
+
+# board-minutes-12-2018.pdf
+RewriteRule ^board/minutes/board-minutes-12-2018.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-12-2018.pdf [R=301,L]
+
+# Community Service and Membership Committee Charter.pdf
+RewriteRule ^Community Service and Membership Committee Charter.pdf$ /committees/Community Service and Membership/Community Service and Membership Current/Community Service and Membership Committee Charter.pdf [R=301,L]
+
+# shha-monthly-pl-thru-may-2025.pdf
+RewriteRule ^shha-monthly-pl-thru-may-2025.pdf$ /committees/Finance/Finance Old/shha-monthly-pl-thru-may-2025.pdf [R=301,L]
+
+# board-minutes-12-2020.pdf
+RewriteRule ^board/minutes/board-minutes-12-2020.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-12-2020.pdf [R=301,L]
+
+# 4-April_Financial_Statements-Website.pdf
+RewriteRule ^content_images/Financials/4-April_Financial_Statements-Website.pdf$ /committees/Finance/Finance Old/4-April_Financial_Statements-Website.pdf [R=301,L]
+
+# Sandia-Trail-Map.jpg
+RewriteRule ^outdoors/trails/Sandia-Trail-Map.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/trails/Sandia-Trail-Map.jpg [R=301,L]
+
+# shha-monthly-pl-thru-october-2025.pdf
+RewriteRule ^shha-monthly-pl-thru-october-2025.pdf$ /committees/Finance/Finance Old/shha-monthly-pl-thru-october-2025.pdf [R=301,L]
+
+# November_10_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/November_10_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/November_10_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# IMG_20230526_085149.jpg
+RewriteRule ^banners/IMG_20230526_085149.jpg$ /board/2026 Agenda and Minutes/banners/IMG_20230526_085149.jpg [R=301,L]
+
+# ACC_Design_Guideline_Solar_Collector_Revised_8-17-2020.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_Design_Guideline_Solar_Collector_Revised_8-17-2020.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_Design_Guideline_Solar_Collector_Revised_8-17-2020.pdf [R=301,L]
+
+# SHHA-GRIT-2025_10.png
+RewriteRule ^GRITS FOR 2025/SHHA-GRIT-2025_10.png$ /grit/2025/SHHA-GRIT-2025_10.png [R=301,L]
+
+# nov_grit_2017.pdf
+RewriteRule ^grit/nov_grit_2017.pdf$ /grit/2017/nov_grit_2017.pdf [R=301,L]
+
+# Grit Nov 25 -Color.pdf
+RewriteRule ^GRITS FOR 2025/Grit Nov 25 -Color.pdf$ /grit/2025/Grit Nov 25 -Color.pdf [R=301,L]
+
+# shha-monthly-pl-thru-august-2025.pdf
+RewriteRule ^shha-monthly-pl-thru-august-2025.pdf$ /committees/Finance/Finance Old/shha-monthly-pl-thru-august-2025.pdf [R=301,L]
+
+# Personalized Ready Set Go List.pdf
+RewriteRule ^information/wildfire/Personalized Ready Set Go List.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/Personalized Ready Set Go List.pdf [R=301,L]
+
+# live mouse trap2.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/live mouse trap2.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/live mouse trap2.jpg [R=301,L]
+
+# march-2019-grit.pdf
+RewriteRule ^grit/march-2019-grit.pdf$ /grit/2019/march-2019-grit.pdf [R=301,L]
+
+# SHHA-GRIT-2017_07.pdf
+RewriteRule ^grit/July_GRIT_2017.pdf$ /grit/2017/SHHA-GRIT-2017_07.pdf [R=301,L]
+
+# September_2021_GRIT_Revised.pdf
+RewriteRule ^grit/September_2021_GRIT_Revised.pdf$ /grit/2021/September_2021_GRIT_Revised.pdf [R=301,L]
+
+# jan-2020-grit.pdf
+RewriteRule ^grit/jan-2020-grit.pdf$ /grit/2020/jan-2020-grit.pdf [R=301,L]
+
+# 9.2024 Board Meeting Minutes.pdf
+RewriteRule ^board/2024 Agendas and Minutes/9.2024 Board Meeting Minutes.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/9.2024 Board Meeting Minutes.pdf [R=301,L]
+
+# june-grit-2019.pdf
+RewriteRule ^grit/june-grit-2019.pdf$ /grit/2019/june-grit-2019.pdf [R=301,L]
+
+# CDelker2-2021.jpg
+RewriteRule ^gallery/CDelker2-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/CDelker2-2021.jpg [R=301,L]
+
+# img_0092.jpg
+RewriteRule ^outdoors/landscaping/img_0092.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/landscaping/img_0092.jpg [R=301,L]
+
+# CDelker1-2021.jpg
+RewriteRule ^gallery/CDelker1-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/CDelker1-2021.jpg [R=301,L]
+
+# Miscellaneous_Projects_Application_Revised_Apr_4_4_2023_FILLABLE.pdf
+RewriteRule ^forms/Miscellaneous_Projects_Application_Revised_Apr_4_4_2023_FILLABLE.pdf$ /committees/Architectural Control/Architectural Control Old/Miscellaneous_Projects_Application_Revised_Apr_4_4_2023_FILLABLE.pdf [R=301,L]
+
+# board-minutes-1-2021.pdf
+RewriteRule ^board/minutes/board-minutes-1-2021.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-1-2021.pdf [R=301,L]
+
+# march_2018_grit.pdf
+RewriteRule ^grit/march_2018_grit.pdf$ /grit/2018/march_2018_grit.pdf [R=301,L]
+
+# Nominating Committee Charter BoD approved 20250514.pdf
+RewriteRule ^committees/Nominating/Nominating Committee Charter BoD approved 20250514.pdf$ /committees/Nominating/Nominating Current/Nominating Committee Charter BoD approved 20250514.pdf [R=301,L]
+
+# SHHA Balance Sheet by Month Sept 2025.pdf
+RewriteRule ^SHHA Balance Sheet by Month Sept 2025.pdf$ /committees/Finance/Finance Old/SHHA Balance Sheet by Month Sept 2025.pdf [R=301,L]
+
+# September_14_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/September_14_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/September_14_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# May_12_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/May_12_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/May_12_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# february-2022-grit.pdf
+RewriteRule ^grit/february-2022-grit.pdf$ /grit/2022/february-2022-grit.pdf [R=301,L]
+
+# July 12 2023 Board meeting minutes.pdf
+RewriteRule ^board/minutes/July 12 2023 Board meeting minutes.pdf$ /board/2025 Agenda and Minutes/minutes/July 12 2023 Board meeting minutes.pdf [R=301,L]
+
+# Fire Resistant Roofing.pdf
+RewriteRule ^committees/Environment and Safety/Fire Resistant Roofing.pdf$ /committees/Environment and Safety/Environment and Safety Current/Fire Resistant Roofing.pdf [R=301,L]
+
+# board-minutes-9-2018.pdf
+RewriteRule ^board/minutes/board-minutes-9-2018.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-9-2018.pdf [R=301,L]
+
+# Board-Minutes-08-2016.pdf
+RewriteRule ^board/minutes/Board-Minutes-08-2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board-Minutes-08-2016.pdf [R=301,L]
+
+# board-minutes-4-2019.pdf
+RewriteRule ^board/minutes/board-minutes-4-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-4-2019.pdf [R=301,L]
+
+# grit-format-and-style-guide-2019.pdf
+RewriteRule ^committees/Communications and Publications/grit-format-and-style-guide-2019.pdf$ /committees/Communications and Publications/Communications and Publications Current/grit-format-and-style-guide-2019.pdf [R=301,L]
+
+# 1.2025 Board meeting Agenda.pdf
+RewriteRule ^1.2025 Board meeting Agenda.pdf$ /board/2025 Agenda and Minutes/1.2025 Board meeting Agenda.pdf [R=301,L]
+
+# 8.2025 board meeting minutes final.pdf
+RewriteRule ^8.2025 board meeting minutes final.pdf$ /board/2025 Agenda and Minutes/8.2025 board meeting minutes final.pdf [R=301,L]
+
+# acc_design_guideline_solar_collector.doc
+RewriteRule ^forms/acc_design_guideline_solar_collector.doc$ /committees/Architectural Control/Architectural Control Current/acc_design_guideline_solar_collector.doc [R=301,L]
+
+# 2021_Board_Meeting_Schedule.pdf
+RewriteRule ^content_images/2021_Board_Meeting_Schedule.pdf$ /board/2025 Agenda and Minutes/Agendas/2021_Board_Meeting_Schedule.pdf [R=301,L]
+
+# 11_2023 Financial Statement-Website.pdf
+RewriteRule ^content_images/Financials/11_2023 Financial Statement-Website.pdf$ /committees/Finance/Finance Old/11_2023 Financial Statement-Website.pdf [R=301,L]
+
+# 11.2023 Board minutes.pdf
+RewriteRule ^board/2023 Agenda and Minutes/11.2023 Board minutes.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/11.2023 Board minutes.pdf [R=301,L]
+
+# grit-newsletter-banner.jpg
+RewriteRule ^banners/grit-newsletter-banner.jpg$ /board/2026 Agenda and Minutes/banners/grit-newsletter-banner.jpg [R=301,L]
+
+# board_minutes-9-2017.pdf
+RewriteRule ^board/minutes/board_minutes-9-2017.pdf$ /board/2025 Agenda and Minutes/minutes/board_minutes-9-2017.pdf [R=301,L]
+
+# Marin Wildfire Fire Smart Yard.pdf
+RewriteRule ^information/wildfire/Marin Wildfire Fire Smart Yard.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/Marin Wildfire Fire Smart Yard.pdf [R=301,L]
+
+# March_2022_GRIT.pdf
+RewriteRule ^grit/March_2022_GRIT.pdf$ /grit/2022/March_2022_GRIT.pdf [R=301,L]
+
+# 2023_Budget_for_Website.pdf
+RewriteRule ^content_images/Budgets/2023_Budget_for_Website.pdf$ /committees/Finance/Finance Old/2023_Budget_for_Website.pdf [R=301,L]
+
+# fuzzsnake.jpg
+RewriteRule ^outdoors/wildlife/snakes/fuzzsnake.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/snakes/fuzzsnake.jpg [R=301,L]
+
+# april_2018_grit.pdf
+RewriteRule ^grit/april_2018_grit.pdf$ /grit/2018/april_2018_grit.pdf [R=301,L]
+
+# ACC DESIGN GUIDELINES FOR EXTERIOR COLORS.docx
+RewriteRule ^ACC DESIGN GUIDELINES FOR EXTERIOR COLORS.docx$ /committees/Architectural Control/Architectural Control Current/ACC DESIGN GUIDELINES FOR EXTERIOR COLORS.docx [R=301,L]
+
+# no poison bait.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/no poison bait.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/no poison bait.jpg [R=301,L]
+
+# 11.2025 BOD meeting Agenda.docx
+RewriteRule ^11.2025 BOD meeting Agenda.docx$ /board/2025 Agenda and Minutes/11.2025 BOD meeting Agenda.docx [R=301,L]
+
+# 03_2024 Finances.pdf
+RewriteRule ^content_images/Financials/03_2024 Finances.pdf$ /committees/Finance/Finance Old/03_2024 Finances.pdf [R=301,L]
+
+# 7.2025 BOD meeting minutes signed.pdf
+RewriteRule ^7.2025 BOD meeting minutes signed.pdf$ /board/2025 Agenda and Minutes/7.2025 BOD meeting minutes signed.pdf [R=301,L]
+
+# 2022-annual-meeting-minutes-with-deferred-questions-answers.pdf
+RewriteRule ^board/minutes/2022-annual-meeting-minutes-with-deferred-questions-answers.pdf$ /board/2025 Agenda and Minutes/minutes/2022-annual-meeting-minutes-with-deferred-questions-answers.pdf [R=301,L]
+
+# april_grit_2019.pdf
+RewriteRule ^grit/april_grit_2019.pdf$ /grit/2019/april_grit_2019.pdf [R=301,L]
+
+# Bobcat for website.jpg
+RewriteRule ^outdoors/wildlife/cats/Bobcat for website.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/cats/Bobcat for website.jpg [R=301,L]
+
+# Domingo Baca Canyon.JPG
+RewriteRule ^outdoors/fireandwater/Domingo Baca Canyon.JPG$ /committees/Environment and Safety/Environment and Safety Current/outdoors/fireandwater/Domingo Baca Canyon.JPG [R=301,L]
+
+# board-minutes-6-2022.pdf
+RewriteRule ^board/minutes/board-minutes-6-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-6-2022.pdf [R=301,L]
+
+# Nominating Committee Structured Process for Candidate Selection.pdf
+RewriteRule ^committees/Nominating/Nominating Committee Structured Process for Candidate Selection.pdf$ /committees/Nominating/Nominating Current/Nominating Committee Structured Process for Candidate Selection.pdf [R=301,L]
+
+# Board_Minutes-05-2017.pdf
+RewriteRule ^board/minutes/Board_Minutes-05-2017.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes-05-2017.pdf [R=301,L]
+
+# 5.2024 BOD agenda with supporting docs.pdf
+RewriteRule ^board/2024 Agendas and Minutes/5.2024 BOD agenda with supporting docs.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/5.2024 BOD agenda with supporting docs.pdf [R=301,L]
+
+# Feb 2024 GRIT Color.pdf
+RewriteRule ^grit/Feb 2024 GRIT Color.pdf$ /grit/2024/Feb 2024 GRIT Color.pdf [R=301,L]
+
+# september-2021-grit-r5.pdf
+RewriteRule ^grit/september-2021-grit-r5.pdf$ /grit/2021/september-2021-grit-r5.pdf [R=301,L]
+
+# board-minutes-3-2019.pdf
+RewriteRule ^board/minutes/board-minutes-3-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-3-2019.pdf [R=301,L]
+
+# grasshopper mouse.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/grasshopper mouse.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/grasshopper mouse.jpg [R=301,L]
+
+# epa_septic_system_guide.pdf
+RewriteRule ^content_images/notices_and_information/epa_septic_system_guide.pdf$ /committees/Architectural Control/Architectural Control Old/epa_septic_system_guide.pdf [R=301,L]
+
+# shha-2024-actual-vs-2024-budget-1.pdf
+RewriteRule ^shha-2024-actual-vs-2024-budget-1.pdf$ /committees/Finance/Finance Current/shha-2024-actual-vs-2024-budget-1.pdf [R=301,L]
+
+# SPECIAL MEETING AGENDA Jan 2025 final.pdf
+RewriteRule ^SPECIAL MEETING AGENDA Jan 2025 final.pdf$ /board/2025 Agenda and Minutes/SPECIAL MEETING AGENDA Jan 2025 final.pdf [R=301,L]
+
+# SHHA-GRIT-1979_05.pdf
+RewriteRule ^grit/May 6 1979.pdf$ /grit/1979/SHHA-GRIT-1979_05.pdf [R=301,L]
+
+# 3.2024 Board meeting agenda Final.docx
+RewriteRule ^board/2024 Agendas and Minutes/3.2024 Board meeting agenda Final.docx$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/3.2024 Board meeting agenda Final.docx [R=301,L]
+
+# pinyon_mouse.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/pinyon_mouse.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/pinyon_mouse.jpg [R=301,L]
+
+# Plants-of-Sandia-Heights.jpg
+RewriteRule ^outdoors/landscaping/Plants-of-Sandia-Heights.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/landscaping/Plants-of-Sandia-Heights.jpg [R=301,L]
+
+# Board_Minutes-07-2016.pdf
+RewriteRule ^board/minutes/Board_Minutes-07-2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes-07-2016.pdf [R=301,L]
+
+# feb-2019-grit.pdf
+RewriteRule ^grit/feb-2019-grit.pdf$ /grit/2019/feb-2019-grit.pdf [R=301,L]
+
+# 04_2024 Finances.pdf
+RewriteRule ^content_images/Financials/04_2024 Finances.pdf$ /committees/Finance/Finance Old/04_2024 Finances.pdf [R=301,L]
+
+# SHHA-GRIT-1980_08.pdf
+RewriteRule ^grit/Aug or Sep 1980.pdf$ /grit/1980/SHHA-GRIT-1980_08.pdf [R=301,L]
+
+# ACC Design Guidelines for Landscaping.pdf
+RewriteRule ^ACC Design Guidelines for Landscaping.pdf$ /committees/Architectural Control/Architectural Control Current/ACC Design Guidelines for Landscaping.pdf [R=301,L]
+
+# March_9_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/March_9_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/March_9_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# Board_Minutes-7-2017.pdf
+RewriteRule ^board/minutes/Board_Minutes-7-2017.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes-7-2017.pdf [R=301,L]
+
+# october-2022-grit.pdf
+RewriteRule ^grit/october-2022-grit.pdf$ /grit/2022/october-2022-grit.pdf [R=301,L]
+
+# SHHA Actual vs Budget Through November 2025.pdf
+RewriteRule ^committees/Finance/Finance Current/SHHA Actual vs Budget through November 2025.pdf$ /committees/Finance/Finance Old/SHHA Actual vs Budget Through November 2025.pdf [R=301,L]
+
+# tram_banner.jpg
+RewriteRule ^banners/tram_banner.jpg$ /trampasses/tram_banner.jpg [R=301,L]
+
+# Exterior_Refinishing_Re-Roof_Trim_Refinishing_Application_Revised_Oct_2020.doc
+RewriteRule ^forms/Exterior_Refinishing_Re-Roof_Trim_Refinishing_Application_Revised_Oct_2020.doc$ /committees/Architectural Control/Architectural Control Old/Exterior_Refinishing_Re-Roof_Trim_Refinishing_Application_Revised_Oct_2020.doc [R=301,L]
+
+# ACC_Design_Guideline_Roofing_Revised_8-17-2020.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_Design_Guideline_Roofing_Revised_8-17-2020.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_Design_Guideline_Roofing_Revised_8-17-2020.pdf [R=301,L]
+
+# HardenYourHomeRoofVents - David Jenkins.pdf
+RewriteRule ^information/wildfire/HardenYourHomeRoofVents - David Jenkins.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/HardenYourHomeRoofVents - David Jenkins.pdf [R=301,L]
+
+# april-2020-grit.pdf
+RewriteRule ^grit/april-2020-grit.pdf$ /grit/2020/april-2020-grit.pdf [R=301,L]
+
+# january-2023-grit.pdf
+RewriteRule ^grit/january-2023-grit.pdf$ /grit/2023/january-2023-grit.pdf [R=301,L]
+
+# Miscellaneous_Projects_Application_Revised_Nov_4_2019_FILLABLE.pdf
+RewriteRule ^forms/Miscellaneous_Projects_Application_Revised_Nov_4_2019_FILLABLE.pdf$ /committees/Architectural Control/Architectural Control Old/Miscellaneous_Projects_Application_Revised_Nov_4_2019_FILLABLE.pdf [R=301,L]
+
+# 2022_SHHA_Annual_Meeting_Registration1-11-22.jpg
+RewriteRule ^content_images/Annual Meetings/2022_SHHA_Annual_Meeting_Registration1-11-22.jpg$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/2022_SHHA_Annual_Meeting_Registration1-11-22.jpg [R=301,L]
+
+# shha-monthly-pl-thru-april-2025.pdf
+RewriteRule ^shha-monthly-pl-thru-april-2025.pdf$ /committees/Finance/Finance Old/shha-monthly-pl-thru-april-2025.pdf [R=301,L]
+
+# shha-bal-jan-25-jan-24.pdf
+RewriteRule ^shha-bal-jan-25-jan-24.pdf$ /committees/Finance/Finance Old/shha-bal-jan-25-jan-24.pdf [R=301,L]
+
+# Bylaws Voting at the Annual Meeting.pdf
+RewriteRule ^Bylaws Voting at the Annual Meeting.pdf$ /committees/Governance/Governance Current/Bylaws Voting at the Annual Meeting.pdf [R=301,L]
+
+# shha-monthly-pl-thru-september-2025.pdf
+RewriteRule ^shha-monthly-pl-thru-september-2025.pdf$ /committees/Finance/Finance Old/shha-monthly-pl-thru-september-2025.pdf [R=301,L]
+
+# 7.2025 Agenda.pdf
+RewriteRule ^7.2025 Agenda.pdf$ /board/2025 Agenda and Minutes/7.2025 Agenda.pdf [R=301,L]
+
+# septic_tank_contractors.pdf
+RewriteRule ^forms/septic_tank_contractors.pdf$ /committees/Architectural Control/Architectural Control Old/septic_tank_contractors.pdf [R=301,L]
+
+# board-minutes-3-2018.pdf
+RewriteRule ^board/minutes/board-minutes-3-2018.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-3-2018.pdf [R=301,L]
+
+# Environment and Safety Committee Charter 2024.pdf
+RewriteRule ^Environment and Safety Committee Charter 2024.pdf$ /committees/Environment and Safety/Environment and Safety Current/Environment and Safety Committee Charter 2024.pdf [R=301,L]
+
+# august-2019-grit.pdf
+RewriteRule ^grit/august-2019-grit.pdf$ /grit/2019/august-2019-grit.pdf [R=301,L]
+
+# waste_water_ordinance_2006.pdf
+RewriteRule ^forms/waste_water_ordinance_2006.pdf$ /committees/Architectural Control/Architectural Control Old/waste_water_ordinance_2006.pdf [R=301,L]
+
+# 2024 Budget Totals - Final.pdf
+RewriteRule ^content_images/Budgets/2024 Budget Totals - Final.pdf$ /committees/Finance/Finance Old/2024 Budget Totals - Final.pdf [R=301,L]
+
+# 2024 Annual Meeting Minutes preliminary.docx
+RewriteRule ^content_images/Annual Meetings/2024 Annual Meeting Minutes preliminary.docx$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/2024 Annual Meeting Minutes preliminary.docx [R=301,L]
+
+# june-2022-grit-r1.pdf
+RewriteRule ^grit/june-2022-grit-r1.pdf$ /grit/2022/june-2022-grit-r1.pdf [R=301,L]
+
+# Annual_Meeting_Minutes_02-2016.pdf
+RewriteRule ^board/minutes/Annual_Meeting_Minutes_02-2016.pdf$ /board/2025 Agenda and Minutes/minutes/Annual_Meeting_Minutes_02-2016.pdf [R=301,L]
+
+# tram.jpg
+RewriteRule ^outdoors/skiing/tram.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/skiing/tram.jpg [R=301,L]
+
+# April_14_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/April_14_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/April_14_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# board-minutes-8-2019.pdf
+RewriteRule ^board/minutes/board-minutes-8-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-8-2019.pdf [R=301,L]
+
+# p-1-mar25-1.png
+RewriteRule ^p-1-mar25-1.png$ /grit/2025/p-1-mar25-1.png [R=301,L]
+
+# SHHA 2025 Actual vs Budget  2nd QTR 2025.pdf
+RewriteRule ^SHHA 2025 Actual vs Budget  2nd QTR 2025.pdf$ /committees/Finance/Finance Old/SHHA 2025 Actual vs Budget  2nd QTR 2025.pdf [R=301,L]
+
+# 2022_Board_Meeting_Schedule.pdf
+RewriteRule ^content_images/Annual Meetings/2022_Board_Meeting_Schedule.pdf$ /board/2025 Agenda and Minutes/Agendas/2022_Board_Meeting_Schedule.pdf [R=301,L]
+
+# GRIT_BernCo_Complaint_Process_forwebsite.pdf
+RewriteRule ^uploaded-files/GRIT_BernCo_Complaint_Process_forwebsite.pdf$ /committees/Covenant Support/Covenant Support Current/GRIT_BernCo_Complaint_Process_forwebsite.pdf [R=301,L]
+
+# Member and NonMember Benefits - 10-24-2025.docx
+RewriteRule ^Member and NonMember Benefits - 10-24-2025.docx$ /committees/Governance/Governance Current/Member and NonMember Benefits - 10-24-2025.docx [R=301,L]
+
+# silky pocket mouse.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/silky pocket mouse.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/silky pocket mouse.jpg [R=301,L]
+
+# SHHA-GRIT-2017_03.pdf
+RewriteRule ^grit/March_GRIT_2017.pdf$ /grit/2017/SHHA-GRIT-2017_03.pdf [R=301,L]
+
+# ACC_Contractor_Evaluation_Form.pdf
+RewriteRule ^forms/ACC_Contractor_Evaluation_Form.pdf$ /committees/Architectural Control/Architectural Control Current/ACC_Contractor_Evaluation_Form.pdf [R=301,L]
+
+# july-2021-grit.pdf
+RewriteRule ^grit/july-2021-grit.pdf$ /grit/2021/july-2021-grit.pdf [R=301,L]
+
+# SHHA Balance Sheet by Month Thru June 25.pdf
+RewriteRule ^SHHA Balance Sheet by Month Thru June 25.pdf$ /committees/Finance/Finance Old/SHHA Balance Sheet by Month Thru June 25.pdf [R=301,L]
+
+# 6-June_Financial_Statements-Website.pdf
+RewriteRule ^content_images/Financials/6-June_Financial_Statements-Website.pdf$ /committees/Finance/Finance Old/6-June_Financial_Statements-Website.pdf [R=301,L]
+
+# cp-committee-policies-and-procedures-2025.pdf
+RewriteRule ^committees/Communications and Publications/cp-committee-policies-and-procedures-2025.pdf$ /committees/Communications and Publications/Communications and Publications Current/cp-committee-policies-and-procedures-2025.pdf [R=301,L]
+
+# SClifford-2021.jpg
+RewriteRule ^gallery/SClifford-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/SClifford-2021.jpg [R=301,L]
+
+# March 8 2023 Board meeting minutes.pdf
+RewriteRule ^March 8 2023 Board meeting minutes.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/March 8 2023 Board meeting minutes.pdf [R=301,L]
+
+# New_Construction_and_Additions_Application_Revised_Apr_4_4_2023_FILLABLE.pdf
+RewriteRule ^forms/New_Construction_and_Additions_Application_Revised_Apr_4_4_2023_FILLABLE.pdf$ /committees/Architectural Control/Architectural Control Old/New_Construction_and_Additions_Application_Revised_Apr_4_4_2023_FILLABLE.pdf [R=301,L]
+
+# 9_2023 September 13 2023 Board Meeting Agenda preliminary.docx
+RewriteRule ^board/Agendas/9_2023 September 13 2023 Board Meeting Agenda preliminary.docx$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/9_2023 September 13 2023 Board Meeting Agenda preliminary.docx [R=301,L]
+
+# march-2023-grit.pdf
+RewriteRule ^grit/march-2023-grit.pdf$ /grit/2023/march-2023-grit.pdf [R=301,L]
+
+# DWalker2-2021.jpg
+RewriteRule ^gallery/DWalker2-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/DWalker2-2021.jpg [R=301,L]
+
+# March_10_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/March_10_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/March_10_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# 5.2025 Board meeting minutes final.pdf
+RewriteRule ^5.2025 Board meeting minutes final.pdf$ /board/2025 Agenda and Minutes/5.2025 Board meeting minutes final.pdf [R=301,L]
+
+# 12_2023 Board meeting agenda final with Motions.pdf
+RewriteRule ^board/2023 Agenda and Minutes/12_2023 Board meeting agenda final with Motions.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/12_2023 Board meeting agenda final with Motions.pdf [R=301,L]
+
+# index.html
+RewriteRule ^outdoors/wildlife/bears/index.html$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/bears/index.html [R=301,L]
+
+# may-2019-grit.pdf
+RewriteRule ^grit/may-2019-grit.pdf$ /grit/2019/may-2019-grit.pdf [R=301,L]
+
+# Exterior_Refinishing_ReRoof_Trim_Refinishing_Application_Revised_August_2017_FILLABLE.pdf
+RewriteRule ^forms/Exterior_Refinishing_ReRoof_Trim_Refinishing_Application_Revised_August_2017_FILLABLE.pdf$ /committees/Architectural Control/Architectural Control Old/Exterior_Refinishing_ReRoof_Trim_Refinishing_Application_Revised_August_2017_FILLABLE.pdf [R=301,L]
+
+# westerndiamondback.jpg
+RewriteRule ^outdoors/wildlife/snakes/westerndiamondback.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/snakes/westerndiamondback.jpg [R=301,L]
+
+# ACC_Design_Guideline_Setbacks_and_Limited_Building_Area_Lots_Revised_8-17-2020.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_Design_Guideline_Setbacks_and_Limited_Building_Area_Lots_Revised_8-17-2020.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_Design_Guideline_Setbacks_and_Limited_Building_Area_Lots_Revised_8-17-2020.pdf [R=301,L]
+
+# May 10 2023 Board meeting minutes.pdf
+RewriteRule ^May 10 2023 Board meeting minutes.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/May 10 2023 Board meeting minutes.pdf [R=301,L]
+
+# YTD Budget vs actual 4-25.pdf
+RewriteRule ^YTD Budget vs actual 4-25.pdf$ /committees/Finance/Finance Old/YTD Budget vs actual 4-25.pdf [R=301,L]
+
+# 2022_SHHA_Annual_Meeting_Registration1-11-22.pdf
+RewriteRule ^content_images/Annual Meetings/2022_SHHA_Annual_Meeting_Registration1-11-22.pdf$ /board/2025 Agenda and Minutes/Agendas/2022_SHHA_Annual_Meeting_Registration1-11-22.pdf [R=301,L]
+
+# board-minutes-6-2019.pdf
+RewriteRule ^board/minutes/board-minutes-6-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-6-2019.pdf [R=301,L]
+
+# board_minutes-11-2017.pdf
+RewriteRule ^board/minutes/board_minutes-11-2017.pdf$ /board/2025 Agenda and Minutes/minutes/board_minutes-11-2017.pdf [R=301,L]
+
+# 9.2025 BOD meeting Agenda.pdf
+RewriteRule ^9.2025 BOD meeting Agenda.pdf$ /board/2025 Agenda and Minutes/9.2025 BOD meeting Agenda.pdf [R=301,L]
+
+# ACC DESIGN GUIDELINES FOR EXTERIOR COLORS.pdf
+RewriteRule ^ACC DESIGN GUIDELINES FOR EXTERIOR COLORS.pdf$ /committees/Architectural Control/Architectural Control Current/ACC DESIGN GUIDELINES FOR EXTERIOR COLORS.pdf [R=301,L]
+
+# november-2022-grit.pdf
+RewriteRule ^grit/november-2022-grit.pdf$ /grit/2022/november-2022-grit.pdf [R=301,L]
+
+# dec-2019-grit.pdf
+RewriteRule ^grit/dec-2019-grit.pdf$ /grit/2019/dec-2019-grit.pdf [R=301,L]
+
+# Architectural Review Process.pdf
+RewriteRule ^committees/Architectural Control/Architectural Review Process.pdf$ /committees/Architectural Control/Architectural Control Current/Architectural Review Process.pdf [R=301,L]
+
+# august-2021-grit.pdf
+RewriteRule ^grit/august-2021-grit.pdf$ /grit/2021/august-2021-grit.pdf [R=301,L]
+
+# house mouse.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/house mouse.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/house mouse.jpg [R=301,L]
+
+# SHHA-GRIT-2017_05.pdf
+RewriteRule ^grit/May_GRIT_2017.pdf$ /grit/2017/SHHA-GRIT-2017_05.pdf [R=301,L]
+
+# New_Construction_and_Additions_Application_Revised_Oct_2020.pdf
+RewriteRule ^forms/New_Construction_and_Additions_Application_Revised_Oct_2020.pdf$ /committees/Architectural Control/Architectural Control Old/New_Construction_and_Additions_Application_Revised_Oct_2020.pdf [R=301,L]
+
+# november-2020-grit.pdf
+RewriteRule ^grit/november-2020-grit.pdf$ /grit/2020/november-2020-grit.pdf [R=301,L]
+
+# Board_Minutes-06-2016.pdf
+RewriteRule ^board/minutes/Board_Minutes-06-2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes-06-2016.pdf [R=301,L]
+
+# ACC_DESIGN_GUIDELINE_FOR_WALLS_AND_FENCES_1-31-22.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_DESIGN_GUIDELINE_FOR_WALLS_AND_FENCES_1-31-22.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_DESIGN_GUIDELINE_FOR_WALLS_AND_FENCES_1-31-22.pdf [R=301,L]
+
+# ACC Committee Page.pdf
+RewriteRule ^committees/Architectural Control/ACC Committee Page.pdf$ /committees/Architectural Control/Architectural Control Current/ACC Committee Page.pdf [R=301,L]
+
+# deermouse2.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/deermouse2.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/deermouse2.jpg [R=301,L]
+
+# board-minutes-11-2018.pdf
+RewriteRule ^board/minutes/board-minutes-11-2018.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-11-2018.pdf [R=301,L]
+
+# shha-monthly-pl-through-november-2025.pdf
+RewriteRule ^shha-monthly-pl-through-november-2025.pdf$ /committees/Finance/Finance Old/shha-monthly-pl-through-november-2025.pdf [R=301,L]
+
+# SHHA Balance Sheet 9-30-2024.pdf
+RewriteRule ^SHHA Balance Sheet 9-30-2024.pdf$ /committees/Finance/Finance Current/SHHA Balance Sheet 9-30-2024.pdf [R=301,L]
+
+# board-minutes-8-2021.pdf
+RewriteRule ^board/minutes/board-minutes-8-2021.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-8-2021.pdf [R=301,L]
+
+# Digital Go Bags List.pdf
+RewriteRule ^information/wildfire/Digital Go Bags List.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/Digital Go Bags List.pdf [R=301,L]
+
+# board-minutes-9-2019.pdf
+RewriteRule ^board/minutes/board-minutes-9-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-9-2019.pdf [R=301,L]
+
+# SHHA-GRIT-2024_03.pdf
+RewriteRule ^grit/March 2024 GRIT Color.pdf$ /grit/2024/SHHA-GRIT-2024_03.pdf [R=301,L]
+
+# June GRIT 2025-Color.pdf
+RewriteRule ^GRITS FOR 2025/June GRIT 2025-Color.pdf$ /grit/2025/June GRIT 2025-Color.pdf [R=301,L]
+
+# cp-proposed-bylaws-changes-2025.pdf
+RewriteRule ^committees/Communications and Publications/cp-proposed-bylaws-changes-2025.pdf$ /committees/Communications and Publications/Communications and Publications Current/cp-proposed-bylaws-changes-2025.pdf [R=301,L]
+
+# April_13_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/April_13_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/April_13_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# SHHA-GRIT-2017_06.pdf
+RewriteRule ^grit/June_GRIT_2017.pdf$ /grit/2017/SHHA-GRIT-2017_06.pdf [R=301,L]
+
+# Covenant violation form revised 2025 2 pages.pdf
+RewriteRule ^forms/Covenant violation form revised 2025 2 pages.pdf$ /committees/Covenant Support/Covenant Support Current/Covenant violation form revised 2025 2 pages.pdf [R=301,L]
+
+# 07_2023 July 12 2023 Board Meeting Agenda.pdf
+RewriteRule ^board/Agendas/07_2023 July 12 2023 Board Meeting Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/07_2023 July 12 2023 Board Meeting Agenda.pdf [R=301,L]
+
+# 8.2025 BOD meeting Agenda.pdf
+RewriteRule ^8.2025 BOD meeting Agenda.pdf$ /board/2025 Agenda and Minutes/8.2025 BOD meeting Agenda.pdf [R=301,L]
+
+# ACC DESIGN GUIDELINE FOR HEIGHT OF BUILDINGS.pdf
+RewriteRule ^ACC DESIGN GUIDELINE FOR HEIGHT OF BUILDINGS.pdf$ /committees/Architectural Control/Architectural Control Current/ACC DESIGN GUIDELINE FOR HEIGHT OF BUILDINGS.pdf [R=301,L]
+
+# June 14 2023 Board meeting minutes.pdf
+RewriteRule ^June 14 2023 Board meeting minutes.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/June 14 2023 Board meeting minutes.pdf [R=301,L]
+
+# 9-Sept_Fianancial_Statements-Website.pdf
+RewriteRule ^content_images/Financials/9-Sept_Fianancial_Statements-Website.pdf$ /committees/Finance/Finance Old/9-Sept_Fianancial_Statements-Website.pdf [R=301,L]
+
+# SMcCasland-2021.jpg
+RewriteRule ^gallery/SMcCasland-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/SMcCasland-2021.jpg [R=301,L]
+
+# April-11-2018-Board-Meeting-Minutes-4-12-18.pdf
+RewriteRule ^board/minutes/April-11-2018-Board-Meeting-Minutes-4-12-18.pdf$ /board/2025 Agenda and Minutes/minutes/April-11-2018-Board-Meeting-Minutes-4-12-18.pdf [R=301,L]
+
+# executive-committee-charter-2006.pdf
+RewriteRule ^executive-committee-charter-2006.pdf$ /committees/Executive/Executive Current/executive-committee-charter-2006.pdf [R=301,L]
+
+# 8-August_Financial_Statements-Website.pdf
+RewriteRule ^content_images/Financials/8-August_Financial_Statements-Website.pdf$ /committees/Finance/Finance Old/8-August_Financial_Statements-Website.pdf [R=301,L]
+
+# SHHA Balance Sheet by Month Thru October 2025.pdf
+RewriteRule ^SHHA Balance Sheet by Month Thru October 2025.pdf$ /committees/Finance/Finance Old/SHHA Balance Sheet by Month Thru October 2025.pdf [R=301,L]
+
+# may-2023-grit.pdf
+RewriteRule ^grit/may-2023-grit.pdf$ /grit/2023/may-2023-grit.pdf [R=301,L]
+
+# Certificate of Insurance for SHHA 2024-2025 with new DO.pdf
+RewriteRule ^Certificate of Insurance for SHHA 2024-2025 with new DO.pdf$ /committees/Finance/Finance Current/Certificate of Insurance for SHHA 2024-2025 with new DO.pdf [R=301,L]
+
+# SHHA 2025 Budget.pdf
+RewriteRule ^SHHA 2025 Budget.pdf$ /committees/Finance/Finance Old/SHHA 2025 Budget.pdf [R=301,L]
+
+# may-2020-grit.pdf
+RewriteRule ^grit/may-2020-grit.pdf$ /grit/2020/may-2020-grit.pdf [R=301,L]
+
+# board-minutes-9-2022.pdf
+RewriteRule ^board/minutes/board-minutes-9-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-9-2022.pdf [R=301,L]
+
+# 11- 2023 GRIT Color.pdf
+RewriteRule ^grit/11- 2023 GRIT Color.pdf$ /grit/2023/11- 2023 GRIT Color.pdf [R=301,L]
+
+# ACC Committee Membership.docx
+RewriteRule ^committees/Architectural Control/ACC Committee Membership.docx$ /committees/Architectural Control/Architectural Control Current/ACC Committee Membership.docx [R=301,L]
+
+# 9_2024 Agenda.pdf
+RewriteRule ^board/minutes/9_2024 Agenda.pdf$ /board/2025 Agenda and Minutes/minutes/9_2024 Agenda.pdf [R=301,L]
+
+# board-minutes-10-2022.pdf
+RewriteRule ^board/minutes/board-minutes-10-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-10-2022.pdf [R=301,L]
+
+# grit-production-procedure-2025.pdf
+RewriteRule ^committees/Communications and Publications/grit-production-procedure-2025.pdf$ /committees/Communications and Publications/Communications and Publications Current/grit-production-procedure-2025.pdf [R=301,L]
+
+# SHHA-GRIT-1980_02.pdf
+RewriteRule ^grit/Feb 1 1980.pdf$ /grit/1980/SHHA-GRIT-1980_02.pdf [R=301,L]
+
+# August_10_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/August_10_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/August_10_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# board-minutes-12-2021.pdf
+RewriteRule ^board/minutes/board-minutes-12-2021.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-12-2021.pdf [R=301,L]
+
+# SHHA-GRIT-2024_11.png
+RewriteRule ^SHHA-GRIT-2024_11.png$ /grit/2024/SHHA-GRIT-2024_11.png [R=301,L]
+
+# SHHA Balance Sheet by Month April 2025.pdf
+RewriteRule ^SHHA Balance Sheet by Month April 2025.pdf$ /committees/Finance/Finance Old/SHHA Balance Sheet by Month April 2025.pdf [R=301,L]
+
+# March Grit 1page.png
+RewriteRule ^cropped-images/March Grit 1page-0-0-0-0-1740435984.png$ /grit/2025/March Grit 1page.png [R=301,L]
+
+# april-2023-grit.pdf
+RewriteRule ^grit/april-2023-grit.pdf$ /grit/2023/april-2023-grit.pdf [R=301,L]
+
+# raychel-sanner-8asEEtAnkBc-unsplash.jpg
+RewriteRule ^banners/raychel-sanner-8asEEtAnkBc-unsplash.jpg$ /board/2026 Agenda and Minutes/banners/raychel-sanner-8asEEtAnkBc-unsplash.jpg [R=301,L]
+
+# pinon mouse2.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/pinon mouse2.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/pinon mouse2.jpg [R=301,L]
+
+# board-minutes-10-2021.pdf
+RewriteRule ^board/minutes/board-minutes-10-2021.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-10-2021.pdf [R=301,L]
+
+# index.html
+RewriteRule ^outdoors/wildlife/mice_rats/index.html$ /committees/Finance/Finance Old/index.html [R=301,L]
+
+# September_8_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/September_8_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/September_8_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# board-minutes-3-2022.pdf
+RewriteRule ^board/minutes/board-minutes-3-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-3-2022.pdf [R=301,L]
+
+# 3.2025 Board meeting minutes final.pdf
+RewriteRule ^3.2025 Board meeting minutes final.pdf$ /board/2025 Agenda and Minutes/3.2025 Board meeting minutes final.pdf [R=301,L]
+
+# RFererman-2021.jpg
+RewriteRule ^gallery/RFererman-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/RFererman-2021.jpg [R=301,L]
+
+# image1.jpeg
+RewriteRule ^banners/image1.jpeg$ /board/2026 Agenda and Minutes/banners/image1.jpeg [R=301,L]
+
+# board-minutes-10-2020.pdf
+RewriteRule ^board/minutes/board-minutes-10-2020.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-10-2020.pdf [R=301,L]
+
+# SHHA-GRIT-2025_09.png
+RewriteRule ^GRITS FOR 2025/SHHA-GRIT-2025_09.png$ /grit/2025/SHHA-GRIT-2025_09.png [R=301,L]
+
+# ACC_DESIGN_GUIDELINE_FOR_SETBACKS_AND_EASEMENTS_4-6-22.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_DESIGN_GUIDELINE_FOR_SETBACKS_AND_EASEMENTS_4-6-22.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_DESIGN_GUIDELINE_FOR_SETBACKS_AND_EASEMENTS_4-6-22.pdf [R=301,L]
+
+# board-minutes-11-2021.pdf
+RewriteRule ^board/minutes/board-minutes-11-2021.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-11-2021.pdf [R=301,L]
+
+# 2022_Annual_Meeting_Agenda_and_Procedures_of_Conduct_for_Website.pdf
+RewriteRule ^content_images/Annual Meetings/2022_Annual_Meeting_Agenda_and_Procedures_of_Conduct_for_Website.pdf$ /board/2025 Agenda and Minutes/Agendas/2022_Annual_Meeting_Agenda_and_Procedures_of_Conduct_for_Website.pdf [R=301,L]
+
+# 2024 SHHA Annual Meeting Handout-Website.pdf
+RewriteRule ^content_images/Annual Meetings/2024 SHHA Annual Meeting Handout-Website.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/2024 SHHA Annual Meeting Handout-Website.pdf [R=301,L]
+
+# SHHA-GRIT-2017_02.pdf
+RewriteRule ^grit/Feb_GRIT_2017.pdf$ /grit/2017/SHHA-GRIT-2017_02.pdf [R=301,L]
+
+# ACC_DESIGN_GUIDELINE_FOR_ROOFING_FINAL1-31-22.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_DESIGN_GUIDELINE_FOR_ROOFING_FINAL1-31-22.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_DESIGN_GUIDELINE_FOR_ROOFING_FINAL1-31-22.pdf [R=301,L]
+
+# CalFire checklist.pdf
+RewriteRule ^information/wildfire/CalFire checklist.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/CalFire checklist.pdf [R=301,L]
+
+# september-2020-grit.pdf
+RewriteRule ^grit/september-2020-grit.pdf$ /grit/2020/september-2020-grit.pdf [R=301,L]
+
+# 10_2023 Board meeting agenda final.docx
+RewriteRule ^board/2023 Agenda and Minutes/10_2023 Board meeting agenda final.docx$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/10_2023 Board meeting agenda final.docx [R=301,L]
+
+# 1_2024 Board Agenda wih motions.pdf
+RewriteRule ^board/2024 Agendas and Minutes/1_2024 Board Agenda wih motions.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/1_2024 Board Agenda wih motions.pdf [R=301,L]
+
+# acc-charter-draft-2025.pdf
+RewriteRule ^committees/Architectural Control/acc-charter-draft-2025.pdf$ /committees/Architectural Control/Architectural Control Current/acc-charter-draft-2025.pdf [R=301,L]
+
+# 2-February_Financial_Statements_-_Website.pdf
+RewriteRule ^content_images/Financials/2-February_Financial_Statements_-_Website.pdf$ /committees/Finance/Finance Old/2-February_Financial_Statements_-_Website.pdf [R=301,L]
+
+# Board_Minutes_3-2021_with_Addendum.pdf
+RewriteRule ^board/minutes/Board_Minutes_3-2021_with_Addendum.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes_3-2021_with_Addendum.pdf [R=301,L]
+
+# dec_grit_2017.pdf
+RewriteRule ^grit/dec_grit_2017.pdf$ /grit/2017/dec_grit_2017.pdf [R=301,L]
+
+# board-meeting-mintues-11-2022.pdf
+RewriteRule ^board/minutes/board-meeting-mintues-11-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-meeting-mintues-11-2022.pdf [R=301,L]
+
+# June_8_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/June_8_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/June_8_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# SHHA_Board_of_Directors_Statement_of_Interest.pdf
+RewriteRule ^forms/SHHA_Board_of_Directors_Statement_of_Interest.pdf$ /committees/Nominating/Nominating Current/SHHA_Board_of_Directors_Statement_of_Interest.pdf [R=301,L]
+
+# sept_2018_grit.pdf
+RewriteRule ^grit/sept_2018_grit.pdf$ /grit/2018/sept_2018_grit.pdf [R=301,L]
+
+# Architectural Design Guidelines.pdf
+RewriteRule ^committees/Architectural Control/Architectural Design Guidelines.pdf$ /committees/Architectural Control/Architectural Control Current/Architectural Design Guidelines.pdf [R=301,L]
+
+# New Construction and Additions Application Revised December 2024.doc
+RewriteRule ^forms/New Construction and Additions Application Revised December 2024.doc$ /committees/Architectural Control/Architectural Control Old/New Construction and Additions Application Revised December 2024.doc [R=301,L]
+
+# board_minutes-10-2017.pdf
+RewriteRule ^board/minutes/board_minutes-10-2017.pdf$ /board/2025 Agenda and Minutes/minutes/board_minutes-10-2017.pdf [R=301,L]
+
+# 2021-annual-meeting-minutes.pdf
+RewriteRule ^board/minutes/2021-annual-meeting-minutes.pdf$ /board/2025 Agenda and Minutes/minutes/2021-annual-meeting-minutes.pdf [R=301,L]
+
+# october-2021-grit-r1.pdf
+RewriteRule ^grit/october-2021-grit-r1.pdf$ /grit/2021/october-2021-grit-r1.pdf [R=301,L]
+
+# Insurance Info for Website 2025.docx
+RewriteRule ^Insurance Info for Website 2025.docx$ /committees/Finance/Finance Old/Insurance Info for Website 2025.docx [R=301,L]
+
+# Covenant_Violation_Form_Revised_2016.doc
+RewriteRule ^forms/Covenant_Violation_Form_Revised_2016.doc$ /committees/Covenant Support/Covenant Support Current/Covenant_Violation_Form_Revised_2016.doc [R=301,L]
+
+# SHHA-GRIT-2023_07.pdf
+RewriteRule ^grit/JULY 2023 Grit Color.pdf$ /grit/2023/SHHA-GRIT-2023_07.pdf [R=301,L]
+
+# 3-March_Financial_Statements-Website.pdf
+RewriteRule ^content_images/Financials/3-March_Financial_Statements-Website.pdf$ /committees/Finance/Finance Old/3-March_Financial_Statements-Website.pdf [R=301,L]
+
+# board-minutes-1-2019.pdf
+RewriteRule ^board/minutes/board-minutes-1-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-1-2019.pdf [R=301,L]
+
+# SHHA-GRIT-2024_02.pdf
+RewriteRule ^grit/Feb 2024 GRIT Color Final.pdf$ /grit/2024/SHHA-GRIT-2024_02.pdf [R=301,L]
+
+# 9.2023 Board minutes - posted to WEB.pdf
+RewriteRule ^board/2023 Agenda and Minutes/9.2023 Board minutes - posted to WEB.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/9.2023 Board minutes - posted to WEB.pdf [R=301,L]
+
+# DJBerg-2021.jpg
+RewriteRule ^gallery/DJBerg-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/DJBerg-2021.jpg [R=301,L]
+
+# bullgophersnakewest1.jpg
+RewriteRule ^outdoors/wildlife/snakes/bullgophersnakewest1.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/snakes/bullgophersnakewest1.jpg [R=301,L]
+
+# ACC DESIGN GUIDELINE FOR  RADON MITIGATION.pdf
+RewriteRule ^ACC DESIGN GUIDELINE FOR  RADON MITIGATION.pdf$ /committees/Architectural Control/Architectural Control Current/ACC DESIGN GUIDELINE FOR  RADON MITIGATION.pdf [R=301,L]
+
+# Individual Evacuation Home Grid.pdf
+RewriteRule ^information/wildfire/Individual Evacuation Home Grid.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/Individual Evacuation Home Grid.pdf [R=301,L]
+
+# 6.2024 Board meeting minutes signed.pdf
+RewriteRule ^board/minutes/6.2024 Board meeting minutes signed.pdf$ /board/2025 Agenda and Minutes/minutes/6.2024 Board meeting minutes signed.pdf [R=301,L]
+
+# 11-Nov_Financial_Statements-Website.pdf
+RewriteRule ^content_images/Financials/11-Nov_Financial_Statements-Website.pdf$ /committees/Finance/Finance Old/11-Nov_Financial_Statements-Website.pdf [R=301,L]
+
+# SHHA-GRIT-1980_09.pdf
+RewriteRule ^grit/Fall 1980.pdf$ /grit/1980/SHHA-GRIT-1980_09.pdf [R=301,L]
+
+# annual-meeting-minutes-2-2019.pdf
+RewriteRule ^board/minutes/annual-meeting-minutes-2-2019.pdf$ /board/2025 Agenda and Minutes/minutes/annual-meeting-minutes-2-2019.pdf [R=301,L]
+
+# january-2021-grit.pdf
+RewriteRule ^grit/january-2021-grit.pdf$ /grit/2021/january-2021-grit.pdf [R=301,L]
+
+# VPennamen1-2021.jpeg
+RewriteRule ^gallery/VPennamen1-2021.jpeg$ /committees/Communications and Publications/Communications and Publications Old/gallery/VPennamen1-2021.jpeg [R=301,L]
+
+# december_2018_grit2.pdf
+RewriteRule ^grit/december_2018_grit2.pdf$ /grit/2018/december_2018_grit2.pdf [R=301,L]
+
+# 6.2025 Board meeting minutes final.pdf
+RewriteRule ^6.2025 Board meeting minutes final.pdf$ /board/2025 Agenda and Minutes/6.2025 Board meeting minutes final.pdf [R=301,L]
+
+# View Contractor Evaluations.pdf
+RewriteRule ^committees/Architectural Control/View Contractor Evaluations.pdf$ /committees/Architectural Control/Architectural Control Current/View Contractor Evaluations.pdf [R=301,L]
+
+# 02 2024 Finances.pdf
+RewriteRule ^content_images/Financials/02 2024 Finances.pdf$ /committees/Finance/Finance Old/02 2024 Finances.pdf [R=301,L]
+
+# 2024 Question Form.pdf
+RewriteRule ^content_images/Annual Meetings/2024 Question Form.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/2024 Question Form.pdf [R=301,L]
+
+# 3.2025 Board meeting agenda final.pdf
+RewriteRule ^3.2025 Board meeting agenda final.pdf$ /board/2025 Agenda and Minutes/3.2025 Board meeting agenda final.pdf [R=301,L]
+
+# New_Construction_and_Additions_Application_Revised_Oct_2020.doc
+RewriteRule ^forms/New_Construction_and_Additions_Application_Revised_Oct_2020.doc$ /committees/Architectural Control/Architectural Control Old/New_Construction_and_Additions_Application_Revised_Oct_2020.doc [R=301,L]
+
+# shha-2025-monthly-pl-thru-july.pdf
+RewriteRule ^shha-2025-monthly-pl-thru-july.pdf$ /committees/Finance/Finance Old/shha-2025-monthly-pl-thru-july.pdf [R=301,L]
+
+# January_11_2023_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/January_11_2023_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/January_11_2023_Board_Meeting_Agenda.pdf [R=301,L]
+
+# board-minutes-4-2021.pdf
+RewriteRule ^board/minutes/board-minutes-4-2021.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-4-2021.pdf [R=301,L]
+
+# 12.2025 BOD meeting Agenda.docx
+RewriteRule ^12.2025 BOD meeting Agenda.docx$ /board/2025 Agenda and Minutes/12.2025 BOD meeting Agenda.docx [R=301,L]
+
+# charter-draft-2025.docx
+RewriteRule ^committees/Architectural Control/charter-draft-2025.docx$ /committees/Architectural Control/Architectural Control Current/charter-draft-2025.docx [R=301,L]
+
+# oct_grit_2017.pdf
+RewriteRule ^grit/oct_grit_2017.pdf$ /grit/2017/oct_grit_2017.pdf [R=301,L]
+
+# RHermann-2021.jpg
+RewriteRule ^gallery/RHermann-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/RHermann-2021.jpg [R=301,L]
+
+# board-minutes-5-2021.pdf
+RewriteRule ^board/minutes/board-minutes-5-2021.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-5-2021.pdf [R=301,L]
+
+# annual-meeting-minutes-2-2018.pdf
+RewriteRule ^board/minutes/annual-meeting-minutes-2-2018.pdf$ /board/2025 Agenda and Minutes/minutes/annual-meeting-minutes-2-2018.pdf [R=301,L]
+
+# 10.2023 Board Minutes - signed.pdf
+RewriteRule ^board/2023 Agenda and Minutes/10.2023 Board Minutes - signed.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/10.2023 Board Minutes - signed.pdf [R=301,L]
+
+# march-2022-grit.pdf
+RewriteRule ^grit/march-2022-grit.pdf$ /grit/2022/march-2022-grit.pdf [R=301,L]
+
+# board_minutes-8-2017.pdf
+RewriteRule ^board/minutes/board_minutes-8-2017.pdf$ /board/2025 Agenda and Minutes/minutes/board_minutes-8-2017.pdf [R=301,L]
+
+# SHHA-GRIT-2015_05.png
+RewriteRule ^grit/SHHA-GRIT-2015_05.png$ /grit/2015/SHHA-GRIT-2015_05.png [R=301,L]
+
+# SHHA Monthly PL thru Sept 2024.pdf
+RewriteRule ^SHHA Monthly PL thru Sept 2024.pdf$ /committees/Finance/Finance Current/SHHA Monthly PL thru Sept 2024.pdf [R=301,L]
+
+# Grit May color.pdf
+RewriteRule ^GRITS FOR 2025/Grit May color.pdf$ /grit/2025/Grit May color.pdf [R=301,L]
+
+# jan_2018_grit.pdf
+RewriteRule ^grit/jan_2018_grit.pdf$ /grit/2018/jan_2018_grit.pdf [R=301,L]
+
+# SHHA Monthly PL thru Oct 2024.pdf
+RewriteRule ^SHHA Monthly PL thru Oct 2024.pdf$ /committees/Finance/Finance Current/SHHA Monthly PL thru Oct 2024.pdf [R=301,L]
+
+# 12_2023 Financials_WEB.pdf
+RewriteRule ^content_images/Financials/12_2023 Financials_WEB.pdf$ /committees/Finance/Finance Old/12_2023 Financials_WEB.pdf [R=301,L]
+
+# Board_Minutes-04-2017.pdf
+RewriteRule ^board/minutes/Board_Minutes-04-2017.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes-04-2017.pdf [R=301,L]
+
+# Covenant_Violation_Form_Revised_2016.pdf
+RewriteRule ^forms/Covenant_Violation_Form_Revised_2016.pdf$ /committees/Covenant Support/Covenant Support Current/Covenant_Violation_Form_Revised_2016.pdf [R=301,L]
+
+# 2022_Annual_Meeting_Agenda_and_Procedures_of_Conduct_R1_for_Website.pdf
+RewriteRule ^content_images/Annual Meetings/2022_Annual_Meeting_Agenda_and_Procedures_of_Conduct_R1_for_Website.pdf$ /board/2025 Agenda and Minutes/Agendas/2022_Annual_Meeting_Agenda_and_Procedures_of_Conduct_R1_for_Website.pdf [R=301,L]
+
+# Exterior_Refinishing_Re-Roof_Trim_Refinishing_Application_Revised_Oct_2020.pdf
+RewriteRule ^forms/Exterior_Refinishing_Re-Roof_Trim_Refinishing_Application_Revised_Oct_2020.pdf$ /committees/Architectural Control/Architectural Control Old/Exterior_Refinishing_Re-Roof_Trim_Refinishing_Application_Revised_Oct_2020.pdf [R=301,L]
+
+# 2024 Annual Meeting Minutes preliminary.pdf
+RewriteRule ^content_images/Annual Meetings/2024 Annual Meeting Minutes preliminary.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/2024 Annual Meeting Minutes preliminary.pdf [R=301,L]
+
+# november-2021-grit-r1.pdf
+RewriteRule ^grit/november-2021-grit-r1.pdf$ /grit/2021/november-2021-grit-r1.pdf [R=301,L]
+
+# June_2022_GRIT.pdf
+RewriteRule ^grit/June_2022_GRIT.pdf$ /grit/2022/June_2022_GRIT.pdf [R=301,L]
+
+# july_2019_grit.pdf
+RewriteRule ^grit/july_2019_grit.pdf$ /grit/2019/july_2019_grit.pdf [R=301,L]
+
+# board-minutes-7-2018.pdf
+RewriteRule ^board/minutes/board-minutes-7-2018.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-7-2018.pdf [R=301,L]
+
+# april-2021-grit.pdf
+RewriteRule ^grit/april-2021-grit.pdf$ /grit/2021/april-2021-grit.pdf [R=301,L]
+
+# Remaining Sandia Heights Rotated.pdf
+RewriteRule ^information/wildfire/Remaining Sandia Heights Rotated.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/Remaining Sandia Heights Rotated.pdf [R=301,L]
+
+# april-2022-grit.pdf
+RewriteRule ^grit/april-2022-grit.pdf$ /grit/2022/april-2022-grit.pdf [R=301,L]
+
+# PART 4 250730 Harden Your Home Roof Vents DIY Instructions.pdf
+RewriteRule ^uploaded-files/PART 4 250730 Harden Your Home Roof Vents DIY Instructions.pdf$ /committees/Environment and Safety/Environment and Safety Current/PART 4 250730 Harden Your Home Roof Vents DIY Instructions.pdf [R=301,L]
+
+# 1761964485610.jpeg
+RewriteRule ^uploaded-files/SHHA Office Block.jpg$ /uploaded-files/1761964485610.jpeg [R=301,L]
+
+# Aug -1 page.png
+RewriteRule ^GRITS FOR 2025/Aug -1 page.png$ /grit/2025/Aug -1 page.png [R=301,L]
+
+# shha-monthly-pl-thru-sept-2025.pdf
+RewriteRule ^shha-monthly-pl-thru-sept-2025.pdf$ /committees/Finance/Finance Old/shha-monthly-pl-thru-sept-2025.pdf [R=301,L]
+
+# 2023 October GRIT-Color.pdf
+RewriteRule ^grit/2023 October GRIT-Color.pdf$ /grit/2023/2023 October GRIT-Color.pdf [R=301,L]
+
+# Aug - Color Grit -2025.pdf
+RewriteRule ^GRITS FOR 2025/Aug - Color Grit -2025.pdf$ /grit/2025/Aug - Color Grit -2025.pdf [R=301,L]
+
+# sandias-la-luz.jpg
+RewriteRule ^banners/sandias-la-luz.jpg$ /board/2026 Agenda and Minutes/banners/sandias-la-luz.jpg [R=301,L]
+
+# 10-Oct_Financial_Statements-Website.pdf
+RewriteRule ^content_images/Financials/10-Oct_Financial_Statements-Website.pdf$ /committees/Finance/Finance Old/10-Oct_Financial_Statements-Website.pdf [R=301,L]
+
+# Miscellaneous_Projects_Application_Revised_April_2023_.pdf
+RewriteRule ^forms/Miscellaneous_Projects_Application_Revised_April_2023_.pdf$ /committees/Architectural Control/Architectural Control Old/Miscellaneous_Projects_Application_Revised_April_2023_.pdf [R=301,L]
+
+# ACC_Design_Guideline_for_Landscaping_Revised_2-17-21.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_Design_Guideline_for_Landscaping_Revised_2-17-21.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_Design_Guideline_for_Landscaping_Revised_2-17-21.pdf [R=301,L]
+
+# nov-2019-grit.pdf
+RewriteRule ^grit/nov-2019-grit.pdf$ /grit/2019/nov-2019-grit.pdf [R=301,L]
+
+# CMeindl-2021.jpeg
+RewriteRule ^gallery/CMeindl-2021.jpeg$ /committees/Communications and Publications/Communications and Publications Old/gallery/CMeindl-2021.jpeg [R=301,L]
+
+# ACC_Design_Guideline_ Detached_Buildings_RevisedApril2015.pdf
+RewriteRule ^forms/ACC_Design_Guideline_ Detached_Buildings_RevisedApril2015.pdf$ /committees/Architectural Control/Architectural Control Current/ACC_Design_Guideline_ Detached_Buildings_RevisedApril2015.pdf [R=301,L]
+
+# pexels-federated-art-12552097.jpg
+RewriteRule ^banners/pexels-federated-art-12552097.jpg$ /board/2026 Agenda and Minutes/banners/pexels-federated-art-12552097.jpg [R=301,L]
+
+# 04-2024 Board Agenda with Motions.pdf
+RewriteRule ^board/2024 Agendas and Minutes/04-2024 Board Agenda with Motions.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/04-2024 Board Agenda with Motions.pdf [R=301,L]
+
+# jan-2019-grit.pdf
+RewriteRule ^grit/jan-2019-grit.pdf$ /grit/2019/jan-2019-grit.pdf [R=301,L]
+
+# board-minutes-3-2020.pdf
+RewriteRule ^board/minutes/board-minutes-3-2020.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-3-2020.pdf [R=301,L]
+
+# Board_Minutes_11-2016.pdf
+RewriteRule ^board/minutes/Board_Minutes_11-2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes_11-2016.pdf [R=301,L]
+
+# SHHA 2025 Actual vs Budget 3rd QTR 2025.pdf
+RewriteRule ^SHHA 2025 Actual vs Budget 3rd QTR 2025.pdf$ /committees/Finance/Finance Old/SHHA 2025 Actual vs Budget 3rd QTR 2025.pdf [R=301,L]
+
+# image0.jpeg
+RewriteRule ^banners/image0.jpeg$ /board/2026 Agenda and Minutes/banners/image0.jpeg [R=301,L]
+
+# 3.2024 Board meeting minutes.docx
+RewriteRule ^board/2024 Agendas and Minutes/3.2024 Board meeting minutes.docx$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/3.2024 Board meeting minutes.docx [R=301,L]
+
+# june-2020-grit.pdf
+RewriteRule ^grit/june-2020-grit.pdf$ /grit/2020/june-2020-grit.pdf [R=301,L]
+
+# Grit March 2025 Color.pdf
+RewriteRule ^GRITS FOR 2025/Grit March 2025 Color.pdf$ /grit/2025/Grit March 2025 Color.pdf [R=301,L]
+
+# december-2020-grit.pdf
+RewriteRule ^grit/december-2020-grit.pdf$ /grit/2020/december-2020-grit.pdf [R=301,L]
+
+# board-minutes-8-2022.pdf
+RewriteRule ^board/minutes/board-minutes-8-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-8-2022.pdf [R=301,L]
+
+# june-2021-grit.pdf
+RewriteRule ^grit/june-2021-grit.pdf$ /grit/2021/june-2021-grit.pdf [R=301,L]
+
+# SHHA Monthly Balance Sheet Through November 2025.pdf
+RewriteRule ^committees/Finance/Finance Current/SHHA Monthly Balance Sheet through November 2025.pdf$ /committees/Finance/Finance Old/SHHA Monthly Balance Sheet Through November 2025.pdf [R=301,L]
+
+# March_Financial_Reports.pdf
+RewriteRule ^board/minutes/March_Financial_Reports.pdf$ /board/2025 Agenda and Minutes/minutes/March_Financial_Reports.pdf [R=301,L]
+
+# 7-July_Financial_Statements-Website.pdf
+RewriteRule ^content_images/Financials/7-July_Financial_Statements-Website.pdf$ /committees/Finance/Finance Old/7-July_Financial_Statements-Website.pdf [R=301,L]
+
+# SHHA-GRIT-2026_1.png
+RewriteRule ^GRITS for 2026/SHHA-GRIT-2026_1.png$ /grit/2026/SHHA-GRIT-2026_1.png [R=301,L]
+
+# thumbnail.png
+RewriteRule ^thumbnail.png$ /grit/2025/thumbnail.png [R=301,L]
+
+# 2025 Certificate of Insurance for Sandia Heights Homeowners Association 2025.pdf
+RewriteRule ^2025 Certificate of Insurance for Sandia Heights Homeowners Association 2025.pdf$ /committees/Finance/Finance Current/2025 Certificate of Insurance for Sandia Heights Homeowners Association 2025.pdf [R=301,L]
+
+# october-2020-grit.pdf
+RewriteRule ^grit/october-2020-grit.pdf$ /grit/2020/october-2020-grit.pdf [R=301,L]
+
+# aug_grit_2018.pdf
+RewriteRule ^grit/aug_grit_2018.pdf$ /grit/2018/aug_grit_2018.pdf [R=301,L]
+
+# Board-Minutes-04-2016.pdf
+RewriteRule ^board/minutes/Board-Minutes-04-2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board-Minutes-04-2016.pdf [R=301,L]
+
+# 7.2024 Board meeting minutes.pdf
+RewriteRule ^board/minutes/7.2024 Board meeting minutes.pdf$ /board/2025 Agenda and Minutes/minutes/7.2024 Board meeting minutes.pdf [R=301,L]
+
+# Disaster Evacuation Information.pdf
+RewriteRule ^information/wildfire/Disaster Evacuation Information.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/Disaster Evacuation Information.pdf [R=301,L]
+
+# KWright-2021.jpg
+RewriteRule ^gallery/KWright-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/KWright-2021.jpg [R=301,L]
+
+# IMG_0037.JPG
+RewriteRule ^outdoors/trails/IMG_0037.JPG$ /committees/Environment and Safety/Environment and Safety Current/outdoors/trails/IMG_0037.JPG [R=301,L]
+
+# board-minutes-7-2019.pdf
+RewriteRule ^board/minutes/board-minutes-7-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-7-2019.pdf [R=301,L]
+
+# SHHA-GRIT-2025_05.png
+RewriteRule ^GRITS FOR 2025/SHHA-GRIT-2025_05.png$ /grit/2025/SHHA-GRIT-2025_05.png [R=301,L]
+
+# 1ski.jpg
+RewriteRule ^outdoors/skiing/1ski.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/skiing/1ski.jpg [R=301,L]
+
+# march-2021-grit.pdf
+RewriteRule ^grit/march-2021-grit.pdf$ /grit/2021/march-2021-grit.pdf [R=301,L]
+
+# 01 - April 2025 GRIT - Color.pdf
+RewriteRule ^GRITS FOR 2025/Grit April/01 - April 2025 GRIT - Color.pdf$ /grit/2025/01 - April 2025 GRIT - Color.pdf [R=301,L]
+
+# october-2019-grit.pdf
+RewriteRule ^grit/october-2019-grit.pdf$ /grit/2019/october-2019-grit.pdf [R=301,L]
+
+# 1-mar25-1.pdf
+RewriteRule ^1-mar25-1.pdf$ /grit/2025/1-mar25-1.pdf [R=301,L]
+
+# feb_2018_grit.pdf
+RewriteRule ^grit/feb_2018_grit.pdf$ /grit/2018/feb_2018_grit.pdf [R=301,L]
+
+# SHHA Actual vs Budget Through August 2025.pdf
+RewriteRule ^SHHA Actual vs Budget Through August 2025.pdf$ /committees/Finance/Finance Old/SHHA Actual vs Budget Through August 2025.pdf [R=301,L]
+
+# feb-2020-grit.pdf
+RewriteRule ^grit/feb-2020-grit.pdf$ /grit/2020/feb-2020-grit.pdf [R=301,L]
+
+# New_Construction_and_Additions_Application_Revised_April_2023.doc
+RewriteRule ^forms/New_Construction_and_Additions_Application_Revised_April_2023.doc$ /committees/Architectural Control/Architectural Control Old/New_Construction_and_Additions_Application_Revised_April_2023.doc [R=301,L]
+
+# 9.2025 Board meeting minutes final.pdf
+RewriteRule ^9.2025 Board meeting minutes final.pdf$ /board/2025 Agenda and Minutes/9.2025 Board meeting minutes final.pdf [R=301,L]
+
+# trish-lovato-2024.jpg
+RewriteRule ^signature/trish-lovato-2024.jpg$ /trampasses/trish-lovato-2024.jpg [R=301,L]
+
+# board-minutes-4-2018.pdf
+RewriteRule ^board/minutes/board-minutes-4-2018.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-4-2018.pdf [R=301,L]
+
+# 2022_Budget_Board_Approved_11-10-21_for_Website.pdf
+RewriteRule ^content_images/Budgets/2022_Budget_Board_Approved_11-10-21_for_Website.pdf$ /committees/Finance/Finance Old/2022_Budget_Board_Approved_11-10-21_for_Website.pdf [R=301,L]
+
+# ACC Commitee Responsibiltities.pdf
+RewriteRule ^forms/ACC Commitee Responsibiltities.pdf$ /committees/Architectural Control/Architectural Control Old/ACC Commitee Responsibiltities.pdf [R=301,L]
+
+# North Sandia Heights Rotated.pdf
+RewriteRule ^information/wildfire/North Sandia Heights Rotated.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/North Sandia Heights Rotated.pdf [R=301,L]
+
+# shha-policies-guideline-for-board-staff-and-committee-members-board-approved-12-9-20.pdf
+RewriteRule ^shha-policies-guideline-for-board-staff-and-committee-members-board-approved-12-9-20.pdf$ /committees/Governance/Governance Current/shha-policies-guideline-for-board-staff-and-committee-members-board-approved-12-9-20.pdf [R=301,L]
+
+# SHHA 2025 Actual vs Budget Thru July.pdf
+RewriteRule ^SHHA 2025 Actual vs Budget Thru July.pdf$ /committees/Finance/Finance Old/SHHA 2025 Actual vs Budget Thru July.pdf [R=301,L]
+
+# june-2023-grit-color.pdf
+RewriteRule ^grit/june-2023-grit-color.pdf$ /grit/2023/june-2023-grit-color.pdf [R=301,L]
+
+# Board-Minutes-12-2016.pdf
+RewriteRule ^downloads/Board-Minutes-12-2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board-Minutes-12-2016.pdf [R=301,L]
+
+# FWieker2-2021.jpg
+RewriteRule ^gallery/FWieker2-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/FWieker2-2021.jpg [R=301,L]
+
+# SHHA Community Documents.docx.pdf
+RewriteRule ^SHHA Community Documents.docx.pdf$ /committees/Governance/Governance Current/SHHA Community Documents.docx.pdf [R=301,L]
+
+# board-minutes-7-2021.pdf
+RewriteRule ^board/minutes/board-minutes-7-2021.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-7-2021.pdf [R=301,L]
+
+# ACC_DESIGN_GUIDELINE_FOR_LANDSCAPING_FINAL_1-31-22.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_DESIGN_GUIDELINE_FOR_LANDSCAPING_FINAL_1-31-22.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_DESIGN_GUIDELINE_FOR_LANDSCAPING_FINAL_1-31-22.pdf [R=301,L]
+
+# Board_Minutes-6-2017.pdf
+RewriteRule ^board/minutes/Board_Minutes-6-2017.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes-6-2017.pdf [R=301,L]
+
+# Sep_GRIT_2017.pdf
+RewriteRule ^grit/Sep_GRIT_2017.pdf$ /grit/2017/Sep_GRIT_2017.pdf [R=301,L]
+
+# SHHA 2024 COMPILED FINANCIAL STATEMENTS- updated.pdf
+RewriteRule ^SHHA 2024 COMPILED FINANCIAL STATEMENTS- updated.pdf$ /committees/Finance/Finance Old/SHHA 2024 COMPILED FINANCIAL STATEMENTS- updated.pdf [R=301,L]
+
+# BearRetouchCropSmallFile.jpg
+RewriteRule ^outdoors/wildlife/snakes/BearRetouchCropSmallFile.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/snakes/BearRetouchCropSmallFile.jpg [R=301,L]
+
+# VPennamen3-2021.jpg
+RewriteRule ^gallery/VPennamen3-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/VPennamen3-2021.jpg [R=301,L]
+
+# 8.2024 Board meeting minutes signed.pdf
+RewriteRule ^board/minutes/8.2024 Board meeting minutes signed.pdf$ /board/2025 Agenda and Minutes/minutes/8.2024 Board meeting minutes signed.pdf [R=301,L]
+
+# ACC_DESIGN_GUIDELINE_FOR_SOLAR_COLLECTORS_FINAL_1-31-22.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_DESIGN_GUIDELINE_FOR_SOLAR_COLLECTORS_FINAL_1-31-22.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_DESIGN_GUIDELINE_FOR_SOLAR_COLLECTORS_FINAL_1-31-22.pdf [R=301,L]
+
+# ACC_DESIGN_GUIDELINE_FOR_DETACHED_BUILDING_FINAL_1-31-22.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_DESIGN_GUIDELINE_FOR_DETACHED_BUILDING_FINAL_1-31-22.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_DESIGN_GUIDELINE_FOR_DETACHED_BUILDING_FINAL_1-31-22.pdf [R=301,L]
+
+# October_2021_GRIT.pdf
+RewriteRule ^grit/October_2021_GRIT.pdf$ /grit/2021/October_2021_GRIT.pdf [R=301,L]
+
+# board-minutes-10-2018.pdf
+RewriteRule ^board/minutes/board-minutes-10-2018.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-10-2018.pdf [R=301,L]
+
+# board-minutes-9-2021.pdf
+RewriteRule ^board/minutes/board-minutes-9-2021.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-9-2021.pdf [R=301,L]
+
+# June image 2025.png
+RewriteRule ^GRITS FOR 2025/June image 2025.png$ /grit/2025/June image 2025.png [R=301,L]
+
+# 5-May_Financial_Statements-Website.pdf
+RewriteRule ^content_images/Financials/5-May_Financial_Statements-Website.pdf$ /committees/Finance/Finance Old/5-May_Financial_Statements-Website.pdf [R=301,L]
+
+# july_grit_2018.pdf
+RewriteRule ^grit/july_grit_2018.pdf$ /grit/2018/july_grit_2018.pdf [R=301,L]
+
+# march-2023-grit-rvsd2-28-23.pdf
+RewriteRule ^grit/march-2023-grit-rvsd2-28-23.pdf$ /grit/2023/march-2023-grit-rvsd2-28-23.pdf [R=301,L]
+
+# 1 page.png
+RewriteRule ^cropped-images/1 page-0-0-0-0-1740428141.png$ /grit/2025/1 page.png [R=301,L]
+
+# ACC DESIGN GUIDELINE FOR TWO.pdf
+RewriteRule ^ACC DESIGN GUIDELINE FOR TWO.pdf$ /committees/Architectural Control/Architectural Control Current/ACC DESIGN GUIDELINE FOR TWO.pdf [R=301,L]
+
+# Bylaws Revisions - What Changed and Why_.pdf
+RewriteRule ^Bylaws Revisions - What Changed and Why_.pdf$ /committees/Governance/Governance Current/Bylaws Revisions - What Changed and Why_.pdf [R=301,L]
+
+# 5.2025 Agenda.pdf
+RewriteRule ^5.2025 Agenda.pdf$ /board/2025 Agenda and Minutes/5.2025 Agenda.pdf [R=301,L]
+
+# board-minutes-12-2019.pdf
+RewriteRule ^board/minutes/board-minutes-12-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-12-2019.pdf [R=301,L]
+
+# 8_2023 August 9 2023 Board Meeting Agenda.docx
+RewriteRule ^board/minutes/8_2023 August 9 2023 Board Meeting Agenda.docx$ /board/2025 Agenda and Minutes/minutes/8_2023 August 9 2023 Board Meeting Agenda.docx [R=301,L]
+
+# september-2022-grit.pdf
+RewriteRule ^grit/september-2022-grit.pdf$ /grit/2022/september-2022-grit.pdf [R=301,L]
+
+# VPennamen5-2021.jpg
+RewriteRule ^gallery/VPennamen5-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/VPennamen5-2021.jpg [R=301,L]
+
+# GRIT -Color -Sept 2025.pdf
+RewriteRule ^GRITS FOR 2025/GRIT -Color -Sept 2025.pdf$ /grit/2025/GRIT -Color -Sept 2025.pdf [R=301,L]
+
+# August_11_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/August_11_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/August_11_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# proposed-cp-charter-2025.pdf
+RewriteRule ^committees/Communications and Publications/proposed-cp-charter-2025.pdf$ /committees/Communications and Publications/Communications and Publications Current/proposed-cp-charter-2025.pdf [R=301,L]
+
+# YTD Budget vs actual 5-25.pdf
+RewriteRule ^YTD Budget vs actual 5-25.pdf$ /committees/Finance/Finance Old/YTD Budget vs actual 5-25.pdf [R=301,L]
+
+# Bear_Information.pdf
+RewriteRule ^uploaded-files/Bear_Information.pdf$ /committees/Environment and Safety/Environment and Safety Current/Bear_Information.pdf [R=301,L]
+
+# tram_banner_skinny.jpg
+RewriteRule ^banners/tram_banner_skinny.jpg$ /board/2026 Agenda and Minutes/banners/tram_banner_skinny.jpg [R=301,L]
+
+# board_minutes-12-2017.pdf
+RewriteRule ^board/minutes/board_minutes-12-2017.pdf$ /board/2025 Agenda and Minutes/minutes/board_minutes-12-2017.pdf [R=301,L]
+
+# December_14_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/December_14_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/December_14_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# New_Construction_and_Additions_Application_Revised_April_2023.pdf
+RewriteRule ^forms/New_Construction_and_Additions_Application_Revised_April_2023.pdf$ /committees/Architectural Control/Architectural Control Old/New_Construction_and_Additions_Application_Revised_April_2023.pdf [R=301,L]
+
+# 2023_Annual_Meeting_Agenda_and_Procedures_of_Conduct.pdf
+RewriteRule ^content_images/Annual Meetings/2023_Annual_Meeting_Agenda_and_Procedures_of_Conduct.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/2023_Annual_Meeting_Agenda_and_Procedures_of_Conduct.pdf [R=301,L]
+
+# 12.2023 Board minutes.pdf
+RewriteRule ^board/2023 Agenda and Minutes/12.2023 Board minutes.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/12.2023 Board minutes.pdf [R=301,L]
+
+# Other Arch Info.pdf
+RewriteRule ^committees/Architectural Control/Other Arch Info.pdf$ /committees/Architectural Control/Architectural Control Current/Other Arch Info.pdf [R=301,L]
+
+# CSC_OPG_APPROVED_2025-07-JULY-01.pdf
+RewriteRule ^CSC_OPG_APPROVED_2025-07-JULY-01.pdf$ /committees/Covenant Support/Covenant Support Current/CSC_OPG_APPROVED_2025-07-JULY-01.pdf [R=301,L]
+
+# August 2023 Board meeting minutes.pdf
+RewriteRule ^board/minutes/August 2023 Board meeting minutes.pdf$ /board/2025 Agenda and Minutes/minutes/August 2023 Board meeting minutes.pdf [R=301,L]
+
+# Questions_Deferred_at_the_QA_Session_of_the_2022_Annual_Mtg_R3-8-22.pdf
+RewriteRule ^content_images/Questions_Deferred_at_the_QA_Session_of_the_2022_Annual_Mtg_R3-8-22.pdf$ /board/2025 Agenda and Minutes/Agendas/Questions_Deferred_at_the_QA_Session_of_the_2022_Annual_Mtg_R3-8-22.pdf [R=301,L]
+
+# 2026 Advertising Rate Card  Policies for 2026.pdf
+RewriteRule ^2026 Advertising Rate Card  Policies for 2026.pdf$ /committees/Communications and Publications/Communications and Publications Current/2026 Advertising Rate Card  Policies for 2026.pdf [R=301,L]
+
+# PStoll-2021.jpg
+RewriteRule ^gallery/PStoll-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/PStoll-2021.jpg [R=301,L]
+
+# DWalker1-2021.jpg
+RewriteRule ^gallery/DWalker1-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/DWalker1-2021.jpg [R=301,L]
+
+# July_13_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/July_13_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/July_13_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# live mouse trap.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/live mouse trap.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/live mouse trap.jpg [R=301,L]
+
+# board-minutes-6-2021.pdf
+RewriteRule ^board/minutes/board-minutes-6-2021.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-6-2021.pdf [R=301,L]
+
+# Questions_Deferred_at_the_Q_and_A_Session_of_the_2022_Annual_Mtg.pdf
+RewriteRule ^content_images/Questions_Deferred_at_the_Q_and_A_Session_of_the_2022_Annual_Mtg.pdf$ /board/2025 Agenda and Minutes/Agendas/Questions_Deferred_at_the_Q_and_A_Session_of_the_2022_Annual_Mtg.pdf [R=301,L]
+
+# june_2018_grit.pdf
+RewriteRule ^grit/june_2018_grit.pdf$ /grit/2018/june_2018_grit.pdf [R=301,L]
+
+# 01 2024 Finances.pdf
+RewriteRule ^content_images/Financials/01 2024 Finances.pdf$ /committees/Finance/Finance Old/01 2024 Finances.pdf [R=301,L]
+
+# Board_Minutes-05-2016.pdf
+RewriteRule ^board/minutes/Board_Minutes-05-2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes-05-2016.pdf [R=301,L]
+
+# board-minutes-7-2022.pdf
+RewriteRule ^board/minutes/board-minutes-7-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-7-2022.pdf [R=301,L]
+
+# Claret-cup-in-bloom.jpg
+RewriteRule ^outdoors/landscaping/Claret-cup-in-bloom.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/landscaping/Claret-cup-in-bloom.jpg [R=301,L]
+
+# 1.2025 Board meeting minutes final.pdf
+RewriteRule ^1.2025 Board meeting minutes final.pdf$ /board/2025 Agenda and Minutes/1.2025 Board meeting minutes final.pdf [R=301,L]
+
+# August_12_2020_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/August_12_2020_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/Agendas/August_12_2020_Board_Meeting_Agenda.pdf [R=301,L]
+
+# September_GRIT_2015.pdf
+RewriteRule ^grit/September_GRIT_2015.pdf$ /grit/2015/September_GRIT_2015.pdf [R=301,L]
+
+# board-minutes-10-2019.pdf
+RewriteRule ^board/minutes/board-minutes-10-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-10-2019.pdf [R=301,L]
+
+# packrat.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/packrat.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/packrat.jpg [R=301,L]
+
+# SHHAInfoPostcards.Final.Proof.Oct 7.2024.pdf
+RewriteRule ^uploaded-files/SHHAInfoPostcards.Final.Proof.Oct 7.2024.pdf$ /committees/Communications and Publications/Communications and Publications Current/SHHAInfoPostcards.Final.Proof.Oct 7.2024.pdf [R=301,L]
+
+# 04.2024 Board meeting minutes with motion.pdf
+RewriteRule ^board/2024 Agendas and Minutes/04.2024 Board meeting minutes with motion.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/04.2024 Board meeting minutes with motion.pdf [R=301,L]
+
+# january-11-2023-board-meeting-minutes.pdf
+RewriteRule ^board/minutes/january-11-2023-board-meeting-minutes.pdf$ /board/2025 Agenda and Minutes/minutes/january-11-2023-board-meeting-minutes.pdf [R=301,L]
+
+# JBreen-2021.jpg
+RewriteRule ^gallery/JBreen-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/JBreen-2021.jpg [R=301,L]
+
+# May_2021_GRIT.pdf
+RewriteRule ^grit/May_2021_GRIT.pdf$ /grit/2021/May_2021_GRIT.pdf [R=301,L]
+
+# Bobcat.JPG
+RewriteRule ^outdoors/wildlife/Bobcat.JPG$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/Bobcat.JPG [R=301,L]
+
+# sept-2019-grit.pdf
+RewriteRule ^grit/sept-2019-grit.pdf$ /grit/2019/sept-2019-grit.pdf [R=301,L]
+
+# April 12 2023 Board meeting minutes.pdf
+RewriteRule ^April 12 2023 Board meeting minutes.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/April 12 2023 Board meeting minutes.pdf [R=301,L]
+
+# Q with As 2025_final.pdf
+RewriteRule ^Q with As 2025_final.pdf$ /board/2025 Agenda and Minutes/Q with As 2025_final.pdf [R=301,L]
+
+# mar-2020-grit.pdf
+RewriteRule ^grit/mar-2020-grit.pdf$ /grit/2020/mar-2020-grit.pdf [R=301,L]
+
+# 3.2024 Board meeting agenda Final.pdf
+RewriteRule ^board/2024 Agendas and Minutes/3.2024 Board meeting agenda Final.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/3.2024 Board meeting agenda Final.pdf [R=301,L]
+
+# bernco-fire-rescue-wildfire-preparedness.pdf
+RewriteRule ^information/wildfire/bernco-fire-rescue-wildfire-preparedness.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/bernco-fire-rescue-wildfire-preparedness.pdf [R=301,L]
+
+# ACC_Design_Guideline_for_Landscaping_Revised_8-17-2020.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_Design_Guideline_for_Landscaping_Revised_8-17-2020.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_Design_Guideline_for_Landscaping_Revised_8-17-2020.pdf [R=301,L]
+
+# 4.2025 Board meeting minute final.pdf
+RewriteRule ^4.2025 Board meeting minute final.pdf$ /board/2025 Agenda and Minutes/4.2025 Board meeting minute final.pdf [R=301,L]
+
+# shha-budget-vs-actual-pl-1st-qtr-2025.pdf
+RewriteRule ^shha-budget-vs-actual-pl-1st-qtr-2025.pdf$ /committees/Finance/Finance Old/shha-budget-vs-actual-pl-1st-qtr-2025.pdf [R=301,L]
+
+# April_2021_GRIT.pdf
+RewriteRule ^grit/April_2021_GRIT.pdf$ /grit/2021/April_2021_GRIT.pdf [R=301,L]
+
+# 4.2025 Board meeting agenda .docx
+RewriteRule ^4.2025 Board meeting agenda .docx$ /board/2025 Agenda and Minutes/4.2025 Board meeting agenda .docx [R=301,L]
+
+# sandias-snow.jpg
+RewriteRule ^banners/sandias-snow.jpg$ /board/2026 Agenda and Minutes/banners/sandias-snow.jpg [R=301,L]
+
+# Neighborhood Review Guidelines.pdf
+RewriteRule ^committees/Architectural Control/Neighborhood Review Guidelines.pdf$ /committees/Architectural Control/Architectural Control Current/Neighborhood Review Guidelines.pdf [R=301,L]
+
+# SHHA_Annual_Meeting_Handout_Complete_R2_2-2-21.pdf
+RewriteRule ^content_images/SHHA_Annual_Meeting_Handout_Complete_R2_2-2-21.pdf$ /board/2025 Agenda and Minutes/Agendas/SHHA_Annual_Meeting_Handout_Complete_R2_2-2-21.pdf [R=301,L]
+
+# June 2025 Board agenda final.pdf
+RewriteRule ^June 2025 Board agenda final.pdf$ /board/2025 Agenda and Minutes/June 2025 Board agenda final.pdf [R=301,L]
+
+# ACC_Design_Guideline_For_Walls__Fences_Revised_8-17-20.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_Design_Guideline_For_Walls__Fences_Revised_8-17-20.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_Design_Guideline_For_Walls__Fences_Revised_8-17-20.pdf [R=301,L]
+
+# ACC Application.pdf
+RewriteRule ^committees/Architectural Control/ACC Application.pdf$ /committees/Architectural Control/Architectural Control Current/ACC Application.pdf [R=301,L]
+
+# 2026-01_GRIT_final.pdf
+RewriteRule ^GRITS for 2026/2026-01_GRIT_final.pdf$ /grit/2026/2026-01_GRIT_final.pdf [R=301,L]
+
+# board-minutes-4-2022.pdf
+RewriteRule ^board/minutes/board-minutes-4-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-4-2022.pdf [R=301,L]
+
+# shha-code-of-conduct-for-board-members-volunteers-and-members-in-official-roles.pdf
+RewriteRule ^shha-code-of-conduct-for-board-members-volunteers-and-members-in-official-roles.pdf$ /committees/Governance/Governance Current/shha-code-of-conduct-for-board-members-volunteers-and-members-in-official-roles.pdf [R=301,L]
+
+# ACC_Design_Guideline_Detached_Buildings_Revised_8-17-20.pdf
+RewriteRule ^content_images/ACC_Design_Guidelines/ACC_Design_Guideline_Detached_Buildings_Revised_8-17-20.pdf$ /committees/Architectural Control/Architectural Control Old/ACC_Design_Guideline_Detached_Buildings_Revised_8-17-20.pdf [R=301,L]
+
+# YTD Budget vs actual 6-25.pdf
+RewriteRule ^YTD Budget vs actual 6-25.pdf$ /committees/Finance/Finance Old/YTD Budget vs actual 6-25.pdf [R=301,L]
+
+# board-minutes-5-2019.pdf
+RewriteRule ^board/minutes/board-minutes-5-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-5-2019.pdf [R=301,L]
+
+# Advertising Rate Card Policies for 2025.pdf
+RewriteRule ^committees/Communications and Publications/Advertising Rate Card Policies for 2025.pdf$ /committees/Communications and Publications/Communications and Publications Current/Advertising Rate Card Policies for 2025.pdf [R=301,L]
+
+# September 2023 GRIT color update .pdf
+RewriteRule ^grit/September 2023 GRIT color update .pdf$ /grit/2023/September 2023 GRIT color update .pdf [R=301,L]
+
+# ACC Commitee Responsibiltities.docx
+RewriteRule ^forms/ACC Commitee Responsibiltities.docx$ /committees/Architectural Control/Architectural Control Old/ACC Commitee Responsibiltities.docx [R=301,L]
+
+# June_9_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/June_9_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/June_9_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# An_Update_on_Septic_Systems.pdf
+RewriteRule ^content_images/notices_and_information/An_Update_on_Septic_Systems.pdf$ /committees/Architectural Control/Architectural Control Old/An_Update_on_Septic_Systems.pdf [R=301,L]
+
+# 07_2024 Agenda.pdf
+RewriteRule ^board/minutes/07_2024 Agenda.pdf$ /board/2025 Agenda and Minutes/minutes/07_2024 Agenda.pdf [R=301,L]
+
+# October_13_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/October_13_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/October_13_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# shha-pl-jan-to-budget.pdf
+RewriteRule ^shha-pl-jan-to-budget.pdf$ /committees/Finance/Finance Old/shha-pl-jan-to-budget.pdf [R=301,L]
+
+# shha-2025-budget-1.pdf
+RewriteRule ^shha-2025-budget-1.pdf$ /committees/Finance/Finance Old/shha-2025-budget-1.pdf [R=301,L]
+
+# board-minutes-11-2019.pdf
+RewriteRule ^board/minutes/board-minutes-11-2019.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-11-2019.pdf [R=301,L]
+
+# FWieker1-2021.jpg
+RewriteRule ^gallery/FWieker1-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/FWieker1-2021.jpg [R=301,L]
+
+# ponderosa.jpg
+RewriteRule ^outdoors/landscaping/ponderosa.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/landscaping/ponderosa.jpg [R=301,L]
+
+# january-10-2018-board-meeting-minutes-revised.pdf
+RewriteRule ^board/minutes/january-10-2018-board-meeting-minutes-revised.pdf$ /board/2025 Agenda and Minutes/minutes/january-10-2018-board-meeting-minutes-revised.pdf [R=301,L]
+
+# 10.2025 Board meeting minutes final.pdf
+RewriteRule ^board/minutes/10.2025 Board meeting minutes final.pdf$ /board/2025 Agenda and Minutes/minutes/10.2025 Board meeting minutes final.pdf [R=301,L]
+
+# July_14_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/July_14_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/July_14_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# November_9_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/November_9_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/November_9_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# august-2020-grit.pdf
+RewriteRule ^grit/august-2020-grit.pdf$ /grit/2020/august-2020-grit.pdf [R=301,L]
+
+# December_8_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/December_8_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/December_8_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# GRIT_Article_Topics_2019_2020.pdf
+RewriteRule ^grit/GRIT_Article_Topics_2019_2020.pdf$ /grit/2019/GRIT_Article_Topics_2019_2020.pdf [R=301,L]
+
+# 08_2024 Agenda.pdf
+RewriteRule ^board/minutes/08_2024 Agenda.pdf$ /board/2025 Agenda and Minutes/minutes/08_2024 Agenda.pdf [R=301,L]
+
+# February 2025 Special Board Meeting minutes.pdf
+RewriteRule ^February 2025 Special Board Meeting minutes.pdf$ /board/2025 Agenda and Minutes/February 2025 Special Board Meeting minutes.pdf [R=301,L]
+
+# may-2022-grit.pdf
+RewriteRule ^grit/may-2022-grit.pdf$ /grit/2022/may-2022-grit.pdf [R=301,L]
+
+# Miscellaneous_Projects_Application_Revised_Oct_2020_.doc
+RewriteRule ^forms/Miscellaneous_Projects_Application_Revised_Oct_2020_.doc$ /committees/Architectural Control/Architectural Control Old/Miscellaneous_Projects_Application_Revised_Oct_2020_.doc [R=301,L]
+
+# board-minutes-11-2020.pdf
+RewriteRule ^board/minutes/board-minutes-11-2020.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-11-2020.pdf [R=301,L]
+
+# CSC_Resident_Guide_2025-04-22.pdf
+RewriteRule ^uploaded-files/CSC_Resident_Guide_2025-04-22.pdf$ /committees/Covenant Support/Covenant Support Current/CSC_Resident_Guide_2025-04-22.pdf [R=301,L]
+
+# pinon mouse.jpg
+RewriteRule ^outdoors/wildlife/mice_rats/pinon mouse.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/wildlife/mice_rats/pinon mouse.jpg [R=301,L]
+
+# Dec Grit 2025 Color.pdf
+RewriteRule ^GRITS FOR 2025/Dec Grit 2025 Color.pdf$ /grit/2025/Dec Grit 2025 Color.pdf [R=301,L]
+
+# October - Color Grit .pdf
+RewriteRule ^GRITS FOR 2025/October - Color Grit .pdf$ /grit/2025/October - Color Grit .pdf [R=301,L]
+
+# SHHA 2025 Actual vs Budget  4th QTR 2025.pdf
+RewriteRule ^committees/Finance/Finance Current/SHHA 2025 Actual vs Budget  4th QTR 2025.pdf$ /committees/Finance/Finance Old/SHHA 2025 Actual vs Budget  4th QTR 2025.pdf [R=301,L]
+
+# SHHA-GRIT-2017_08.pdf
+RewriteRule ^grit/Aug_GRIT_2017.pdf$ /grit/2017/SHHA-GRIT-2017_08.pdf [R=301,L]
+
+# 1.2024 Board minutes signed.pdf
+RewriteRule ^board/2024 Agendas and Minutes/1.2024 Board minutes signed.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/1.2024 Board minutes signed.pdf [R=301,L]
+
+# board-minutes-9-2020.pdf
+RewriteRule ^board/minutes/board-minutes-9-2020.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-9-2020.pdf [R=301,L]
+
+# shha-2024-balance-sheet-by-month-1.pdf
+RewriteRule ^shha-2024-balance-sheet-by-month-1.pdf$ /committees/Finance/Finance Current/shha-2024-balance-sheet-by-month-1.pdf [R=301,L]
+
+# Board-Minutes-09-2016.pdf
+RewriteRule ^board/minutes/Board-Minutes-09-2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board-Minutes-09-2016.pdf [R=301,L]
+
+# ACC Committee Membership.pdf
+RewriteRule ^forms/ACC Committee Membership.pdf$ /committees/Architectural Control/Architectural Control Old/ACC Committee Membership.pdf [R=301,L]
+
+# nov_grit_2018.pdf
+RewriteRule ^grit/nov_grit_2018.pdf$ /grit/2018/nov_grit_2018.pdf [R=301,L]
+
+# Sep 6 1979.pdf
+RewriteRule ^grit/Sep 6 1979.pdf$ /grit/1979/Sep 6 1979.pdf [R=301,L]
+
+# 11_2023 Board meeting agenda.docx
+RewriteRule ^board/2023 Agenda and Minutes/11_2023 Board meeting agenda.docx$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/11_2023 Board meeting agenda.docx [R=301,L]
+
+# ACC DESIGN GUIDELINE GOVERNING VARIANCES.docx
+RewriteRule ^ACC DESIGN GUIDELINE GOVERNING VARIANCES.docx$ /committees/Architectural Control/Architectural Control Current/ACC DESIGN GUIDELINE GOVERNING VARIANCES.docx [R=301,L]
+
+# SHHA-GRIT-2025_04.png
+RewriteRule ^SHHA-GRIT-2025_04.png$ /grit/2025/SHHA-GRIT-2025_04.png [R=301,L]
+
+# july-2022-grit-1.pdf
+RewriteRule ^grit/july-2022-grit-1.pdf$ /grit/2022/july-2022-grit-1.pdf [R=301,L]
+
+# SHHA_Bylaws_2022_Adopted_February_19_2022-Current.pdf
+RewriteRule ^downloads/SHHA_Bylaws_2022_Adopted_February_19_2022-Current.pdf$ /committees/Governance/Governance Current/SHHA_Bylaws_2022_Adopted_February_19_2022-Current.pdf [R=301,L]
+
+# 4.2025 Board meeting agenda.docx
+RewriteRule ^4.2025 Board meeting agenda.docx$ /board/2025 Agenda and Minutes/4.2025 Board meeting agenda.docx [R=301,L]
+
+# img_0075.jpg
+RewriteRule ^outdoors/landscaping/img_0075.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/landscaping/img_0075.jpg [R=301,L]
+
+# board-minutes-3-2021-with-addendum-r2-11-15-21.pdf
+RewriteRule ^board/minutes/board-minutes-3-2021-with-addendum-r2-11-15-21.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-3-2021-with-addendum-r2-11-15-21.pdf [R=301,L]
+
+# shha-2024-pl-by-month-post-compile.pdf
+RewriteRule ^shha-2024-pl-by-month-post-compile.pdf$ /committees/Finance/Finance Current/shha-2024-pl-by-month-post-compile.pdf [R=301,L]
+
+# SHHA Actual vs Budget Thru Sept 2025.pdf
+RewriteRule ^SHHA Actual vs Budget Thru Sept 2025.pdf$ /committees/Finance/Finance Old/SHHA Actual vs Budget Thru Sept 2025.pdf [R=301,L]
+
+# SHHA 2025 Monthly Balance Sheet by Month Thru July.pdf
+RewriteRule ^SHHA 2025 Monthly Balance Sheet by Month Thru July.pdf$ /committees/Finance/Finance Old/SHHA 2025 Monthly Balance Sheet by Month Thru July.pdf [R=301,L]
+
+# shha-pl-jan-to-prior-year.pdf
+RewriteRule ^shha-pl-jan-to-prior-year.pdf$ /committees/Finance/Finance Old/shha-pl-jan-to-prior-year.pdf [R=301,L]
+
+# PNM-Aug6-2025.pdf
+RewriteRule ^uploaded-files/PNM-Aug6-2025.pdf$ /committees/Special Projects/Stop PNM Towers/PNM-Aug6-2025.pdf [R=301,L]
+
+# SHHA 2024 Balance Sheet by Month post compile.pdf
+RewriteRule ^SHHA 2024 Balance Sheet by Month post compile.pdf$ /committees/Finance/Finance Current/SHHA 2024 Balance Sheet by Month post compile.pdf [R=301,L]
+
+# 2.2025 Board meeting Agenda final.pdf
+RewriteRule ^2.2025 Board meeting Agenda final.pdf$ /board/2025 Agenda and Minutes/2.2025 Board meeting Agenda final.pdf [R=301,L]
+
+# 12 - 2023 GRIT Color.pdf
+RewriteRule ^grit/12 - 2023 GRIT Color.pdf$ /grit/2023/12 - 2023 GRIT Color.pdf [R=301,L]
+
+# Board-Minutes-10-2016.pdf
+RewriteRule ^board/minutes/Board-Minutes-10-2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board-Minutes-10-2016.pdf [R=301,L]
+
+# 8_2023 August 9 2023 Board Meeting Agenda updated 8.9.pdf
+RewriteRule ^board/Agendas/8_2023 August 9 2023 Board Meeting Agenda updated 8.9.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/8_2023 August 9 2023 Board Meeting Agenda updated 8.9.pdf [R=301,L]
+
+# december-2022-grit.pdf
+RewriteRule ^grit/december-2022-grit.pdf$ /grit/2022/december-2022-grit.pdf [R=301,L]
+
+# SHHA-GRIT-1980_05.pdf
+RewriteRule ^grit/May 15 1980.pdf$ /grit/1980/SHHA-GRIT-1980_05.pdf [R=301,L]
+
+# 5.2024 Board meeting minutes signed.pdf
+RewriteRule ^uploaded-files/5.2024 Board meeting minutes signed.pdf$ /board/2025 Agenda and Minutes/2024 Agendas and Minutes/5.2024 Board meeting minutes signed.pdf [R=301,L]
+
+# VPennamen2-2021.jpg
+RewriteRule ^gallery/VPennamen2-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/VPennamen2-2021.jpg [R=301,L]
+
+# SHHA-GRIT-2023_08.pdf
+RewriteRule ^grit/August 2023 GRIT Color Revised.pdf$ /grit/2023/SHHA-GRIT-2023_08.pdf [R=301,L]
+
+# ACC_Contractor_Evaluation_Form.doc
+RewriteRule ^forms/ACC_Contractor_Evaluation_Form.doc$ /committees/Architectural Control/Architectural Control Current/ACC_Contractor_Evaluation_Form.doc [R=301,L]
+
+# 12-Dec_Financial_Statements-Website.pdf
+RewriteRule ^content_images/Financials/12-Dec_Financial_Statements-Website.pdf$ /committees/Finance/Finance Old/12-Dec_Financial_Statements-Website.pdf [R=301,L]
+
+# august-2022-grit.pdf
+RewriteRule ^grit/august-2022-grit.pdf$ /grit/2022/august-2022-grit.pdf [R=301,L]
+
+# New Construction and Additions Application Revised December 2024.pdf
+RewriteRule ^forms/New Construction and Additions Application Revised December 2024.pdf$ /committees/Architectural Control/Architectural Control Old/New Construction and Additions Application Revised December 2024.pdf [R=301,L]
+
+# Board_Minutes-01-2017.pdf
+RewriteRule ^board/minutes/Board_Minutes-01-2017.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes-01-2017.pdf [R=301,L]
+
+# January_13_2021_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/January_13_2021_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/January_13_2021_Board_Meeting_Agenda.pdf [R=301,L]
+
+# ACC DESIGN GUIDELINE FOR TWO.docx
+RewriteRule ^ACC DESIGN GUIDELINE FOR TWO.docx$ /committees/Architectural Control/Architectural Control Current/ACC DESIGN GUIDELINE FOR TWO.docx [R=301,L]
+
+# february-2021-grit.pdf
+RewriteRule ^grit/february-2021-grit.pdf$ /grit/2021/february-2021-grit.pdf [R=301,L]
+
+# board-minutes-1-2020.pdf
+RewriteRule ^board/minutes/board-minutes-1-2020.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-1-2020.pdf [R=301,L]
+
+# Chimney Canyon Fire.jpg
+RewriteRule ^outdoors/fireandwater/Chimney Canyon Fire.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/fireandwater/Chimney Canyon Fire.jpg [R=301,L]
+
+# july-2020-grit.pdf
+RewriteRule ^grit/july-2020-grit.pdf$ /grit/2020/july-2020-grit.pdf [R=301,L]
+
+# ACC_Design_Guideline-Detached_Buildings_RevisedApril2015.doc
+RewriteRule ^forms/ACC_Design_Guideline-Detached_Buildings_RevisedApril2015.doc$ /committees/Architectural Control/Architectural Control Current/ACC_Design_Guideline-Detached_Buildings_RevisedApril2015.doc [R=301,L]
+
+# CSC Charter Board-Approved 2025-04-09.pdf
+RewriteRule ^CSC Charter Board-Approved 2025-04-09.pdf$ /committees/Covenant Support/Covenant Support Current/CSC Charter Board-Approved 2025-04-09.pdf [R=301,L]
+
+# ACC DESIGN GUIDELINE GOVERNING VARIANCES.pdf
+RewriteRule ^ACC DESIGN GUIDELINE GOVERNING VARIANCES.pdf$ /committees/Architectural Control/Architectural Control Current/ACC DESIGN GUIDELINE GOVERNING VARIANCES.pdf [R=301,L]
+
+# insurance-info-for-website-2025-5.pdf
+RewriteRule ^insurance-info-for-website-2025-5.pdf$ /committees/Finance/Finance Old/insurance-info-for-website-2025-5.pdf [R=301,L]
+
+# board-minutes-5-2022.pdf
+RewriteRule ^board/minutes/board-minutes-5-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-minutes-5-2022.pdf [R=301,L]
+
+# SHHA-GRIT-2024_01.pdf
+RewriteRule ^grit/Jan 2024 GRIT Color.pdf$ /grit/2024/SHHA-GRIT-2024_01.pdf [R=301,L]
+
+# SHHA-GRIT-2025_07.png
+RewriteRule ^GRITS FOR 2025/SHHA-GRIT-2025_07.png$ /grit/2025/SHHA-GRIT-2025_07.png [R=301,L]
+
+# 5 - Motion - Universal Membership Archive 1.pdf
+RewriteRule ^board/2023 Agenda and Minutes/5 - Motion - Universal Membership Archive 1.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/5 - Motion - Universal Membership Archive 1.pdf [R=301,L]
+
+# January_2020_GRIT.pdf
+RewriteRule ^grit/January_2020_GRIT.pdf$ /grit/2020/January_2020_GRIT.pdf [R=301,L]
+
+# VPennamen4-2021.jpg
+RewriteRule ^gallery/VPennamen4-2021.jpg$ /committees/Communications and Publications/Communications and Publications Old/gallery/VPennamen4-2021.jpg [R=301,L]
+
+# January_12_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/January_12_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/January_12_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# Board_Minutes-03-2017.pdf
+RewriteRule ^board/minutes/Board_Minutes-03-2017.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes-03-2017.pdf [R=301,L]
+
+# february-2023-grit.pdf
+RewriteRule ^grit/february-2023-grit.pdf$ /grit/2023/february-2023-grit.pdf [R=301,L]
+
+# SHHAcompiled123123.pdf
+RewriteRule ^SHHAcompiled123123.pdf$ /committees/Finance/Finance Old/SHHAcompiled123123.pdf [R=301,L]
+
+# Nov Grit 2025.png
+RewriteRule ^GRITS FOR 2025/Nov Grit 2025.png$ /grit/2025/Nov Grit 2025.png [R=301,L]
+
+# board-meeting-minutes-12-2022.pdf
+RewriteRule ^board/minutes/board-meeting-minutes-12-2022.pdf$ /board/2025 Agenda and Minutes/minutes/board-meeting-minutes-12-2022.pdf [R=301,L]
+
+# Miscellaneous_Projects_Application_Revised_April_2023_.doc
+RewriteRule ^forms/Miscellaneous_Projects_Application_Revised_April_2023_.doc$ /committees/Architectural Control/Architectural Control Old/Miscellaneous_Projects_Application_Revised_April_2023_.doc [R=301,L]
+
+# Board_Minutes_03_2016.pdf
+RewriteRule ^board/minutes/Board_Minutes_03_2016.pdf$ /board/2025 Agenda and Minutes/minutes/Board_Minutes_03_2016.pdf [R=301,L]
+
+# oct_2018_grit.pdf
+RewriteRule ^grit/oct_2018_grit.pdf$ /grit/2018/oct_2018_grit.pdf [R=301,L]
+
+# SHHA-GRIT-2025_12.png
+RewriteRule ^SHHA-GRIT-2025_12.png$ /grit/2025/SHHA-GRIT-2025_12.png [R=301,L]
+
+# 10-october-1-2024-csc-meeting-agenda.pdf
+RewriteRule ^10-october-1-2024-csc-meeting-agenda.pdf$ /committees/Covenant Support/Covenant Support Old/10-october-1-2024-csc-meeting-agenda.pdf [R=301,L]
+
+# 2022_SHHA_Annual_Meeting_Handout_and_Proposed_Amendments_to_the_Bylaws.pdf
+RewriteRule ^content_images/Annual Meetings/2022_SHHA_Annual_Meeting_Handout_and_Proposed_Amendments_to_the_Bylaws.pdf$ /board/2025 Agenda and Minutes/Agendas/2022_SHHA_Annual_Meeting_Handout_and_Proposed_Amendments_to_the_Bylaws.pdf [R=301,L]
+
+# may-2021-grit-r1.pdf
+RewriteRule ^grit/may-2021-grit-r1.pdf$ /grit/2021/may-2021-grit-r1.pdf [R=301,L]
+
+# SHHA-GRIT-2017_01.pdf
+RewriteRule ^grit/Jan_GRIT_2017.pdf$ /grit/2017/SHHA-GRIT-2017_01.pdf [R=301,L]
+
+# SHHA Actual vs Budget Thur October 2025.pdf
+RewriteRule ^SHHA Actual vs Budget Thur October 2025.pdf$ /committees/Finance/Finance Old/SHHA Actual vs Budget Thur October 2025.pdf [R=301,L]
+
+# december-2021-grit-r1.pdf
+RewriteRule ^grit/december-2021-grit-r1.pdf$ /grit/2021/december-2021-grit-r1.pdf [R=301,L]
+
+# July Color Grit  2025 .pdf
+RewriteRule ^GRITS FOR 2025/July Color Grit  2025 .pdf$ /grit/2025/July Color Grit  2025 .pdf [R=301,L]
+
+# Annual_Meeting_Minutes_02-2017.pdf
+RewriteRule ^downloads/Annual_Meeting_Minutes_02-2017.pdf$ /board/2025 Agenda and Minutes/minutes/Annual_Meeting_Minutes_02-2017.pdf [R=301,L]
+
+# img_0094.jpg
+RewriteRule ^outdoors/landscaping/img_0094.jpg$ /committees/Environment and Safety/Environment and Safety Current/outdoors/landscaping/img_0094.jpg [R=301,L]
+
+# SHHA Balance Sheet 11.30.24.pdf
+RewriteRule ^SHHA Balance Sheet 11.30.24.pdf$ /committees/Finance/Finance Current/SHHA Balance Sheet 11.30.24.pdf [R=301,L]
+
+# mountains-g33f4a2bf3_1920.jpg
+RewriteRule ^banners/mountains-g33f4a2bf3_1920.jpg$ /board/2026 Agenda and Minutes/banners/mountains-g33f4a2bf3_1920.jpg [R=301,L]
+
+# May_11_2022_Board_Meeting_Agenda.pdf
+RewriteRule ^content_images/Board_Agendas/May_11_2022_Board_Meeting_Agenda.pdf$ /board/2025 Agenda and Minutes/2023 Agenda and Minutes/May_11_2022_Board_Meeting_Agenda.pdf [R=301,L]
+
+# FireWisePlantMaterialsNMSU.pdf
+RewriteRule ^information/wildfire/FireWisePlantMaterialsNMSU.pdf$ /committees/Environment and Safety/Environment and Safety Current/wildfire/FireWisePlantMaterialsNMSU.pdf [R=301,L]
+
