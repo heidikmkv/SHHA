@@ -1,0 +1,8 @@
+# Directory formatter sensitive data
+*.csv
+*.xlsx
+*.xlsm
+
+# Excel backups and temp files
+~$*
+*.tmp
