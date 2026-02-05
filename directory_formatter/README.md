@@ -7,8 +7,8 @@ This folder contains a refactored Excel directory printer macro split into modul
 - **modular_core.bas** - Main entry point (`BuildPrintableDirectory()`) and configuration
 - **modular_parsing.bas** - Name/phone expansion with Resident flag handling
 - **modular_sorting.bas** - Sort routines for BY-NAME and BY-UNIT layouts
-- **modular_layout.bas** - Sheet building and formatting functions
-- **modular_helpers.bas** - Text processing, unit sorting, and sheet utilities
+- **modular_layout.bas** - Single-column sheet building and formatting functions
+- **modular_two_column.bas** - Two-column senior-friendly booklet formatting
 - **.gitignore** - Excludes CSV and XLSX files (sensitive homeowner data)
 
 ## How to Import into Excel
@@ -25,6 +25,7 @@ This folder contains a refactored Excel directory printer macro split into modul
    - `modular_sorting.bas`
    - `modular_layout.bas`
    - `modular_helpers.bas`
+   - `modular_two_column.bas`
 7. Click **Tools** → **References** and ensure Excel Object Library is checked
 8. Close the VB Editor (Alt + Q)
 
@@ -36,10 +37,25 @@ You can create a helper macro in your workbook to import these files programmati
 
 1. Paste your website CSV export into the **PASTE-HERE** sheet (starting at cell A1)
 2. Run `BuildPrintableDirectory()` macro
-3. The macro will generate three output sheets:
-   - **PRINT-BY-NAME** - Sorted by last name, omits "Resident" entries
-   - **PRINT-BY-UNIT** - Organized by HOA Unit/District, includes "Resident" entries
-   - **PRINT-BY-UNIT-TOC** - Table of contents for PRINT-BY-UNIT
+3. The macro will generate **five output sheets**:
+
+### Single-Column Formats (Original Style)
+   - **PRINT-BY-NAME** (A-#) - Sorted by last name, omits "Resident" entries, ~200 pages
+   - **PRINT-BY-UNIT** (B-#) - Organized by HOA Unit/District, includes "Resident" entries
+   - **PRINT-BY-UNIT-TOC** (B-#) - Table of contents for PRINT-BY-UNIT
+
+### Two-Column Booklet Formats (Senior-Friendly, ~50 pages)
+   - **PRINT-BY-NAME-2COL** (C-#) - Two-column by-name layout, ideal for booklet printing
+   - **PRINT-BY-UNIT-2COL** (D-#) - Two-column by-unit layout, ideal for booklet printing
+
+#### Two-Column Features:
+- **Senior-optimized**: 12pt Calibri body text (larger than single-column sheets)
+- **Generous spacing**: 16.5pt row height for easy reading
+- **Clear separation**: Visual gap between left and right columns
+- **Compact printing**: ~4 pages per 8.5x11" sheet (double-sided) instead of 1 page
+- **Booklet ready**: Print double-sided, fold in half to create booklets (~50 pages vs ~200)
+- **Intelligent page breaks**: Headers repeat, unit sections honored
+- **Footer pages**: Labeled C-1, C-2, D-1, D-2 for tracking
 
 ## Configuration
 
@@ -50,13 +66,30 @@ Private Const INPUT_SHEET As String = "PASTE-HERE"
 Private Const OUT_BY_NAME As String = "PRINT-BY-NAME"
 Private Const OUT_BY_UNIT As String = "PRINT-BY-UNIT"
 Private Const OUT_BY_UNIT_TOC As String = "PRINT-BY-UNIT-TOC"
+Private Const OUT_BY_NAME_2COL As String = "PRINT-BY-NAME-2COL"
+Private Const OUT_BY_UNIT_2COL As String = "PRINT-BY-UNIT-2COL"
 
 Private Const PAGE_PREFIX_BY_NAME As String = "A"
 Private Const PAGE_PREFIX_BY_UNIT As String = "B"
 Private Const PAGE_PREFIX_TOC As String = "B"
+Private Const PAGE_PREFIX_BY_NAME_2COL As String = "C"
+Private Const PAGE_PREFIX_BY_UNIT_2COL As String = "D"
 
 Private Const START_EACH_UNIT_ON_NEW_PAGE As Boolean = True
 ```
+
+## Printing & Booklet Creation
+
+### Recommended Workflow:
+1. Use **PRINT-BY-NAME-2COL** or **PRINT-BY-UNIT-2COL** for final printing
+2. Print double-sided (flip on short edge for binding)
+3. Fold in half to create a booklet
+4. The page numbering (C-1, C-2, etc.) helps organize pages
+
+### Example for ~50-page Booklet:
+- Sheet: PRINT-BY-NAME-2COL (38 data rows × 2 columns = ~76 entries per page view)
+- Page count: ~22 physical pages (4 views per page × 2 sides) = ~44 pages when folded
+- Print setting: "Fit to 1 page wide" (already configured)
 
 ## Data Requirements
 

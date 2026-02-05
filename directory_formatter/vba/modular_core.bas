@@ -14,11 +14,15 @@ Private Const INPUT_SHEET As String = "PASTE-HERE"
 Private Const OUT_BY_NAME As String = "PRINT-BY-NAME"
 Private Const OUT_BY_UNIT As String = "PRINT-BY-UNIT"
 Private Const OUT_BY_UNIT_TOC As String = "PRINT-BY-UNIT-TOC"
+Private Const OUT_BY_NAME_2COL As String = "PRINT-BY-NAME-2COL"
+Private Const OUT_BY_UNIT_2COL As String = "PRINT-BY-UNIT-2COL"
 
 ' Page number prefixes
 Private Const PAGE_PREFIX_BY_NAME As String = "A"
 Private Const PAGE_PREFIX_BY_UNIT As String = "B"
 Private Const PAGE_PREFIX_TOC As String = "B"
+Private Const PAGE_PREFIX_BY_NAME_2COL As String = "C"
+Private Const PAGE_PREFIX_BY_UNIT_2COL As String = "D"
 
 ' Set to True if you want each unit to start on a new page
 Private Const START_EACH_UNIT_ON_NEW_PAGE As Boolean = True
@@ -217,6 +221,25 @@ NextRow:
         BuildUnitPrintLayoutAndTOC wsByUnit, ru, wsTOC, PAGE_PREFIX_BY_UNIT, START_EACH_UNIT_ON_NEW_PAGE
         FormatPrintSheet wsByUnit, "A:F", PAGE_PREFIX_BY_UNIT
         FormatTOCSheet wsTOC, PAGE_PREFIX_TOC
+    End If
+
+    '=========================
+    ' WRITE TWO-COLUMN SHEETS
+    '=========================
+    Dim wsByName2 As Worksheet, wsByUnit2 As Worksheet
+    Set wsByName2 = GetOrCreateSheet(wb, OUT_BY_NAME_2COL, True)
+    Set wsByUnit2 = GetOrCreateSheet(wb, OUT_BY_UNIT_2COL, True)
+
+    If rn < 2 Then
+        wsByName2.Range("A1").Value2 = "No entries (PRINT-BY-NAME is empty)."
+    Else
+        BuildTwoColumnByName wsByName, wsByName2, PAGE_PREFIX_BY_NAME_2COL
+    End If
+
+    If ru < 2 Then
+        wsByUnit2.Range("A1").Value2 = "No entries (PRINT-BY-UNIT is empty)."
+    Else
+        BuildTwoColumnByUnit wsByUnit, wsByUnit2, PAGE_PREFIX_BY_UNIT_2COL
     End If
 
 CleanExit:
