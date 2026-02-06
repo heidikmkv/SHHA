@@ -7,12 +7,10 @@ Option Explicit
 ' Output sheets:
 '   1) PRINT-BY-NAME          (omits people listed as "Resident")
 '   2) PRINT-BY-UNIT          (includes "Resident")
-'   3) PRINT-BY-UNIT-TOC      (table of contents for PRINT-BY-UNIT)
 '
 ' Page number prefixes (printed in Center Footer):
 '   PRINT-BY-NAME : A-1, A-2, ...
 '   PRINT-BY-UNIT : B-1, B-2, ...
-'   TOC           : B-1, B-2, ... (configurable)
 '
 ' Sorting of units:
 '   - Primary: unit alpha text with digits removed (e.g. "South Unit", "North")
@@ -48,6 +46,13 @@ Private Const OUT_BY_NAME As String = "PRINT-BY-NAME"
 Private Const OUT_BY_UNIT As String = "PRINT-BY-UNIT"
 Private Const OUT_BY_UNIT_TOC As String = "PRINT-BY-UNIT-TOC"
 
+Private Const SETTINGS_SHEET As String = "Instructions"
+Private Const SETTINGS_FONT_SIZE_CELL As String = "C30"
+Private Const SETTINGS_START_NEW_PAGE_CELL As String = "C31"
+Private Const SETTINGS_ZEBRA_CELL As String = "C32"
+Private Const SETTINGS_PREFIX_BY_NAME_CELL As String = "C33"
+Private Const SETTINGS_PREFIX_BY_UNIT_CELL As String = "C34"
+
 ' Page number prefixes
 Private Const PAGE_PREFIX_BY_NAME As String = "A"
 Private Const PAGE_PREFIX_BY_UNIT As String = "B"
@@ -58,6 +63,24 @@ Private Const START_EACH_UNIT_ON_NEW_PAGE As Boolean = True
 
 Public Sub BuildPrintableDirectory()
     Dim wb As Workbook: Set wb = ThisWorkbook
+
+    Dim wsSettings As Worksheet
+    Set wsSettings = GetSheetOrNothing(wb, SETTINGS_SHEET)
+
+    Dim settingFontSize As Double
+    settingFontSize = ReadSettingNumber(wsSettings, SETTINGS_FONT_SIZE_CELL, 10)
+    Dim settingHeaderSize As Double
+    settingHeaderSize = settingFontSize + 1
+    Dim settingStartNewPage As Boolean
+    settingStartNewPage = ReadSettingYesNo(wsSettings, SETTINGS_START_NEW_PAGE_CELL, START_EACH_UNIT_ON_NEW_PAGE)
+    Dim settingZebra As Boolean
+    settingZebra = ReadSettingYesNo(wsSettings, SETTINGS_ZEBRA_CELL, False)
+    Dim settingPrefixByName As String
+    settingPrefixByName = ReadSettingText(wsSettings, SETTINGS_PREFIX_BY_NAME_CELL, PAGE_PREFIX_BY_NAME)
+    Dim settingPrefixByUnit As String
+    settingPrefixByUnit = ReadSettingText(wsSettings, SETTINGS_PREFIX_BY_UNIT_CELL, PAGE_PREFIX_BY_UNIT)
+    Dim settingPrefixTOC As String
+    settingPrefixTOC = settingPrefixByUnit
 
     Dim wsIn As Worksheet
     Set wsIn = GetSheetOrNothing(wb, INPUT_SHEET)
@@ -85,22 +108,27 @@ Public Sub BuildPrintableDirectory()
     Dim data As Variant
     data = wsIn.Range(wsIn.Cells(1, 1), wsIn.Cells(lastRow, lastCol)).Value2
 
-    ' Required columns by header
-    Dim cName As Long, cPhone As Long, cNumber As Long, cStreet As Long
-    Dim cStreetUnit As Long, cHoaUnit As Long, cDistrict As Long, cIsMember As Long
+    ' Required columns by header (new PASTE-HERE format)
+    Dim cFirst As Long, cLast As Long, cNumber As Long, cStreet As Long
+    Dim cStreetUnit As Long, cHoaUnit As Long, cDistrict As Long, cPhone As Long
+    Dim cIsMember As Long, cListName As Long, cListPhone As Long, cNameSort As Long
 
-    cName = FindHeaderColumn(data, "Directory Names")
-    cPhone = FindHeaderColumn(data, "Directory Phone Numbers")
-    cNumber = FindHeaderColumn(data, "Number")
-    cStreet = FindHeaderColumn(data, "Street")
-    cStreetUnit = FindHeaderColumn(data, "Unit")   ' street unit letter/number (e.g., A)
-    cHoaUnit = FindHeaderColumn(data, "HOA Unit")  ' grouping unit (e.g., South 15)
+    cFirst = FindHeaderColumn(data, "First Name")
+    cLast = FindHeaderColumn(data, "Last Name")
+    cNumber = FindHeaderColumn(data, "Street Number")
+    cStreet = FindHeaderColumn(data, "Street Name")
+    cStreetUnit = FindHeaderColumn(data, "Street Unit")
     cDistrict = FindHeaderColumn(data, "District")
+    cHoaUnit = FindHeaderColumn(data, "HOA Unit")
+    cPhone = FindHeaderColumn(data, "Phone")
     cIsMember = FindHeaderColumn(data, "Is Member")
+    cListName = FindHeaderColumn(data, "List Name in Directory")
+    cListPhone = FindHeaderColumn(data, "List Phone in Directory")
+    cNameSort = FindHeaderColumn(data, "Name Sort Order")
 
-    If cName = 0 Or cPhone = 0 Or cNumber = 0 Or cStreet = 0 Or cIsMember = 0 Then
+    If cFirst = 0 Or cLast = 0 Or cNumber = 0 Or cStreet = 0 Or cIsMember = 0 Or cListName = 0 Or cListPhone = 0 Then
         MsgBox "Missing one or more required headers in row 1." & vbCrLf & _
-               "Expected: Directory Names, Directory Phone Numbers, Number, Street, Unit, HOA Unit, District, Is Member", vbExclamation
+               "Expected: First Name, Last Name, Street Number, Street Name, Street Unit, HOA Unit, District, Phone, Is Member, List Name in Directory, List Phone in Directory, Name Sort Order", vbExclamation
         GoTo CleanExit
     End If
 
@@ -121,12 +149,12 @@ Public Sub BuildPrintableDirectory()
     Set wsTOC = GetOrCreateSheet(wb, OUT_BY_UNIT_TOC, True)
 
     ' Output buffers
-    ' PRINT-BY-NAME: Last, First, Phone, StreetNo, StreetName(+Unit X), Member?
+    ' PRINT-BY-NAME: Last, First, Phone, StreetNo, StreetName(+Unit X), Member?, NameSort
     ' PRINT-BY-UNIT staging:
     '   UnitKey, UnitAlpha, UnitNum, StreetNo, StreetName(+Unit X), Last, First, Phone, Member?, IsResident
     Dim outName() As Variant, outUnit() As Variant
     Dim cap As Long: cap = (lastRow - 1) * 5 + 200
-    ReDim outName(1 To cap, 1 To 6)
+    ReDim outName(1 To cap, 1 To 7)
     ReDim outUnit(1 To cap, 1 To 10)
 
     Dim rn As Long: rn = 1
@@ -138,6 +166,7 @@ Public Sub BuildPrintableDirectory()
     outName(1, 4) = "Street number"
     outName(1, 5) = "Street Name"
     outName(1, 6) = "Member?"
+    outName(1, 7) = "NameSort"
 
     outUnit(1, 1) = "UnitKey"
     outUnit(1, 2) = "UnitAlpha"
@@ -152,18 +181,32 @@ Public Sub BuildPrintableDirectory()
 
     Dim r As Long
     For r = 2 To lastRow
-        Dim rawNames As String, rawPhones As String
-        rawNames = NzStr(data(r, cName))
-        rawPhones = NzStr(data(r, cPhone))
+        Dim firstName As String, lastName As String, phoneVal As String
+        firstName = NzStr(data(r, cFirst))
+        lastName = NzStr(data(r, cLast))
+        phoneVal = NzStr(data(r, cPhone))
+
+        Dim listName As Boolean, listPhone As Boolean
+        listName = IsMemberTrue(data(r, cListName))
+        listPhone = IsMemberTrue(data(r, cListPhone))
 
         Dim isMemberText As String
         isMemberText = IIf(IsMemberTrue(data(r, cIsMember)), "Yes", "No")
 
-        ' Expand people + phones together; preserve "Resident" flag
-        Dim firsts() As String, lasts() As String, phones() As String, isRes() As Boolean
-        Dim peopleCount As Long
-        peopleCount = ExpandPeoplePhonesWithResidentFlag(rawNames, rawPhones, firsts, lasts, phones, isRes)
-        If peopleCount = 0 Then GoTo NextRow
+        Dim displayFirst As String, displayLast As String, displayPhone As String
+        If listName Then
+            displayFirst = firstName
+            displayLast = lastName
+        Else
+            displayFirst = "Resident"
+            displayLast = ""
+        End If
+
+        If listName And listPhone Then
+            displayPhone = phoneVal
+        Else
+            displayPhone = ""
+        End If
 
         ' Address fields
         Dim streetNo As String, streetName As String, streetUnit As String, streetNameOut As String
@@ -193,36 +236,45 @@ Public Sub BuildPrintableDirectory()
         unitAlpha = UnitAlphaKey(unitKey)
         unitNum = UnitNumericKey(unitKey)
 
-        Dim iPerson As Long
-        For iPerson = 1 To peopleCount
-            ' Grow buffers if needed
-            If rn + 1 > UBound(outName, 1) Then ReDim Preserve outName(1 To UBound(outName, 1) + 5000, 1 To 6)
-            If ru + 1 > UBound(outUnit, 1) Then ReDim Preserve outUnit(1 To UBound(outUnit, 1) + 5000, 1 To 10)
-
-            ' PRINT-BY-NAME: omit Resident
-            If Not isRes(iPerson) Then
-                rn = rn + 1
-                outName(rn, 1) = lasts(iPerson)
-                outName(rn, 2) = firsts(iPerson)
-                outName(rn, 3) = phones(iPerson)
-                outName(rn, 4) = streetNo
-                outName(rn, 5) = streetNameOut
-                outName(rn, 6) = isMemberText
+        Dim nameSortVal As Long
+        If cNameSort <> 0 Then
+            If Len(Trim$(NzStr(data(r, cNameSort)))) = 0 Then
+                nameSortVal = 999999
+            Else
+                nameSortVal = CLng(Val(NzStr(data(r, cNameSort))))
             End If
+        Else
+            nameSortVal = 999999
+        End If
 
-            ' PRINT-BY-UNIT: include everyone, including Resident
-            ru = ru + 1
-            outUnit(ru, 1) = unitKey
-            outUnit(ru, 2) = unitAlpha
-            outUnit(ru, 3) = unitNum
-            outUnit(ru, 4) = streetNo
-            outUnit(ru, 5) = streetNameOut
-            outUnit(ru, 6) = lasts(iPerson)
-            outUnit(ru, 7) = firsts(iPerson)
-            outUnit(ru, 8) = phones(iPerson)
-            outUnit(ru, 9) = isMemberText
-            outUnit(ru, 10) = IIf(isRes(iPerson), "1", "0")
-        Next iPerson
+        ' Grow buffers if needed
+        If rn + 1 > UBound(outName, 1) Then ReDim Preserve outName(1 To UBound(outName, 1) + 5000, 1 To 7)
+        If ru + 1 > UBound(outUnit, 1) Then ReDim Preserve outUnit(1 To UBound(outUnit, 1) + 5000, 1 To 10)
+
+        ' PRINT-BY-NAME: omit Resident
+        If listName Then
+            rn = rn + 1
+            outName(rn, 1) = displayLast
+            outName(rn, 2) = displayFirst
+            outName(rn, 3) = displayPhone
+            outName(rn, 4) = streetNo
+            outName(rn, 5) = streetNameOut
+            outName(rn, 6) = isMemberText
+            outName(rn, 7) = nameSortVal
+        End If
+
+        ' PRINT-BY-UNIT: include everyone, including Resident
+        ru = ru + 1
+        outUnit(ru, 1) = unitKey
+        outUnit(ru, 2) = unitAlpha
+        outUnit(ru, 3) = unitNum
+        outUnit(ru, 4) = streetNo
+        outUnit(ru, 5) = streetNameOut
+        outUnit(ru, 6) = displayLast
+        outUnit(ru, 7) = displayFirst
+        outUnit(ru, 8) = displayPhone
+        outUnit(ru, 9) = isMemberText
+        outUnit(ru, 10) = IIf(listName, "0", "1")
 
 NextRow:
     Next r
@@ -233,9 +285,10 @@ NextRow:
     If rn < 2 Then
         wsByName.Range("A1").Value2 = "No entries were produced for PRINT-BY-NAME."
     Else
-        wsByName.Range("A1").Resize(rn, 6).Value2 = outName
+        wsByName.Range("A1").Resize(rn, 7).Value2 = outName
         SortByName wsByName, rn
-        FormatPrintSheet wsByName, "A:F", PAGE_PREFIX_BY_NAME
+        wsByName.Columns("G").Hidden = True
+        FormatPrintSheet wsByName, "A:F", settingPrefixByName, settingFontSize, settingHeaderSize, settingZebra
     End If
 
     '=========================
@@ -247,9 +300,9 @@ NextRow:
     Else
         wsByUnit.Range("A1").Resize(ru, 10).Value2 = outUnit
         SortUnitStagingByAlphaNumeric wsByUnit, ru
-        BuildUnitPrintLayoutAndTOC wsByUnit, ru, wsTOC, PAGE_PREFIX_BY_UNIT, START_EACH_UNIT_ON_NEW_PAGE
-        FormatPrintSheet wsByUnit, "A:F", PAGE_PREFIX_BY_UNIT
-        FormatTOCSheet wsTOC, PAGE_PREFIX_TOC
+        BuildSimpleTOC wsByUnit, ru, wsTOC, settingFontSize, settingHeaderSize
+        BuildUnitPrintLayout wsByUnit, ru, settingPrefixByUnit, settingStartNewPage, settingFontSize, settingHeaderSize, settingZebra
+        FormatPrintSheet wsByUnit, "A:F", settingPrefixByUnit, settingFontSize, settingHeaderSize, settingZebra
     End If
 
 CleanExit:
@@ -296,11 +349,12 @@ Private Sub SortByName(ws As Worksheet, lastRow As Long)
     ' A Last, B First, C Phone, D Street#, E Street(+Unit), F Member?
     With ws.Sort
         .SortFields.Clear
+        .SortFields.Add Key:=ws.Range("G2:G" & lastRow), Order:=xlAscending
         .SortFields.Add Key:=ws.Range("A2:A" & lastRow), Order:=xlAscending
         .SortFields.Add Key:=ws.Range("B2:B" & lastRow), Order:=xlAscending
         .SortFields.Add Key:=ws.Range("D2:D" & lastRow), Order:=xlAscending
         .SortFields.Add Key:=ws.Range("E2:E" & lastRow), Order:=xlAscending
-        .SetRange ws.Range("A1:F" & lastRow)
+        .SetRange ws.Range("A1:G" & lastRow)
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -328,35 +382,77 @@ Private Sub SortUnitStagingByAlphaNumeric(ws As Worksheet, lastRow As Long)
 End Sub
 
 '=========================================================
-' UNIT PRINT LAYOUT + TOC
+' SIMPLE TOC (UNIT LIST ONLY)
 '=========================================================
-Private Sub BuildUnitPrintLayoutAndTOC(wsUnit As Worksheet, lastDataRow As Long, wsTOC As Worksheet, pagePrefix As String, startNewPageEachUnit As Boolean)
+Private Sub BuildSimpleTOC(wsUnit As Worksheet, lastDataRow As Long, wsTOC As Worksheet, baseFontSize As Double, headerFontSize As Double)
+    ' Extract unique units from sorted staging data and create a simple list
+    ' Page numbers can be added manually by the user
+    
+    Dim src As Variant
+    src = wsUnit.Range("A1:J" & lastDataRow).Value2
+    
+    wsTOC.Cells.Clear
+    
+    ' Headers
+    wsTOC.Range("A1").Value2 = "Unit"
+    wsTOC.Range("B1").Value2 = "Page"
+    With wsTOC.Range("A1:B1")
+        .Font.Bold = True
+        .Font.Size = headerFontSize
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlCenter
+    End With
+    
+    Dim tocR As Long: tocR = 1
+    Dim curUnit As String: curUnit = ""
+    
+    Dim r As Long
+    For r = 2 To UBound(src, 1)
+        Dim unitKey As String
+        unitKey = Trim$(NzStr(src(r, 1)))
+        
+        If StrComp(unitKey, curUnit, vbTextCompare) <> 0 Then
+            curUnit = unitKey
+            tocR = tocR + 1
+            wsTOC.Cells(tocR, 1).Value2 = IIf(Len(curUnit) > 0, curUnit, "(No Unit)")
+            wsTOC.Cells(tocR, 2).Value2 = ""  ' Empty - for manual entry
+        End If
+    Next r
+    
+    ' Format TOC
+    With wsTOC.UsedRange
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlCenter
+        .WrapText = False
+        .Font.Size = baseFontSize
+    End With
+    wsTOC.Rows(1).Font.Size = headerFontSize
+    wsTOC.Columns("A:B").AutoFit
+    
+    ' Freeze top row
+    wsTOC.Activate
+    wsTOC.Range("A2").Select
+    ActiveWindow.FreezePanes = False
+    ActiveWindow.FreezePanes = True
+End Sub
+
+'=========================================================
+' UNIT PRINT LAYOUT
+'=========================================================
+Private Sub BuildUnitPrintLayout(wsUnit As Worksheet, lastDataRow As Long, pagePrefix As String, startNewPageEachUnit As Boolean, baseFontSize As Double, headerFontSize As Double, useZebra As Boolean)
     ' Input staging (wsUnit):
     ' A UnitKey | B UnitAlpha | C UnitNum | D StreetNo | E StreetName(+Unit) | F Last | G First | H Phone | I Member? | J IsResident
     '
     ' Output wsUnit:
     ' Number | Street Name | Last Name | First Name | Phone | Member?
     ' with unit headers merged + shaded
-    '
-    ' Output wsTOC:
-    ' Unit | Page  (e.g., "South Unit 10" | "B-3")
 
     Dim src As Variant
     src = wsUnit.Range("A1:J" & lastDataRow).Value2
 
-    ' Reset both sheets completely each run
+    ' Reset sheet completely each run
     wsUnit.Cells.Clear
     wsUnit.ResetAllPageBreaks
-    wsTOC.Cells.Clear
-
-    ' TOC headers
-    wsTOC.Range("A1").Value2 = "Unit"
-    wsTOC.Range("B1").Value2 = "Page"
-    With wsTOC.Range("A1:B1")
-        .Font.Bold = True
-        .HorizontalAlignment = xlCenter
-        .VerticalAlignment = xlCenter
-    End With
 
     ' Unit sheet column headers
     wsUnit.Range("A1").Value2 = "Number"
@@ -367,14 +463,12 @@ Private Sub BuildUnitPrintLayoutAndTOC(wsUnit As Worksheet, lastDataRow As Long,
     wsUnit.Range("F1").Value2 = "Member?"
     With wsUnit.Range("A1:F1")
         .Font.Bold = True
+        .Font.Size = headerFontSize
         .HorizontalAlignment = xlCenter
         .VerticalAlignment = xlCenter
     End With
 
     Dim outR As Long: outR = 1
-    Dim tocR As Long: tocR = 1
-    Dim pageNum As Long: pageNum = 0
-
     Dim curUnit As String: curUnit = ""
 
     Dim r As Long
@@ -388,19 +482,10 @@ Private Sub BuildUnitPrintLayoutAndTOC(wsUnit As Worksheet, lastDataRow As Long,
 
             ' Optional page break so each unit starts on a new page
             If startNewPageEachUnit Then
-                If pageNum > 0 Then
+                If outR > 2 Then
                     wsUnit.HPageBreaks.Add Before:=wsUnit.Rows(outR)
                 End If
             End If
-
-            ' Compute "logical" page number for TOC:
-            ' If startNewPageEachUnit is true, this will be 1,2,3... per unit reliably.
-            pageNum = pageNum + 1
-
-            ' Write TOC row
-            tocR = tocR + 1
-            wsTOC.Cells(tocR, 1).Value2 = IIf(Len(curUnit) > 0, curUnit, "(No Unit)")
-            wsTOC.Cells(tocR, 2).Value2 = pagePrefix & "-" & CStr(pageNum)
 
             ' Pretty merged unit header row
             With wsUnit.Range(wsUnit.Cells(outR, 1), wsUnit.Cells(outR, 6))
@@ -408,11 +493,11 @@ Private Sub BuildUnitPrintLayoutAndTOC(wsUnit As Worksheet, lastDataRow As Long,
                 .Value2 = IIf(Len(curUnit) > 0, curUnit, "(No Unit)")
                 .Interior.Color = RGB(235, 235, 235)
                 .Font.Bold = True
-                .Font.Size = 14
+                .Font.Size = headerFontSize
                 .HorizontalAlignment = xlCenter
                 .VerticalAlignment = xlCenter
             End With
-            wsUnit.Rows(outR).RowHeight = 22
+            wsUnit.Rows(outR).RowHeight = RowHeightForFont(headerFontSize)
         End If
 
         outR = outR + 1
@@ -427,48 +512,33 @@ Private Sub BuildUnitPrintLayoutAndTOC(wsUnit As Worksheet, lastDataRow As Long,
             .HorizontalAlignment = xlCenter
             .VerticalAlignment = xlCenter
             .WrapText = False
+            .Font.Size = baseFontSize
         End With
+        wsUnit.Rows(outR).RowHeight = RowHeightForFont(baseFontSize)
     Next r
 
-    ' Basic TOC formatting
-    With wsTOC.UsedRange
-        .HorizontalAlignment = xlCenter
-        .VerticalAlignment = xlCenter
-        .WrapText = False
-    End With
-    wsTOC.Columns("A:B").AutoFit
+    If useZebra Then
+        ApplyZebraStripes wsUnit, 2, wsUnit.UsedRange.Rows.Count, 1, 6
+    End If
 
     ' Repeat header row on prints
     wsUnit.PageSetup.PrintTitleRows = "$1:$1"
 End Sub
 
-Private Sub FormatTOCSheet(ws As Worksheet, pagePrefix As String)
-    ws.Columns("A:B").AutoFit
-    FreezeTopRow ws
-
-    With ws.PageSetup
-        .Orientation = xlPortrait
-        .FitToPagesWide = 1
-        .FitToPagesTall = False
-        .Zoom = False
-        .PrintTitleRows = "$1:$1"
-        .FirstPageNumber = 1
-        .CenterFooter = pagePrefix & "-&P"
-    End With
-End Sub
-
 '=========================================================
 ' PRINT FORMATTING (page prefix A-/B-)
 '=========================================================
-Private Sub FormatPrintSheet(ws As Worksheet, colRange As String, pagePrefix As String)
+Private Sub FormatPrintSheet(ws As Worksheet, colRange As String, pagePrefix As String, baseFontSize As Double, headerFontSize As Double, useZebra As Boolean)
     Dim ur As Range
     Set ur = ws.UsedRange
 
     ur.HorizontalAlignment = xlCenter
     ur.VerticalAlignment = xlCenter
     ur.WrapText = False
+    ur.Font.Size = baseFontSize
 
     ws.Rows(1).Font.Bold = True
+    ws.Rows(1).Font.Size = headerFontSize
     ws.Columns(colRange).AutoFit
     ' Column alignment (directory style)
     If ws.Name = OUT_BY_NAME Then
@@ -499,6 +569,14 @@ Private Sub FormatPrintSheet(ws As Worksheet, colRange As String, pagePrefix As 
         .FirstPageNumber = 1
         .CenterFooter = pagePrefix & "-&P"
     End With
+
+    If ws.Name = OUT_BY_NAME Then
+        ws.Rows("2:" & ws.UsedRange.Rows.Count).RowHeight = RowHeightForFont(baseFontSize)
+    End If
+
+    If useZebra Then
+        ApplyZebraStripes ws, 2, ws.UsedRange.Rows.Count, 1, 6
+    End If
 End Sub
 
 Private Sub FreezeTopRow(ws As Worksheet)
@@ -870,4 +948,74 @@ Private Function GetOrCreateSheet(wb As Workbook, sheetName As String, Optional 
     End If
 
     Set GetOrCreateSheet = ws
+End Function
+
+'=========================================================
+' SETTINGS + FORMATTING HELPERS
+'=========================================================
+Private Function ReadSettingText(ws As Worksheet, cellAddress As String, defaultValue As String) As String
+    If ws Is Nothing Then
+        ReadSettingText = defaultValue
+        Exit Function
+    End If
+    Dim v As String
+    v = Trim$(NzStr(ws.Range(cellAddress).Value2))
+    If Len(v) = 0 Then
+        ReadSettingText = defaultValue
+    Else
+        ReadSettingText = v
+    End If
+End Function
+
+Private Function ReadSettingNumber(ws As Worksheet, cellAddress As String, defaultValue As Double) As Double
+    If ws Is Nothing Then
+        ReadSettingNumber = defaultValue
+        Exit Function
+    End If
+    Dim v As String
+    v = Trim$(NzStr(ws.Range(cellAddress).Value2))
+    If Len(v) = 0 Then
+        ReadSettingNumber = defaultValue
+    Else
+        ReadSettingNumber = CDbl(Val(v))
+    End If
+End Function
+
+Private Function ReadSettingYesNo(ws As Worksheet, cellAddress As String, defaultValue As Boolean) As Boolean
+    If ws Is Nothing Then
+        ReadSettingYesNo = defaultValue
+        Exit Function
+    End If
+    Dim v As String
+    v = LCase$(Trim$(NzStr(ws.Range(cellAddress).Value2)))
+    If v = "yes" Or v = "y" Or v = "true" Or v = "1" Then
+        ReadSettingYesNo = True
+    ElseIf v = "no" Or v = "n" Or v = "false" Or v = "0" Then
+        ReadSettingYesNo = False
+    Else
+        ReadSettingYesNo = defaultValue
+    End If
+End Function
+
+Private Sub ApplyZebraStripes(ws As Worksheet, startRow As Long, endRow As Long, startCol As Long, endCol As Long)
+    Dim r As Long
+    Dim shade As Boolean
+    shade = False
+
+    For r = startRow To endRow
+        If ws.Cells(r, startCol).MergeCells Then
+            shade = False
+        Else
+            shade = Not shade
+            If shade Then
+                ws.Range(ws.Cells(r, startCol), ws.Cells(r, endCol)).Interior.Color = RGB(245, 245, 245)
+            Else
+                ws.Range(ws.Cells(r, startCol), ws.Cells(r, endCol)).Interior.ColorIndex = xlColorIndexNone
+            End If
+        End If
+    Next r
+End Sub
+
+Private Function RowHeightForFont(baseFontSize As Double) As Double
+    RowHeightForFont = baseFontSize + 4
 End Function
