@@ -178,7 +178,7 @@ Public Sub BuildPrintableDirectory()
 
         streetNameOut = streetName
         If Len(streetUnit) > 0 Then
-            streetNameOut = streetNameOut & "  Unit " & streetUnit
+            streetNo = streetNo & "-" & streetUnit
         End If
 
         ' Unit group key + sort keys
@@ -654,7 +654,7 @@ End Sub
 '=========================================================
 Private Function UnitNumericKey(unitKey As String) As Long
     Dim n As Variant
-    n = RightmostNumber_NoRegex(unitKey)
+    n = FirstNumber_NoRegex(unitKey)
     If IsNull(n) Then
         UnitNumericKey = 999999
     Else
@@ -664,43 +664,57 @@ End Function
 
 Private Function UnitAlphaKey(unitKey As String) As String
     Dim s As String
+    Dim firstDigitPos As Long
     s = CleanCellTextSingleLine(unitKey)
-    s = RemoveDigits_NoRegex(s)
-    UnitAlphaKey = NormalizeSpaces(s)
+    firstDigitPos = FirstDigitPosition(s)
+    If firstDigitPos > 1 Then
+        UnitAlphaKey = NormalizeSpaces(Left$(s, firstDigitPos - 1))
+    ElseIf firstDigitPos = 1 Then
+        UnitAlphaKey = ""
+    Else
+        UnitAlphaKey = NormalizeSpaces(s)
+    End If
 End Function
 
-Private Function RightmostNumber_NoRegex(ByVal s As String) As Variant
+Private Function FirstDigitPosition(ByVal s As String) As Long
+    Dim i As Long
+    For i = 1 To Len(s)
+        If Mid$(s, i, 1) Like "#" Then
+            FirstDigitPosition = i
+            Exit Function
+        End If
+    Next i
+    FirstDigitPosition = 0
+End Function
+
+Private Function FirstNumber_NoRegex(ByVal s As String) As Variant
     s = CleanCellTextSingleLine(s)
 
     Dim i As Long
     Dim digits As String
     digits = ""
 
-    ' Find last digit
-    For i = Len(s) To 1 Step -1
-        If Mid$(s, i, 1) Like "#" Then Exit For
-    Next i
-
+    i = FirstDigitPosition(s)
     If i = 0 Then
-        RightmostNumber_NoRegex = Null
+        FirstNumber_NoRegex = Null
         Exit Function
     End If
 
-    ' Collect contiguous digit run
-    For i = i To 1 Step -1
-        Dim ch As String
+    Dim ch As String
+    Do While i <= Len(s)
         ch = Mid$(s, i, 1)
         If ch Like "#" Then
-            digits = ch & digits
+            digits = digits & ch
+            i = i + 1
         Else
-            Exit For
+            Exit Do
         End If
-    Next i
+    Loop
 
     If Len(digits) = 0 Then
-        RightmostNumber_NoRegex = Null
+        FirstNumber_NoRegex = Null
     Else
-        RightmostNumber_NoRegex = CLng(digits)
+        FirstNumber_NoRegex = CLng(digits)
     End If
 End Function
 
@@ -857,4 +871,3 @@ Private Function GetOrCreateSheet(wb As Workbook, sheetName As String, Optional 
 
     Set GetOrCreateSheet = ws
 End Function
-
