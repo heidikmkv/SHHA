@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body { font-family: Arial, sans-serif; padding: 12px; }
+      textarea { width: 100%; height: 250px; }
+      button { width: 100%; padding: 10px; margin-top: 10px; }
+      .hint { font-size: 12px; line-height: 1.35; color: #333; margin-top: 10px; }
+      code { background: #f3f3f3; padding: 1px 4px; border-radius: 4px; }
+      .error { color: #b00020; margin-top: 10px; white-space: pre-wrap; }
+      .ok { color: #0b8043; margin-top: 10px; }
+    </style>
+  </head>
+  <body>
+    <h3>GRIT Markdown</h3>
+
+    <textarea id="md" placeholder="== ACC
+
+# ACC Activity Log
+## Highlights
+- Approved 3 applications
+- 2 pending resubmittals
+
+### 1234 Ridgecrest Dr
+#### Status
+Waiting on revised drawings.
+
+Body paragraph with **bold** and _italic_."></textarea>
+
+    <button onclick="insert()">Insert at cursor</button>
+
+    <button onclick="download()">Download Markdown</button>
+
+    <div class="hint">
+      <b>Accepted GRIT Markdown</b><br>
+      <code>== </code> Section Title (Title style)<br>
+      <code># </code> Heading 1<br>
+      <code>## </code> Heading 2<br>
+      <code>### </code> Heading 3<br>
+      <code>#### </code> Heading 4<br>
+      Blank line = new paragraph<br>
+      <code>- </code> or <code>* </code> bullet list<br>
+      <code>1. </code> numbered list<br>
+      Inline: <code>**bold**</code>, <code>_italic_</code><br><br>
+      <i>Export rule:</i> downloads the <b>selection</b> if you have one, otherwise the whole doc.
+    </div>
+
+    <div id="status"></div>
+
+    <script>
+      function setStatus(msg, cls) {
+        const el = document.getElementById('status');
+        el.className = cls || '';
+        el.textContent = msg || '';
+      }
+
+      function insert() {
+        setStatus('', '');
+        const text = document.getElementById('md').value || '';
+        google.script.run
+          .withSuccessHandler(() => setStatus('Inserted.', 'ok'))
+          .withFailureHandler(err => setStatus(String(err && err.message ? err.message : err), 'error'))
+          .insertGritMarkdown(text);
+      }
+
+      function download() {
+        setStatus('', '');
+        google.script.run
+          .withSuccessHandler(md => {
+            const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'GRIT.md';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+            setStatus('Downloaded GRIT.md', 'ok');
+          })
+          .withFailureHandler(err => setStatus(String(err && err.message ? err.message : err), 'error'))
+          .exportGritMarkdown();
+      }
+
+    </script>
+  </body>
+</html>
