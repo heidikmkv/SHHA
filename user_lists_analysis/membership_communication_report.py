@@ -10,6 +10,7 @@ import pandas as pd
 
 ADDRESS_FILE = "addresses_export.csv"
 SUBSCRIBER_FILE = "subscribers.csv"
+ADDRESS_USERS_FILE = "address_users_export.csv"
 USER_EXPORT_GLOB = "export-users-*.csv"
 TREND_COLUMNS = [
     "run_date",
@@ -98,6 +99,15 @@ def split_user_emails(value: object) -> list[str]:
     return [email for email in emails if is_valid_email(email)]
 
 
+def split_user_address_field(value: object) -> list[str]:
+    text = clean_text(value)
+    if not text:
+        return []
+    for delimiter in [";", "|"]:
+        text = text.replace(delimiter, ",")
+    return [part.strip() for part in text.split(",") if part.strip()]
+
+
 def parse_subscriber_lists(value: object) -> set[str]:
     text = clean_text(value)
     if not text:
@@ -121,6 +131,10 @@ def signed_int(value: int) -> str:
 
 def format_count_pct(count: int, total: int) -> str:
     return f"{fmt(count)} ({pct(count, total)})"
+
+
+def inline_breakdown(total_value: int, member_value: int, nonmember_value: int) -> str:
+    return f"{fmt(total_value)} (members: {fmt(member_value)}, non-members: {fmt(nonmember_value)})"
 
 
 def find_user_export_file(folder: Path) -> Optional[Path]:
@@ -179,13 +193,18 @@ def build_subscriber_sets(subscribers_df: pd.DataFrame) -> dict[str, set[str]]:
     essential = set(
         active.loc[active["lists_set"].map(lambda values: "essential updates only" in values), "email_norm"]
     )
+    grit_edelivery = set(
+        active.loc[active["lists_set"].map(lambda values: "grit e-delivery" in values), "email_norm"]
+    )
 
     frequent = {email for email in frequent if is_valid_email(email)}
     essential = {email for email in essential if is_valid_email(email)}
+    grit_edelivery = {email for email in grit_edelivery if is_valid_email(email)}
 
     return {
         "frequent": frequent,
         "essential": essential,
+        "grit_edelivery": grit_edelivery,
         "essential_only": essential - frequent,
     }
 
@@ -380,6 +399,72 @@ def summarize_individual_group(df: pd.DataFrame) -> dict[str, int]:
     }
 
 
+def build_email_membership_lookup(linked_users: pd.DataFrame) -> dict[str, str]:
+    if linked_users.empty:
+        return {}
+
+    membership: dict[str, str] = {}
+    grouped = linked_users.groupby("email_norm")
+    for email, group in grouped:
+        if not is_valid_email(email):
+            continue
+        segments = set(group["resident_segment"].tolist())
+        if "member" in segments:
+            membership[email] = "known_members"
+        elif "nonmember" in segments:
+            membership[email] = "known_nonmembers"
+        else:
+            membership[email] = "other"
+    return membership
+
+
+def compute_list_breakdown(email_set: set[str], membership_lookup: dict[str, str]) -> dict[str, int]:
+    known_members = sum(1 for email in email_set if membership_lookup.get(email) == "known_members")
+    known_nonmembers = sum(1 for email in email_set if membership_lookup.get(email) == "known_nonmembers")
+    other = len(email_set) - known_members - known_nonmembers
+    return {
+        "total": len(email_set),
+        "known_members": known_members,
+        "known_nonmembers": known_nonmembers,
+        "other": other,
+    }
+
+
+def compute_household_composition(households: pd.DataFrame) -> dict[str, float]:
+    user_counts = households["linked_user_count"]
+    return {
+        "zero_users": int((user_counts == 0).sum()),
+        "one_user": int((user_counts == 1).sum()),
+        "two_users": int((user_counts == 2).sum()),
+        "three_plus_users": int((user_counts >= 3).sum()),
+        "avg_users_per_address": float(user_counts.mean()) if len(user_counts) else 0.0,
+    }
+
+
+def compute_users_associated_stats(users_df: pd.DataFrame) -> dict[str, int]:
+    address_counts = users_df["Addresses"].map(split_user_address_field).map(len)
+    return {
+        "zero_addresses": int((address_counts == 0).sum()),
+        "one_address": int((address_counts == 1).sum()),
+        "two_addresses": int((address_counts == 2).sum()),
+        "three_addresses": int((address_counts == 3).sum()),
+        "four_addresses": int((address_counts == 4).sum()),
+        "five_plus_addresses": int((address_counts >= 5).sum()),
+    }
+
+
+def compute_user_roles(address_users_df: Optional[pd.DataFrame]) -> dict[str, int]:
+    if address_users_df is None or address_users_df.empty:
+        return {"owner": 0, "tenant": 0, "other": 0}
+
+    role_norm = address_users_df["Role"].map(clean_text).str.lower()
+    return {
+        "owner": int((role_norm == "owner").sum()),
+        "tenant": int((role_norm == "tenant").sum()),
+        "other": int((role_norm == "other").sum()),
+    }
+
+
 def trend_delta_lines(current: dict[str, int], previous: Optional[dict[str, int]]) -> list[str]:
     if previous is None:
         return ["- No prior snapshot found yet. Run another dated snapshot to see trend deltas."]
@@ -413,6 +498,10 @@ def write_report(
     resident_overall: dict[str, int],
     resident_members: dict[str, int],
     resident_nonmembers: dict[str, int],
+    household_composition: dict[str, float],
+    users_associated_stats: dict[str, int],
+    user_roles: dict[str, int],
+    list_breakdowns: dict[str, dict[str, int]],
     trend_lines: list[str],
 ) -> None:
     no_linked_users = households[~households["any_user_in_system"]].copy()
@@ -425,78 +514,208 @@ def write_report(
 
     multi_email_households = int(households["multi_blast_residents"].sum())
 
+    member_households_df = households[households["is_member"] == 1]
+    nonmember_households_df = households[households["is_member"] == 0]
+
+    members_no_users = int((~member_households_df["any_user_in_system"]).sum())
+    nonmembers_no_users = int((~nonmember_households_df["any_user_in_system"]).sum())
+
+    members_users_no_blast = int(member_households_df["users_no_email_blast_subscriber"].sum())
+    nonmembers_users_no_blast = int(nonmember_households_df["users_no_email_blast_subscriber"].sum())
+
+    members_users_no_valid_email = int(member_households_df["users_no_valid_email"].sum())
+    nonmembers_users_no_valid_email = int(nonmember_households_df["users_no_valid_email"].sum())
+
+    members_multi_blast = int(member_households_df["multi_blast_residents"].sum())
+    nonmembers_multi_blast = int(nonmember_households_df["multi_blast_residents"].sum())
+
+    reached_total = household_overall["reached"]
+    email_only_share = pct(household_overall["only_email"], reached_total)
+    print_only_share = pct(household_overall["only_grit"], reached_total)
+    both_share = pct(household_overall["both"], reached_total)
+
     lines: list[str] = []
     lines.append("# SHHA Membership & Communication Reach Report")
     lines.append("")
-    lines.append("## Source files")
+    lines.append("## Table of Contents")
+    lines.append("- [1. Source files](#1-source-files)")
+    lines.append("- [2. Definitions](#2-definitions)")
+    lines.append("- [3. Leadership answers](#3-leadership-answers)")
+    lines.append("  - [3.1 Core leadership questions](#31-core-leadership-questions)")
+    lines.append("- [4. Trend since previous snapshot](#4-trend-since-previous-snapshot)")
+    lines.append("- [5. Technical deep dive](#5-technical-deep-dive)")
+    lines.append("  - [5.1 Data consistency checks](#51-data-consistency-checks)")
+    lines.append("  - [5.2 Household composition](#52-household-composition)")
+    lines.append("  - [5.3 Users associated with addresses](#53-users-associated-with-addresses)")
+    lines.append("  - [5.4 User roles](#54-user-roles)")
+    lines.append("  - [5.5 User-level counts](#55-user-level-counts)")
+    lines.append("  - [5.6 Email list membership snapshot](#56-email-list-membership-snapshot)")
+    lines.append("  - [5.7 Household email coverage](#57-household-email-coverage)")
+    lines.append("  - [5.8 GRIT coverage](#58-grit-coverage)")
+    lines.append("  - [5.9 Communication reach by segment](#59-communication-reach-by-segment)")
+    lines.append("  - [5.10 Address-level reach percentages](#510-address-level-reach-percentages)")
+    lines.append("  - [5.11 Individual-level email reach](#511-individual-level-email-reach-linked-residents)")
+    lines.append("  - [5.12 ASCII Venn](#512-ascii-venn-printed-grit-vs-email-blasts)")
+    lines.append("- [6. Interpretation notes](#6-interpretation-notes)")
+    lines.append("")
+
+    lines.append("## 1. Source files")
     lines.append(f"- Data snapshot folder: {resolved_data_dir}")
     lines.append(f"- Snapshot date: {snapshot_date}")
     lines.append(f"- Master addresses: {source_paths['addresses']}")
     lines.append(f"- Users export: {source_paths['users']}")
     lines.append(f"- Subscribers export: {source_paths['subscribers']}")
     lines.append("")
-    lines.append("## Definitions")
+
+    lines.append("## 2. Definitions")
     lines.append("- **Address / household**: one row in the master addresses export.")
     lines.append("- **User**: one record in the website users export.")
     lines.append("- **Homeowner (analysis definition)**: any user linked to a household; tenants are included.")
     lines.append(f"  - Tenant-indicated households in this snapshot: {fmt(tenant_households)}.")
-    lines.append("- **Email blasts**: Frequent Updates list.")
-    lines.append("- **Essential-only**: Essential Updates Only without Frequent Updates.")
-    lines.append("- **Email subscriber (for email reach in this report)**: active Frequent Updates subscriber (not unsubscribed).")
-    lines.append("- **Reached**: household receives at least one of Printed GRIT (`Mail GRIT = 1`) or Email blasts (Frequent Updates).")
+    lines.append("- **Email blasts**: active Frequent Updates list subscribers.")
+    lines.append("- **Essential-only**: Essential Updates Only subscribers who are not on email blasts.")
+    lines.append("- **Reached**: household receives at least one of Printed GRIT (`Mail GRIT = 1`) or email blasts.")
     lines.append("- **Realtors list**: excluded from resident communication reach.")
     lines.append("")
 
-    lines.append("## Leadership answers")
-    lines.append(f"1. Household reach at all: {format_count_pct(household_overall['reached'], household_overall['total'])}")
-    lines.append(f"2. Member households with no communication: {fmt(household_members['neither'])}")
-    lines.append(f"3. Households with users but no Frequent Updates subscriber: {fmt(household_overall['users_no_blast'])}")
-    lines.append(f"4. Households relying only on GRIT: {fmt(household_overall['only_grit'])}")
-    lines.append(f"5. Households relying only on email blasts: {fmt(household_overall['only_email'])}")
+    lines.append("## 3. Leadership answers")
+    lines.append("### 3.1 Core leadership questions")
+    lines.append(
+        f"1. Households reached at all: {fmt(household_overall['reached'])} / {fmt(household_overall['total'])} ({pct(household_overall['reached'], household_overall['total'])})"
+    )
+    lines.append(
+        f"2. Households receiving no communication: {fmt(household_overall['neither'])} ({pct(household_overall['neither'], household_overall['total'])})"
+    )
+    lines.append(
+        f"3. Member households reached: {fmt(household_members['reached'])} / {fmt(household_members['total'])} ({pct(household_members['reached'], household_members['total'])})"
+    )
+    lines.append(
+        f"4. Non-member households reached: {fmt(household_nonmembers['reached'])} / {fmt(household_nonmembers['total'])} ({pct(household_nonmembers['reached'], household_nonmembers['total'])})"
+    )
+    lines.append(
+        f"5. Member households not reached: {fmt(household_members['neither'])} ({pct(household_members['neither'], household_members['total'])})"
+    )
+    lines.append(
+        f"6. Households reached by both GRIT and email blasts: {fmt(household_overall['both'])}"
+    )
+    lines.append(f"7. Households relying only on email blasts: {fmt(household_overall['only_email'])}")
+    lines.append(f"8. Households relying only on GRIT: {fmt(household_overall['only_grit'])}")
+    lines.append(f"9. Households receiving neither: {fmt(household_overall['neither'])}")
     lines.append("")
 
-    lines.append("## Trend since previous snapshot")
+    lines.append("## 4. Trend since previous snapshot")
     lines.extend(trend_lines)
     lines.append("")
 
-    lines.append("## Data consistency checks")
+    lines.append("## 5. Technical deep dive")
+    lines.append("### 5.1 Data consistency checks")
     lines.append(f"- Total households: {fmt(household_overall['total'])}")
     lines.append(f"- Households with linked users: {fmt(household_overall['users'])}")
     lines.append(f"- Households with no linked users: {fmt(len(no_linked_users))}")
     lines.append(f"- Top statuses among no-linked-user households: {no_linked_user_breakdown}")
     lines.append("")
 
+    lines.append("### 5.2 Household Composition")
+    lines.append(
+        f"- Addresses with 0 users: {inline_breakdown(household_composition['zero_users'], members_no_users, nonmembers_no_users)}"
+    )
+    lines.append(
+        f"- Addresses with 1 user: {inline_breakdown(household_composition['one_user'], int((member_households_df['linked_user_count'] == 1).sum()), int((nonmember_households_df['linked_user_count'] == 1).sum()))}"
+    )
+    lines.append(
+        f"- Addresses with 2 users: {inline_breakdown(household_composition['two_users'], int((member_households_df['linked_user_count'] == 2).sum()), int((nonmember_households_df['linked_user_count'] == 2).sum()))}"
+    )
+    lines.append(
+        f"- Addresses with 3+ users: {inline_breakdown(household_composition['three_plus_users'], int((member_households_df['linked_user_count'] >= 3).sum()), int((nonmember_households_df['linked_user_count'] >= 3).sum()))}"
+    )
+    lines.append("")
+    lines.append(
+        f"- Average users per address: {household_composition['avg_users_per_address']:.2f} (members: {member_households_df['linked_user_count'].mean():.2f}, non-members: {nonmember_households_df['linked_user_count'].mean():.2f})"
+    )
+    lines.append("")
+
+    lines.append("### 5.3 Users Associated with Addresses")
+    lines.append(f"- Users with 0 addresses: {fmt(users_associated_stats['zero_addresses'])}")
+    lines.append(f"- Users with 1 address: {fmt(users_associated_stats['one_address'])}")
+    lines.append(f"- Users with 2 addresses: {fmt(users_associated_stats['two_addresses'])}")
+    lines.append(f"- Users with 3 addresses: {fmt(users_associated_stats['three_addresses'])}")
+    lines.append(f"- Users with 4 addresses: {fmt(users_associated_stats['four_addresses'])}")
+    lines.append(f"- Users with 5+ addresses: {fmt(users_associated_stats['five_plus_addresses'])}")
+    lines.append("")
+
+    lines.append("### 5.4 User Roles")
+    lines.append(f"- owner: {fmt(user_roles['owner'])}")
+    lines.append(f"- tenant: {fmt(user_roles['tenant'])}")
+    lines.append(f"- other: {fmt(user_roles['other'])}")
+    lines.append("")
+
     total_linked_users = len(linked_users)
-    lines.append("## User-level counts")
-    lines.append(f"- Linked users (residents linked to addresses): {fmt(total_linked_users)}")
-    lines.append(f"- Linked users with valid email: {fmt(resident_overall['valid_email'])}")
-    lines.append(f"- Linked users receiving email blasts (Frequent Updates): {fmt(resident_overall['blast'])}")
+    lines.append("### 5.5 User-level counts")
+    lines.append(
+        f"- Linked users (residents linked to addresses): {inline_breakdown(total_linked_users, resident_members['total'], resident_nonmembers['total'])}"
+    )
+    lines.append(
+        f"- Linked users with valid email: {inline_breakdown(resident_overall['valid_email'], resident_members['valid_email'], resident_nonmembers['valid_email'])}"
+    )
+    lines.append(
+        f"- Linked users receiving email blasts: {inline_breakdown(resident_overall['blast'], resident_members['blast'], resident_nonmembers['blast'])}"
+    )
     denom_users = household_overall["users"] if household_overall["users"] else 0
     users_per_household = total_linked_users / denom_users if denom_users else 0
     lines.append(f"- Users per linked-user household: {users_per_household:.2f}")
     lines.append("")
 
-    lines.append("## Household email coverage")
-    lines.append(f"- Households with >=1 email blast subscriber: {format_count_pct(household_overall['blast'], household_overall['total'])}")
-    lines.append(f"- Households with >=1 Essential Updates subscriber: {format_count_pct(household_overall['essential'], household_overall['total'])}")
-    lines.append(f"- Households with no SHHA email subscribers: {format_count_pct(household_overall['no_email_subscribers'], household_overall['total'])}")
-    lines.append(f"- Households with users but no valid email at all: {fmt(household_overall['users_no_valid_email'])}")
-    lines.append(f"- Households where multiple residents receive email blasts: {fmt(multi_email_households)}")
+    lines.append("### 5.6 Email list membership snapshot")
+    lines.append("| Email list | Total active | Known members | Known non-members | Other |")
+    lines.append("|---|---:|---:|---:|---:|")
+    lines.append(
+        f"| Email blasts (Frequent Updates) | {fmt(list_breakdowns['frequent']['total'])} | {fmt(list_breakdowns['frequent']['known_members'])} | {fmt(list_breakdowns['frequent']['known_nonmembers'])} | {fmt(list_breakdowns['frequent']['other'])} |"
+    )
+    lines.append(
+        f"| Essential Updates Only | {fmt(list_breakdowns['essential_only']['total'])} | {fmt(list_breakdowns['essential_only']['known_members'])} | {fmt(list_breakdowns['essential_only']['known_nonmembers'])} | {fmt(list_breakdowns['essential_only']['other'])} |"
+    )
+    lines.append(
+        f"| GRIT e-Delivery | {fmt(list_breakdowns['grit_edelivery']['total'])} | {fmt(list_breakdowns['grit_edelivery']['known_members'])} | {fmt(list_breakdowns['grit_edelivery']['known_nonmembers'])} | {fmt(list_breakdowns['grit_edelivery']['other'])} |"
+    )
     lines.append("")
 
-    lines.append("## GRIT coverage")
+    lines.append("### 5.7 Household email coverage")
+    lines.append(
+        f"- Households with >=1 email blast subscriber: {inline_breakdown(household_overall['blast'], household_members['blast'], household_nonmembers['blast'])}"
+    )
+    lines.append(
+        f"- Households with >=1 Essential Updates subscriber: {inline_breakdown(household_overall['essential'], household_members['essential'], household_nonmembers['essential'])}"
+    )
+    lines.append(
+        f"- Households with no SHHA email subscribers: {inline_breakdown(household_overall['no_email_subscribers'], household_members['no_email_subscribers'], household_nonmembers['no_email_subscribers'])}"
+    )
+    lines.append(
+        f"- Households with users but no valid email at all: {inline_breakdown(household_overall['users_no_valid_email'], members_users_no_valid_email, nonmembers_users_no_valid_email)}"
+    )
+    lines.append(
+        f"- Households where multiple residents receive email blasts: {inline_breakdown(multi_email_households, members_multi_blast, nonmembers_multi_blast)}"
+    )
+    lines.append("")
+
+    lines.append("### 5.8 GRIT coverage")
     lines.append(f"- Member households receiving printed GRIT: {format_count_pct(household_members['grit'], household_members['total'])}")
     lines.append(f"- Member households not receiving printed GRIT: {fmt(household_members['total'] - household_members['grit'])}")
     lines.append(f"- Member print opt-out / no-print rate: {pct(household_members['total'] - household_members['grit'], household_members['total'])}")
+    lines.append(
+        f"- All-household printed GRIT coverage: {inline_breakdown(household_overall['grit'], household_members['grit'], household_nonmembers['grit'])}"
+    )
     lines.append("")
 
-    lines.append("## Communication reach by segment")
+    lines.append("### 5.9 Communication reach by segment")
     lines.append(f"- Member households reached: {fmt(household_members['reached'])} / {fmt(household_members['total'])} ({members_reached_pct})")
     lines.append(f"- Non-member households reached: {fmt(household_nonmembers['reached'])} / {fmt(household_nonmembers['total'])} ({nonmembers_reached_pct})")
     lines.append(f"- Households receiving no SHHA communication: {fmt(household_overall['neither'])} (members: {fmt(household_members['neither'])}, non-members: {fmt(household_nonmembers['neither'])})")
+    lines.append(
+        f"- Households reached by at least one method: {inline_breakdown(household_overall['reached'], household_members['reached'], household_nonmembers['reached'])}"
+    )
     lines.append("")
 
-    lines.append("## Address-level reach percentages")
+    lines.append("### 5.10 Address-level reach percentages")
     lines.append("| Group | % GRIT | % Email blasts | % Both | % Neither |")
     lines.append("|---|---:|---:|---:|---:|")
     for label, stats in [
@@ -510,7 +729,7 @@ def write_report(
         )
     lines.append("")
 
-    lines.append("## Individual-level email reach (linked residents)")
+    lines.append("### 5.11 Individual-level email reach (linked residents)")
     lines.append("| Group | Residents | % Email blasts | % Essential-only | % No SHHA email |")
     lines.append("|---|---:|---:|---:|---:|")
     for label, stats in [
@@ -524,9 +743,9 @@ def write_report(
         )
     lines.append("")
 
-    lines.append("## ASCII Venn (Printed GRIT vs Email blasts/Frequent Updates)")
+    lines.append("### 5.12 ASCII Venn (Printed GRIT vs Email blasts)")
     lines.append("```")
-    lines.append("Printed GRIT vs Email blasts (Frequent Updates)")
+    lines.append("Printed GRIT vs Email blasts")
     lines.append("=" * 72)
     lines.append(f"  GRIT only   : {fmt(household_overall['only_grit'])}")
     lines.append(f"  Both        : {fmt(household_overall['both'])}")
@@ -539,9 +758,9 @@ def write_report(
     lines.append("```")
     lines.append("")
 
-    lines.append("## Interpretation notes")
-    lines.append("- 'Households with users but no email subscriber' means no linked email at that address is actively subscribed to Frequent Updates.")
-    lines.append("- Such households may still have residents on Essential Updates Only; those are counted separately in household/individual essential metrics.")
+    lines.append("## 6. Interpretation notes")
+    lines.append("- 'Households with users but no email blasts subscriber' means no linked email at that address is actively subscribed to email blasts.")
+    lines.append("- Such households may still have residents on Essential Updates Only; those are counted separately in household/individual metrics.")
     lines.append("- Resident-level metrics are derived from users linked to addresses via address parsing and matching rules.")
 
     output_path.write_text("\n".join(lines), encoding="utf-8")
@@ -554,6 +773,7 @@ def run_report(data_dir: Path, output_dir: Path, snapshot_date: Optional[str]) -
     addresses_path = resolved_data_dir / ADDRESS_FILE
     users_path = find_user_export_file(resolved_data_dir)
     subscribers_path = resolved_data_dir / SUBSCRIBER_FILE
+    address_users_path = resolved_data_dir / ADDRESS_USERS_FILE
 
     if users_path is None:
         raise FileNotFoundError(f"No users export matching {USER_EXPORT_GLOB} in {resolved_data_dir}")
@@ -561,12 +781,20 @@ def run_report(data_dir: Path, output_dir: Path, snapshot_date: Optional[str]) -
     addresses_df = pd.read_csv(addresses_path).fillna("")
     users_df = pd.read_csv(users_path).fillna("")
     subscribers_df = pd.read_csv(subscribers_path).fillna("")
+    address_users_df = pd.read_csv(address_users_path).fillna("") if address_users_path.exists() else None
 
     subscriber_sets = build_subscriber_sets(subscribers_df)
     households = build_households(addresses_df, subscriber_sets)
 
     linked_users = link_users_to_households(users_df, households)
     linked_users = enrich_user_email_status(linked_users, subscriber_sets)
+
+    email_membership_lookup = build_email_membership_lookup(linked_users)
+    list_breakdowns = {
+        "frequent": compute_list_breakdown(subscriber_sets["frequent"], email_membership_lookup),
+        "essential_only": compute_list_breakdown(subscriber_sets["essential_only"], email_membership_lookup),
+        "grit_edelivery": compute_list_breakdown(subscriber_sets["grit_edelivery"], email_membership_lookup),
+    }
 
     households_members = households[households["is_member"] == 1]
     households_nonmembers = households[households["is_member"] == 0]
@@ -581,6 +809,10 @@ def run_report(data_dir: Path, output_dir: Path, snapshot_date: Optional[str]) -
     resident_overall = summarize_individual_group(linked_users)
     resident_members = summarize_individual_group(residents_members)
     resident_nonmembers = summarize_individual_group(residents_nonmembers)
+
+    household_composition = compute_household_composition(households)
+    users_associated_stats = compute_users_associated_stats(users_df)
+    user_roles = compute_user_roles(address_users_df)
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -655,6 +887,10 @@ def run_report(data_dir: Path, output_dir: Path, snapshot_date: Optional[str]) -
         resident_overall=resident_overall,
         resident_members=resident_members,
         resident_nonmembers=resident_nonmembers,
+        household_composition=household_composition,
+        users_associated_stats=users_associated_stats,
+        user_roles=user_roles,
+        list_breakdowns=list_breakdowns,
         trend_lines=trend_lines,
     )
 
