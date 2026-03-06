@@ -40,7 +40,21 @@ def normalize_email(value: object) -> str:
 
 
 def is_valid_email(email: str) -> bool:
-    return bool(email) and ("@" in email) and ("fake.fake" not in email)
+    if not email or ("@" not in email):
+        return False
+
+    normalized = email.lower().strip()
+    if "fake.fake" in normalized:
+        return False
+
+    domain = normalized.split("@", 1)[1].strip()
+    if not domain:
+        return False
+
+    if domain == "fake" or domain.startswith("fake.") or domain.endswith(".fake"):
+        return False
+
+    return True
 
 
 def norm_spaces(text: str) -> str:
@@ -183,9 +197,12 @@ def build_subscriber_sets(subscribers_df: pd.DataFrame) -> dict[str, set[str]]:
     working = subscribers_df.copy()
     working["email_norm"] = working["Email"].map(normalize_email)
     working["lists_set"] = working["Lists"].map(parse_subscriber_lists)
+    valid_mask = working["email_norm"].map(is_valid_email)
+    working = working[valid_mask].copy()
 
     active_mask = working["Unsubscribed At"].map(clean_text).eq("")
     active = working[active_mask].copy()
+    unsubscribed = working[~active_mask].copy()
 
     frequent = set(
         active.loc[active["lists_set"].map(lambda values: "frequent updates" in values), "email_norm"]
@@ -200,12 +217,18 @@ def build_subscriber_sets(subscribers_df: pd.DataFrame) -> dict[str, set[str]]:
     frequent = {email for email in frequent if is_valid_email(email)}
     essential = {email for email in essential if is_valid_email(email)}
     grit_edelivery = {email for email in grit_edelivery if is_valid_email(email)}
+    all_known = set(working["email_norm"])
+    unsubscribed_all = set(unsubscribed["email_norm"])
+    active_nonblast = set(active["email_norm"]) - frequent
 
     return {
         "frequent": frequent,
         "essential": essential,
         "grit_edelivery": grit_edelivery,
         "essential_only": essential - frequent,
+        "all_known": all_known,
+        "unsubscribed": unsubscribed_all,
+        "active_nonblast": active_nonblast,
     }
 
 
@@ -430,6 +453,49 @@ def compute_list_breakdown(email_set: set[str], membership_lookup: dict[str, str
     }
 
 
+def compute_homeowner_db_not_subscribed_stats(
+    linked_users: pd.DataFrame, subscriber_sets: dict[str, set[str]]
+) -> dict[str, int]:
+    if linked_users.empty:
+        return {
+            "total": 0,
+            "members": 0,
+            "nonmembers": 0,
+            "never_subscribed": 0,
+            "unsubscribed": 0,
+            "active_nonblast": 0,
+            "other_status": 0,
+        }
+
+    valid_users = linked_users[linked_users["has_valid_email"]].copy()
+    not_blast = valid_users[~valid_users["email_blast_subscriber"]].copy()
+
+    known = subscriber_sets["all_known"]
+    unsubscribed = subscriber_sets["unsubscribed"]
+    active_nonblast = subscriber_sets["active_nonblast"]
+
+    def classify(email: str) -> str:
+        if email not in known:
+            return "never_subscribed"
+        if email in unsubscribed:
+            return "unsubscribed"
+        if email in active_nonblast:
+            return "active_nonblast"
+        return "other_status"
+
+    not_blast["reason"] = not_blast["email_norm"].map(classify)
+
+    return {
+        "total": int(len(not_blast)),
+        "members": int((not_blast["resident_segment"] == "member").sum()),
+        "nonmembers": int((not_blast["resident_segment"] == "nonmember").sum()),
+        "never_subscribed": int((not_blast["reason"] == "never_subscribed").sum()),
+        "unsubscribed": int((not_blast["reason"] == "unsubscribed").sum()),
+        "active_nonblast": int((not_blast["reason"] == "active_nonblast").sum()),
+        "other_status": int((not_blast["reason"] == "other_status").sum()),
+    }
+
+
 def compute_household_composition(households: pd.DataFrame) -> dict[str, float]:
     user_counts = households["linked_user_count"]
     return {
@@ -476,13 +542,119 @@ def trend_delta_lines(current: dict[str, int], previous: Optional[dict[str, int]
         return int(float(raw))
 
     return [
-        f"- Prior snapshot date: {previous['run_date']}",
+        f"Prior snapshot date: {previous['run_date']}",
         f"- Total households: {fmt(current['households_total'])} ({signed_int(current['households_total'] - prev_int('households_total'))})",
         f"- Reached households: {fmt(current['households_reached_any'])} ({signed_int(current['households_reached_any'] - prev_int('households_reached_any'))})",
         f"- Not reached households: {fmt(current['households_not_reached'])} ({signed_int(current['households_not_reached'] - prev_int('households_not_reached'))})",
         f"- Member households not reached: {fmt(current['member_households_not_reached'])} ({signed_int(current['member_households_not_reached'] - prev_int('member_households_not_reached'))})",
         f"- Households with users but no blast subscriber: {fmt(current['households_with_users_no_blast'])} ({signed_int(current['households_with_users_no_blast'] - prev_int('households_with_users_no_blast'))})",
     ]
+
+
+def previous_int(previous_snapshot: Optional[dict[str, int]], key: str) -> int:
+    if previous_snapshot is None:
+        return 0
+
+    value = previous_snapshot.get(key, 0)
+    if pd.isna(value):
+        return 0
+
+    return int(float(value))
+
+
+def write_executive_summary(
+    output_path: Path,
+    snapshot_date: str,
+    household_overall: dict[str, int],
+    household_members: dict[str, int],
+    household_nonmembers: dict[str, int],
+    resident_overall: dict[str, int],
+    homeowner_db_not_subscribed: dict[str, int],
+    current_trend: dict[str, int],
+    previous_snapshot: Optional[dict[str, int]],
+) -> None:
+    member_reach_pct = pct(household_members["reached"], household_members["total"])
+    nonmember_reach_pct = pct(household_nonmembers["reached"], household_nonmembers["total"])
+    overall_reach_pct = pct(household_overall["reached"], household_overall["total"])
+    member_share_pct = pct(household_members["total"], household_overall["total"])
+    nonmember_share_pct = pct(household_nonmembers["total"], household_overall["total"])
+
+    reached_delta = 0
+    member_not_reached_delta = 0
+    users_no_blast_delta = 0
+    has_previous = previous_snapshot is not None
+    if has_previous:
+        reached_delta = current_trend["households_reached_any"] - previous_int(previous_snapshot, "households_reached_any")
+        member_not_reached_delta = current_trend["member_households_not_reached"] - previous_int(
+            previous_snapshot, "member_households_not_reached"
+        )
+        users_no_blast_delta = current_trend["households_with_users_no_blast"] - previous_int(
+            previous_snapshot, "households_with_users_no_blast"
+        )
+
+    lines: list[str] = []
+    lines.append("# SHHA Board Executive Summary")
+    lines.append("")
+    lines.append(f"Data pull date: {snapshot_date}")
+    lines.append("")
+
+    lines.append("## Membership snapshot")
+    lines.append(f"- Total households in membership database: {fmt(household_overall['total'])}")
+    lines.append(
+        f"- Member households: {fmt(household_members['total'])} ({member_share_pct})"
+    )
+    lines.append(
+        f"- Non-member households: {fmt(household_nonmembers['total'])} ({nonmember_share_pct})"
+    )
+    lines.append("")
+
+    lines.append("## Communication snapshot")
+    lines.append(
+        f"- Households reached by printed GRIT and/or email blasts: {fmt(household_overall['reached'])} out of {fmt(household_overall['total'])} ({overall_reach_pct})"
+    )
+    lines.append(
+        f"- Member household reach: {fmt(household_members['reached'])} out of {fmt(household_members['total'])} ({member_reach_pct})"
+    )
+    lines.append(
+        f"- Non-member household reach: {fmt(household_nonmembers['reached'])} out of {fmt(household_nonmembers['total'])} ({nonmember_reach_pct})"
+    )
+    lines.append("")
+
+    lines.append("## Key numbers")
+    lines.append(
+        f"- Member households not reached: {fmt(household_members['neither'])} out of {fmt(household_members['total'])} ({pct(household_members['neither'], household_members['total'])})"
+    )
+    lines.append(
+        f"- Non-member households not reached: {fmt(household_nonmembers['neither'])} out of {fmt(household_nonmembers['total'])} ({pct(household_nonmembers['neither'], household_nonmembers['total'])})"
+    )
+    lines.append(
+        f"- Channel mix among all households: both {fmt(household_overall['both'])}, email-only {fmt(household_overall['only_email'])}, GRIT-only {fmt(household_overall['only_grit'])}"
+    )
+    lines.append(
+        f"- Linked residents not receiving SHHA email: {fmt(resident_overall['no_shha_email'])} out of {fmt(resident_overall['total'])} ({pct(resident_overall['no_shha_email'], resident_overall['total'])})"
+    )
+    lines.append(
+        f"- Homeowner DB users with valid email not on email blasts: {fmt(homeowner_db_not_subscribed['total'])} (never subscribed {fmt(homeowner_db_not_subscribed['never_subscribed'])}, unsubscribed {fmt(homeowner_db_not_subscribed['unsubscribed'])})"
+    )
+    lines.append("")
+
+    lines.append("## Change since previous data pull")
+    if has_previous:
+        prior_date = str(previous_snapshot.get("run_date", "unknown"))
+        lines.append(f"Prior snapshot date: {prior_date}")
+        lines.append(f"- Reached households change: {signed_int(reached_delta)}")
+        lines.append(f"- Member households not reached change: {signed_int(member_not_reached_delta)}")
+        lines.append(f"- Households with users but no blast subscriber change: {signed_int(users_no_blast_delta)}")
+    else:
+        lines.append("- No prior snapshot exists yet for change comparison.")
+    lines.append("")
+
+    lines.append("## Definitions used in this summary")
+    lines.append("- Linked residents: users from the website users export that were matched to at least one household address.")
+    lines.append("- Email blasts: active Frequent Updates subscribers.")
+    lines.append("- Not reached: households receiving neither printed GRIT nor email blasts.")
+
+    output_path.write_text("\n".join(lines), encoding="utf-8")
 
 
 def write_report(
@@ -502,6 +674,7 @@ def write_report(
     users_associated_stats: dict[str, int],
     user_roles: dict[str, int],
     list_breakdowns: dict[str, dict[str, int]],
+    homeowner_db_not_subscribed: dict[str, int],
     trend_lines: list[str],
 ) -> None:
     no_linked_users = households[~households["any_user_in_system"]].copy()
@@ -542,6 +715,7 @@ def write_report(
     lines.append("- [2. Definitions](#2-definitions)")
     lines.append("- [3. Leadership answers](#3-leadership-answers)")
     lines.append("  - [3.1 Core leadership questions](#31-core-leadership-questions)")
+    lines.append("  - [3.2 User-level leadership snapshot](#32-user-level-leadership-snapshot)")
     lines.append("- [4. Trend since previous snapshot](#4-trend-since-previous-snapshot)")
     lines.append("- [5. Technical deep dive](#5-technical-deep-dive)")
     lines.append("  - [5.1 Data consistency checks](#51-data-consistency-checks)")
@@ -555,7 +729,8 @@ def write_report(
     lines.append("  - [5.9 Communication reach by segment](#59-communication-reach-by-segment)")
     lines.append("  - [5.10 Address-level reach percentages](#510-address-level-reach-percentages)")
     lines.append("  - [5.11 Individual-level email reach](#511-individual-level-email-reach-linked-residents)")
-    lines.append("  - [5.12 ASCII Venn](#512-ascii-venn-printed-grit-vs-email-blasts)")
+    lines.append("  - [5.12 Homeowner DB users not subscribed to email blasts](#512-homeowner-db-users-not-subscribed-to-email-blasts)")
+    lines.append("  - [5.13 ASCII Venn](#513-ascii-venn-printed-grit-vs-email-blasts)")
     lines.append("- [6. Interpretation notes](#6-interpretation-notes)")
     lines.append("")
 
@@ -569,11 +744,14 @@ def write_report(
 
     lines.append("## 2. Definitions")
     lines.append("- **Address / household**: one row in the master addresses export.")
-    lines.append("- **User**: one record in the website users export.")
+    lines.append(
+        "- **User**: one record in the website users export; this includes anyone ever entered in the website database for any reason (for example former homeowners, committee members using a separate committee email address, and miscellaneous operational users such as the webmaster)."
+    )
     lines.append("- **Homeowner (analysis definition)**: any user linked to a household; tenants are included.")
     lines.append(f"  - Tenant-indicated households in this snapshot: {fmt(tenant_households)}.")
     lines.append("- **Email blasts**: active Frequent Updates list subscribers.")
     lines.append("- **Essential-only**: Essential Updates Only subscribers who are not on email blasts.")
+    lines.append("- **Invalid/placeholder email**: values like `fake.fake` or domains such as `@fake` are treated as no email (excluded from valid-email and subscriber-reach metrics).")
     lines.append("- **Reached**: household receives at least one of Printed GRIT (`Mail GRIT = 1`) or email blasts.")
     lines.append("- **Realtors list**: excluded from resident communication reach.")
     lines.append("")
@@ -581,26 +759,48 @@ def write_report(
     lines.append("## 3. Leadership answers")
     lines.append("### 3.1 Core leadership questions")
     lines.append(
-        f"1. Households reached at all: {fmt(household_overall['reached'])} / {fmt(household_overall['total'])} ({pct(household_overall['reached'], household_overall['total'])})"
+        "This section summarizes household-level communication reach across SHHA channels (printed GRIT and email blasts) for member and non-member households."
+    )
+    lines.append("")
+    lines.append(
+        f"- Households reached at all: {fmt(household_overall['reached'])} out of {fmt(household_overall['total'])} ({pct(household_overall['reached'], household_overall['total'])})"
     )
     lines.append(
-        f"2. Households receiving no communication: {fmt(household_overall['neither'])} ({pct(household_overall['neither'], household_overall['total'])})"
+        f"- Households receiving no communication (neither GRIT nor email): {fmt(household_overall['neither'])} ({pct(household_overall['neither'], household_overall['total'])})"
+    )
+    lines.append("")
+    lines.append(
+        f"- Member households reached: {fmt(household_members['reached'])} out of {fmt(household_members['total'])} ({pct(household_members['reached'], household_members['total'])})"
     )
     lines.append(
-        f"3. Member households reached: {fmt(household_members['reached'])} / {fmt(household_members['total'])} ({pct(household_members['reached'], household_members['total'])})"
+        f"- Non-member households reached: {fmt(household_nonmembers['reached'])} out of {fmt(household_nonmembers['total'])} ({pct(household_nonmembers['reached'], household_nonmembers['total'])})"
+    )
+    lines.append("")
+    lines.append("- Communication channel coverage (households):")
+    lines.append(f"  - Households reached by both GRIT and email blasts: {fmt(household_overall['both'])}")
+    lines.append(f"  - Households relying only on email blasts: {fmt(household_overall['only_email'])}")
+    lines.append(f"  - Households relying only on GRIT: {fmt(household_overall['only_grit'])}")
+    lines.append("")
+
+    lines.append("### 3.2 User-level leadership snapshot")
+    lines.append(
+        f"- Member-linked users receiving email blasts: {fmt(resident_members['blast'])} out of {fmt(resident_members['total'])} ({pct(resident_members['blast'], resident_members['total'])})"
     )
     lines.append(
-        f"4. Non-member households reached: {fmt(household_nonmembers['reached'])} / {fmt(household_nonmembers['total'])} ({pct(household_nonmembers['reached'], household_nonmembers['total'])})"
+        f"- Non-member-linked users receiving email blasts: {fmt(resident_nonmembers['blast'])} out of {fmt(resident_nonmembers['total'])} ({pct(resident_nonmembers['blast'], resident_nonmembers['total'])})"
     )
     lines.append(
-        f"5. Member households not reached: {fmt(household_members['neither'])} ({pct(household_members['neither'], household_members['total'])})"
+        f"- Member-linked users not receiving SHHA email: {fmt(resident_members['no_shha_email'])} out of {fmt(resident_members['total'])} ({pct(resident_members['no_shha_email'], resident_members['total'])})"
     )
     lines.append(
-        f"6. Households reached by both GRIT and email blasts: {fmt(household_overall['both'])}"
+        f"- Non-member-linked users not receiving SHHA email: {fmt(resident_nonmembers['no_shha_email'])} out of {fmt(resident_nonmembers['total'])} ({pct(resident_nonmembers['no_shha_email'], resident_nonmembers['total'])})"
     )
-    lines.append(f"7. Households relying only on email blasts: {fmt(household_overall['only_email'])}")
-    lines.append(f"8. Households relying only on GRIT: {fmt(household_overall['only_grit'])}")
-    lines.append(f"9. Households receiving neither: {fmt(household_overall['neither'])}")
+    lines.append(
+        f"- Users in homeowners database but not subscribed to email blasts: {inline_breakdown(homeowner_db_not_subscribed['total'], homeowner_db_not_subscribed['members'], homeowner_db_not_subscribed['nonmembers'])}"
+    )
+    lines.append(
+        f"  - Of those not subscribed: never subscribed {fmt(homeowner_db_not_subscribed['never_subscribed'])}, unsubscribed {fmt(homeowner_db_not_subscribed['unsubscribed'])}, active on other SHHA lists but not email blasts {fmt(homeowner_db_not_subscribed['active_nonblast'])}, other status {fmt(homeowner_db_not_subscribed['other_status'])}"
+    )
     lines.append("")
 
     lines.append("## 4. Trend since previous snapshot")
@@ -700,10 +900,7 @@ def write_report(
     lines.append("### 5.8 GRIT coverage")
     lines.append(f"- Member households receiving printed GRIT: {format_count_pct(household_members['grit'], household_members['total'])}")
     lines.append(f"- Member households not receiving printed GRIT: {fmt(household_members['total'] - household_members['grit'])}")
-    lines.append(f"- Member print opt-out / no-print rate: {pct(household_members['total'] - household_members['grit'], household_members['total'])}")
-    lines.append(
-        f"- All-household printed GRIT coverage: {inline_breakdown(household_overall['grit'], household_members['grit'], household_nonmembers['grit'])}"
-    )
+    lines.append(f"- Non-members marked to receive GRIT (inconsistency): {fmt(household_nonmembers['grit'])}")
     lines.append("")
 
     lines.append("### 5.9 Communication reach by segment")
@@ -743,7 +940,16 @@ def write_report(
         )
     lines.append("")
 
-    lines.append("### 5.12 ASCII Venn (Printed GRIT vs Email blasts)")
+    lines.append("### 5.12 Homeowner DB users not subscribed to email blasts")
+    lines.append(
+        f"- Users in homeowners database with valid email but not subscribed to email blasts: {inline_breakdown(homeowner_db_not_subscribed['total'], homeowner_db_not_subscribed['members'], homeowner_db_not_subscribed['nonmembers'])}"
+    )
+    lines.append(
+        f"- Reason split: never subscribed {fmt(homeowner_db_not_subscribed['never_subscribed'])}, unsubscribed {fmt(homeowner_db_not_subscribed['unsubscribed'])}, active on other SHHA lists but not email blasts {fmt(homeowner_db_not_subscribed['active_nonblast'])}, other status {fmt(homeowner_db_not_subscribed['other_status'])}"
+    )
+    lines.append("")
+
+    lines.append("### 5.13 ASCII Venn (Printed GRIT vs Email blasts)")
     lines.append("```")
     lines.append("Printed GRIT vs Email blasts")
     lines.append("=" * 72)
@@ -795,6 +1001,7 @@ def run_report(data_dir: Path, output_dir: Path, snapshot_date: Optional[str]) -
         "essential_only": compute_list_breakdown(subscriber_sets["essential_only"], email_membership_lookup),
         "grit_edelivery": compute_list_breakdown(subscriber_sets["grit_edelivery"], email_membership_lookup),
     }
+    homeowner_db_not_subscribed = compute_homeowner_db_not_subscribed_stats(linked_users, subscriber_sets)
 
     households_members = households[households["is_member"] == 1]
     households_nonmembers = households[households["is_member"] == 0]
@@ -891,10 +1098,41 @@ def run_report(data_dir: Path, output_dir: Path, snapshot_date: Optional[str]) -
         users_associated_stats=users_associated_stats,
         user_roles=user_roles,
         list_breakdowns=list_breakdowns,
+        homeowner_db_not_subscribed=homeowner_db_not_subscribed,
         trend_lines=trend_lines,
     )
 
+    current_trend = trend_snapshot.copy()
+    exec_latest_path = output_dir / "board_executive_summary_latest.md"
+    write_executive_summary(
+        output_path=exec_latest_path,
+        snapshot_date=effective_snapshot_date,
+        household_overall=household_overall,
+        household_members=household_members,
+        household_nonmembers=household_nonmembers,
+        resident_overall=resident_overall,
+        homeowner_db_not_subscribed=homeowner_db_not_subscribed,
+        current_trend=current_trend,
+        previous_snapshot=previous_snapshot,
+    )
+
+    exec_dated_path = output_dir / f"board_executive_summary_{effective_snapshot_date}.md"
+
+    write_executive_summary(
+        output_path=exec_dated_path,
+        snapshot_date=effective_snapshot_date,
+        household_overall=household_overall,
+        household_members=household_members,
+        household_nonmembers=household_nonmembers,
+        resident_overall=resident_overall,
+        homeowner_db_not_subscribed=homeowner_db_not_subscribed,
+        current_trend=current_trend,
+        previous_snapshot=previous_snapshot,
+    )
+
     print(f"Report written: {report_path}")
+    print(f"Executive summary written: {exec_latest_path}")
+    print(f"Dated summary written: {exec_dated_path}")
     print(f"Trend snapshot updated: {trend_path}")
     print(f"Total households: {household_overall['total']:,}")
     print(f"Reached households: {household_overall['reached']:,} ({pct(household_overall['reached'], household_overall['total'])})")
