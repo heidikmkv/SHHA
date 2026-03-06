@@ -6,6 +6,10 @@
 GRIT_archive_PDFs
 .DS_Store
 
+# Generated analysis artifacts
+user_lists_analysis/analysis/**
+user_lists_analysis/reports/**
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

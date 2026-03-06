@@ -117,6 +117,7 @@
 
   function applyMarkdownToStory(doc, story, md, pMap, cMap) {
     var lines = String(md || "")
+      .replace(/^\uFEFF/, "")          // strip BOM
       .replace(/\r\n/g, "\n")
       .replace(/\r/g, "\n")
       .split("\n");
@@ -124,7 +125,8 @@
     // Strip ALL blank/whitespace-only lines — no empty paragraphs
     var content = [];
     for (var j = 0; j < lines.length; j++) {
-      if (/\S/.test(lines[j])) content.push(lines[j]);
+      var trimmed = lines[j].replace(/^\s+/, "").replace(/\s+$/, "");
+      if (trimmed.length > 0) content.push(trimmed);
     }
 
     for (var i = 0; i < content.length; i++) {
@@ -138,6 +140,14 @@
 
       var p = story.paragraphs[-1];
       p.appliedParagraphStyle = findParagraphStyle(doc, parsed.pStyleName);
+
+      // Explicitly set list type so InDesign creates proper list items
+      // (mirrors how Google Apps Script uses insertListItem + setGlyphType)
+      if (parsed.pStyleName === pMap.bullet) {
+        try { p.bulletsAndNumberingListType = ListType.BULLET_LIST; } catch (e) {}
+      } else if (parsed.pStyleName === pMap.number) {
+        try { p.bulletsAndNumberingListType = ListType.NUMBERED_LIST; } catch (e) {}
+      }
 
       // apply character styles
       applyInlineSpans(doc, p, inline.spans, cMap);
@@ -153,7 +163,7 @@
     if (/^###\s+/.test(s)) return { pStyleName: pMap.h3, text: s.replace(/^###\s+/, "") };
     if (/^##\s+/.test(s)) return { pStyleName: pMap.h2, text: s.replace(/^##\s+/, "") };
     if (/^#\s+/.test(s)) return { pStyleName: pMap.h1, text: s.replace(/^#\s+/, "") };
-    if (/^[-*]\s+/.test(s)) return { pStyleName: pMap.bullet, text: s.replace(/^[-*]\s+/, "") };
+    if (/^[-*\u2022]\s+/.test(s)) return { pStyleName: pMap.bullet, text: s.replace(/^[-*\u2022]\s+/, "") };
     if (/^\d+\.\s+/.test(s)) return { pStyleName: pMap.number, text: s.replace(/^\d+\.\s+/, "") };
 
     return { pStyleName: pMap.body, text: s };
